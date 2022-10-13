@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CS_App</class>
+ <widget class="QMainWindow" name="CS_App">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1191</width>
+    <height>607</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CS_App</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonFollowStyle</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QMdiArea" name="mdiArea">
+      <property name="minimumSize">
+       <size>
+        <width>1000</width>
+        <height>500</height>
+       </size>
+      </property>
+      <property name="viewMode">
+       <enum>QMdiArea::TabbedView</enum>
+      </property>
+      <property name="documentMode">
+       <bool>false</bool>
+      </property>
+      <property name="tabsClosable">
+       <bool>false</bool>
+      </property>
+      <property name="tabsMovable">
+       <bool>false</bool>
+      </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::West</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1191</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menutr_menu">
+    <property name="title">
+     <string>tr(&quot;menu&quot;)</string>
+    </property>
+    <widget class="QMenu" name="menutr_formManagement">
+     <property name="title">
+      <string>tr(&quot;formManagement&quot;)</string>
+     </property>
+     <addaction name="actiontr_ClientInformationForm"/>
+     <addaction name="actiontr_ProductInformationForm"/>
+     <addaction name="actiontr_OrderInformationForm"/>
+    </widget>
+    <addaction name="menutr_formManagement"/>
+    <addaction name="separator"/>
+    <addaction name="actiontr_quit"/>
+   </widget>
+   <addaction name="menutr_menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actiontr_ClientInformationForm"/>
+   <addaction name="actiontr_ProductInformationForm"/>
+   <addaction name="actiontr_OrderInformationForm"/>
+   <addaction name="separator"/>
+   <addaction name="actiontr_quit"/>
+  </widget>
+  <action name="actiontr_ClientInformationForm">
+   <property name="text">
+    <string>tr(&quot;ClientInformationForm&quot;)</string>
+   </property>
+  </action>
+  <action name="actiontr_ProductInformationForm">
+   <property name="text">
+    <string>tr(&quot;ProductInformationForm&quot;)</string>
+   </property>
+  </action>
+  <action name="actiontr_OrderInformationForm">
+   <property name="text">
+    <string>tr(&quot;OrderInformationForm&quot;)</string>
+   </property>
+  </action>
+  <action name="actiontr_quit">
+   <property name="text">
+    <string>tr(&quot;quit&quot;)</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actiontr_quit</sender>
+   <signal>triggered()</signal>
+   <receiver>CS_App</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>595</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ClientHandlerForm</class>
+ <widget class="QWidget" name="ClientHandlerForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1255</width>
+    <height>561</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_31">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="minimumSize">
+      <size>
+       <width>630</width>
+       <height>340</height>
+      </size>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="clientInfoEnrollTab">
+      <attribute name="title">
+       <string>tr(&quot;Client information enroll&quot;)</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_21">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_22">
+         <item>
+          <widget class="QLabel" name="inforLabel1">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>tr(&quot;Input client information&quot;)</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <widget class="QLabel" name="nameLabel1">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>tr(&quot;client name&quot;)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="nameLineEdit1"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="birthdayLabel1">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>tr(&quot;client birth year month day&quot;)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="birthdayLineEdit1"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="phoneNumLabel1">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>tr(&quot;client phone number&quot;)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="phoneNumLineEdit1"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="addressLabel1">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>tr(&quot;client address&quot;)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="addressLineEdit1"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="emailLabel1">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>tr(&quot;client email address&quot;)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="emailLineEdit1"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidget1">
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+           <column>
+            <property name="text">
+             <string>tr(&quot;clietn ID&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client name&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client birth year month day&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client address&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client e-mail address&quot;)</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <spacer name="horizontalSpacer_32">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="enrollPushButton">
+             <property name="text">
+              <string>tr(&quot;enroll&quot;)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_33">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="clientInfoShowTab">
+      <attribute name="title">
+       <string>tr(&quot;Client information show&quot;)</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_23">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_24">
+         <item>
+          <widget class="QLabel" name="infoLabel2">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>tr(&quot;Current client information&quot;)</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidget2">
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <column>
+            <property name="text">
+             <string>tr(&quot;clietn ID&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client name&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client birth year month day&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client address&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client e-mail address&quot;)</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_14"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="clientInfoSearchTab">
+      <attribute name="title">
+       <string>tr(&quot;Client information search&quot;)</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_25">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_26">
+         <item>
+          <widget class="QLabel" name="infoLabel3">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>tr(&quot;Input client ID to search&quot;)</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_11">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>17</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="searchLineEdit"/>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>13</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidget3">
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <column>
+            <property name="text">
+             <string>tr(&quot;clietn ID&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client name&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client birth year month day&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client address&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client e-mail address&quot;)</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_15">
+           <item>
+            <spacer name="horizontalSpacer_37">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="searchPushButton">
+             <property name="text">
+              <string>tr(&quot;search&quot;)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_38">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="clientInfoRemoveTab">
+      <attribute name="title">
+       <string>tr(&quot;Client information remove&quot;)</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_27">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_28">
+         <item>
+          <widget class="QLabel" name="infoLabel4">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>tr(&quot;Select row to remove&quot;)</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tableWidget4">
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <column>
+            <property name="text">
+             <string>tr(&quot;clietn ID&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client name&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client birth year month day&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client address&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;client e-mail address&quot;)</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_16">
+           <item>
+            <spacer name="horizontalSpacer_41">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="removePushButton">
+             <property name="text">
+              <string>tr(&quot;remove&quot;)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_42">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="clientInfoModifyTab">
+      <attribute name="title">
+       <string>tr(&quot;Client information modify&quot;)</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="infoLabel5">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>tr(&quot;Select row to modify&quot;)</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QTableWidget" name="tableWidget5">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>400</height>
+              </size>
+             </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <column>
+              <property name="text">
+               <string>tr(&quot;clietn ID&quot;)</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>tr(&quot;client name&quot;)</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>tr(&quot;client birth year month day&quot;)</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>tr(&quot;client phone number&quot;)</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>tr(&quot;client address&quot;)</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>tr(&quot;client e-mail address&quot;)</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="idLabel">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>tr(&quot;client ID&quot;)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="idLineEdit">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="nameLabel2">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>tr(&quot;client name&quot;)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="nameLineEdit2">
+               <property name="readOnly">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="birthdayLabel2">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>tr(&quot;client birth year month day&quot;)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="birthdayLineEdit2"/>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="phoneNumLabel2">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>tr(&quot;client phone number&quot;)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="phoneNumLineEdit2"/>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="addressLabel2">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>tr(&quot;client address&quot;)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="addressLineEdit2"/>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="emailLabel2">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>tr(&quot;client e-mail address&quot;)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLineEdit" name="emailLineEdit2"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_18">
+           <item>
+            <spacer name="horizontalSpacer_44">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="modifyPushButton">
+             <property name="text">
+              <string>tr(&quot;modify&quot;)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_45">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
