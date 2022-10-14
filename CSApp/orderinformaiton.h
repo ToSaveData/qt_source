@@ -7,7 +7,6 @@ class OrderInformaiton : public QTableWidgetItem
 {
 public:
     OrderInformaiton(int, QString, int,	int, int); //생성자
-    int getOrderCode(); //주문코드 반환
     QString getOrderDate(); //주문일자 반환
     int getOrderNumber(); //주문수량 반환
     int getCID(); //고객 전화번호(Client클래스 PK) 반환

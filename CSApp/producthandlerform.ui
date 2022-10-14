@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_11">
+  <layout class="QVBoxLayout" name="verticalLayout_12">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="minimumSize">
@@ -34,6 +34,12 @@
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QLabel" name="infoLabel1">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -185,6 +191,12 @@
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
           <widget class="QLabel" name="infoLabel2">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -241,6 +253,12 @@
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
           <widget class="QLabel" name="infoLabel3">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -366,6 +384,12 @@
         <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
           <widget class="QLabel" name="infoLabel4">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -451,11 +475,17 @@
       <attribute name="title">
        <string>tr(&quot;Product information modify&quot;)</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_12">
+      <layout class="QVBoxLayout" name="verticalLayout_11">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_10">
          <item>
           <widget class="QLabel" name="infoLabel5">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -470,44 +500,51 @@
           </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <item>
-            <widget class="QTableWidget" name="tableWidget5">
-             <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
+          <widget class="QSplitter" name="splitter">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QTableWidget" name="tableWidget5">
+            <property name="minimumSize">
+             <size>
+              <width>600</width>
+              <height>470</height>
+             </size>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="tabKeyNavigation">
+             <bool>true</bool>
+            </property>
+            <property name="showDropIndicator" stdset="0">
+             <bool>true</bool>
+            </property>
+            <property name="dragDropOverwriteMode">
+             <bool>true</bool>
+            </property>
+            <column>
+             <property name="text">
+              <string>tr(&quot;Product ID&quot;)</string>
              </property>
-             <property name="tabKeyNavigation">
-              <bool>true</bool>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;Product name&quot;)</string>
              </property>
-             <property name="showDropIndicator" stdset="0">
-              <bool>true</bool>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;Product price&quot;)</string>
              </property>
-             <property name="dragDropOverwriteMode">
-              <bool>true</bool>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;Product sort&quot;)</string>
              </property>
-             <column>
-              <property name="text">
-               <string>tr(&quot;Product ID&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;Product name&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;Product price&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;Product sort&quot;)</string>
-              </property>
-             </column>
-            </widget>
-           </item>
-           <item>
+            </column>
+           </widget>
+           <widget class="QWidget" name="">
             <layout class="QVBoxLayout" name="verticalLayout_9">
              <item>
               <layout class="QGridLayout" name="gridLayout_2">
@@ -603,8 +640,8 @@
               </spacer>
              </item>
             </layout>
-           </item>
-          </layout>
+           </widget>
+          </widget>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_5">

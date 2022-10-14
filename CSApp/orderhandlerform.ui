@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_11">
+  <layout class="QVBoxLayout" name="verticalLayout_12">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="minimumSize">
@@ -23,7 +23,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="orderInfoEnrollTab">
       <attribute name="title">
@@ -32,6 +32,12 @@
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="infoLabel1">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -152,26 +158,6 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="cancelPushButton1">
-             <property name="text">
-              <string>tr(&quot;cancel&quot;)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <spacer name="horizontalSpacer_2">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -219,6 +205,12 @@
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
           <widget class="QLabel" name="infoLabel2">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -290,41 +282,7 @@
           </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <spacer name="horizontalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="okPushButton">
-             <property name="text">
-              <string>tr(&quot;Ok&quot;)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
+          <layout class="QHBoxLayout" name="horizontalLayout_2"/>
          </item>
         </layout>
        </item>
@@ -339,6 +297,12 @@
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
           <widget class="QLabel" name="infoLabel3">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -460,26 +424,6 @@
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="cancelPushButton2">
-             <property name="text">
-              <string>tr(&quot;cancel&quot;)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_11">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
             <widget class="QPushButton" name="searchPushButton">
              <property name="text">
               <string>tr(&quot;search&quot;)</string>
@@ -514,6 +458,12 @@
         <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
           <widget class="QLabel" name="infoLabel4">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -600,26 +550,6 @@
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="cancelPushButton3">
-             <property name="text">
-              <string>tr(&quot;cancel&quot;)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_8">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
             <widget class="QPushButton" name="removePushButton">
              <property name="text">
               <string>tr(&quot;remove&quot;)</string>
@@ -649,11 +579,17 @@
       <attribute name="title">
        <string>tr(&quot;order information modify&quot;)</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_12">
+      <layout class="QVBoxLayout" name="verticalLayout_11">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_10">
          <item>
           <widget class="QLabel" name="infoLabel5">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -671,32 +607,69 @@
           </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <item>
-            <widget class="QTableWidget" name="tableWidget5">
-             <column>
-              <property name="text">
-               <string>tr(&quot;order ID&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;order date&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;client ID&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;product ID&quot;)</string>
-              </property>
-             </column>
-            </widget>
-           </item>
-           <item>
+          <widget class="QSplitter" name="splitter">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QTableWidget" name="tableWidget5">
+            <property name="minimumSize">
+             <size>
+              <width>600</width>
+              <height>470</height>
+             </size>
+            </property>
+            <column>
+             <property name="text">
+              <string>tr(&quot;order ID&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;order date&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;client name&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;client phone number&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;client address&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;product sort&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;product name&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;product price&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;order quantity&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;total price&quot;)</string>
+             </property>
+            </column>
+           </widget>
+           <widget class="QWidget" name="layoutWidget">
             <layout class="QVBoxLayout" name="verticalLayout_9">
              <item>
               <layout class="QGridLayout" name="gridLayout_2">
@@ -715,7 +688,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1" colspan="2">
+               <item row="0" column="1">
                 <widget class="QLineEdit" name="orderIDLineEdit">
                  <property name="readOnly">
                   <bool>true</bool>
@@ -734,7 +707,7 @@
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1" colspan="2">
+               <item row="1" column="1">
                 <widget class="QLineEdit" name="orderDateLineEdit2"/>
                </item>
                <item row="2" column="0">
@@ -749,38 +722,38 @@
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1" colspan="2">
+               <item row="2" column="1">
                 <widget class="QLineEdit" name="orderQuantityLineEdit2"/>
                </item>
-               <item row="3" column="0" rowspan="2" colspan="2">
-                <widget class="QLabel" name="clientIDLabel2">
+               <item row="3" column="0">
+                <widget class="QLabel" name="clientInfoLabel">
                  <property name="font">
                   <font>
                    <pointsize>12</pointsize>
                   </font>
                  </property>
                  <property name="text">
-                  <string>tr(&quot;client ID&quot;)</string>
+                  <string>tr(&quot;client Name(phoneNumber))&quot;)</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="2">
-                <widget class="QComboBox" name="clientIDComboBox2"/>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="clientInfoComboBox"/>
                </item>
-               <item row="5" column="0" colspan="2">
-                <widget class="QLabel" name="productIDLabel2">
+               <item row="4" column="0">
+                <widget class="QLabel" name="productInfoLabel">
                  <property name="font">
                   <font>
                    <pointsize>12</pointsize>
                   </font>
                  </property>
                  <property name="text">
-                  <string>tr(&quot;product ID&quot;)</string>
+                  <string>tr(&quot;product name(sort))&quot;)</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="2">
-                <widget class="QComboBox" name="productIDComboBox2"/>
+               <item row="4" column="1">
+                <widget class="QComboBox" name="productInfoComboBox"/>
                </item>
               </layout>
              </item>
@@ -798,8 +771,8 @@
               </spacer>
              </item>
             </layout>
-           </item>
-          </layout>
+           </widget>
+          </widget>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -817,27 +790,13 @@
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="cancelPushButton4">
-             <property name="text">
-              <string>tr(&quot;cancel&quot;)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_14">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+            <widget class="QPushButton" name="modifyPushButton">
+             <property name="maximumSize">
               <size>
-               <width>40</width>
-               <height>20</height>
+               <width>16777215</width>
+               <height>25</height>
               </size>
              </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="modifyPushButton">
              <property name="text">
               <string>tr(&quot;modify&quot;)</string>
              </property>
@@ -847,6 +806,9 @@
             <spacer name="horizontalSpacer_15">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Expanding</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>

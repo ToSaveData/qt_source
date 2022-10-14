@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1255</width>
-    <height>561</height>
+    <width>1246</width>
+    <height>658</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -19,7 +19,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_31">
+  <layout class="QVBoxLayout" name="verticalLayout_5">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="minimumSize">
@@ -29,17 +29,23 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="clientInfoEnrollTab">
       <attribute name="title">
        <string>tr(&quot;Client information enroll&quot;)</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_21">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_22">
          <item>
           <widget class="QLabel" name="inforLabel1">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -222,6 +228,12 @@
         <layout class="QVBoxLayout" name="verticalLayout_24">
          <item>
           <widget class="QLabel" name="infoLabel2">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -288,6 +300,12 @@
         <layout class="QVBoxLayout" name="verticalLayout_26">
          <item>
           <widget class="QLabel" name="infoLabel3">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -423,6 +441,12 @@
         <layout class="QVBoxLayout" name="verticalLayout_28">
          <item>
           <widget class="QLabel" name="infoLabel4">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -518,11 +542,17 @@
       <attribute name="title">
        <string>tr(&quot;Client information modify&quot;)</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
           <widget class="QLabel" name="infoLabel5">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
@@ -537,166 +567,171 @@
           </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QTableWidget" name="tableWidget5">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>400</height>
-              </size>
+          <widget class="QSplitter" name="splitter">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <widget class="QTableWidget" name="tableWidget5">
+            <property name="minimumSize">
+             <size>
+              <width>600</width>
+              <height>470</height>
+             </size>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <column>
+             <property name="text">
+              <string>tr(&quot;clietn ID&quot;)</string>
              </property>
-             <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;client name&quot;)</string>
              </property>
-             <column>
-              <property name="text">
-               <string>tr(&quot;clietn ID&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;client name&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;client birth year month day&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;client phone number&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;client address&quot;)</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>tr(&quot;client e-mail address&quot;)</string>
-              </property>
-             </column>
-            </widget>
-           </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="0" column="0">
-              <widget class="QLabel" name="idLabel">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>tr(&quot;client ID&quot;)</string>
-               </property>
-              </widget>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;client birth year month day&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;client phone number&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;client address&quot;)</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>tr(&quot;client e-mail address&quot;)</string>
+             </property>
+            </column>
+           </widget>
+           <widget class="QWidget" name="">
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <layout class="QGridLayout" name="gridLayout">
+               <item row="0" column="0">
+                <widget class="QLabel" name="idLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>tr(&quot;client ID&quot;)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="idLineEdit">
+                 <property name="readOnly">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="nameLabel2">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>tr(&quot;client name&quot;)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="nameLineEdit2">
+                 <property name="readOnly">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="birthdayLabel2">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>tr(&quot;client birth year month day&quot;)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="birthdayLineEdit2"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="phoneNumLabel2">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>tr(&quot;client phone number&quot;)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="phoneNumLineEdit2"/>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="addressLabel2">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>tr(&quot;client address&quot;)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="addressLineEdit2"/>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="emailLabel2">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>tr(&quot;client e-mail address&quot;)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLineEdit" name="emailLineEdit2"/>
+               </item>
+              </layout>
              </item>
-             <item row="0" column="1">
-              <widget class="QLineEdit" name="idLineEdit">
-               <property name="readOnly">
-                <bool>true</bool>
+             <item>
+              <spacer name="verticalSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
                </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="nameLabel2">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
                </property>
-               <property name="text">
-                <string>tr(&quot;client name&quot;)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="nameLineEdit2">
-               <property name="readOnly">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="birthdayLabel2">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>tr(&quot;client birth year month day&quot;)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="birthdayLineEdit2"/>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="phoneNumLabel2">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>tr(&quot;client phone number&quot;)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="phoneNumLineEdit2"/>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="addressLabel2">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>tr(&quot;client address&quot;)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
-              <widget class="QLineEdit" name="addressLineEdit2"/>
-             </item>
-             <item row="5" column="0">
-              <widget class="QLabel" name="emailLabel2">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>tr(&quot;client e-mail address&quot;)</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <widget class="QLineEdit" name="emailLineEdit2"/>
+              </spacer>
              </item>
             </layout>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
+           </widget>
+          </widget>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_18">

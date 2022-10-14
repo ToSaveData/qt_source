@@ -10,6 +10,7 @@ QT_END_NAMESPACE
 class ClientHandlerForm;
 class ProductHandlerForm;
 class OrderHandlerForm;
+
 class CS_App : public QMainWindow
 {
     Q_OBJECT

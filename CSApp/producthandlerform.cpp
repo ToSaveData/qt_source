@@ -1,6 +1,5 @@
 #include "producthandlerform.h"
 #include "ui_producthandlerform.h"
-#include "productinformaiton.h"
 #include <QList>
 #include <QFile>
 #include <QTableWidgetItem>
@@ -71,12 +70,12 @@ void ProductHandlerForm::on_enrollPushButton_clicked()
     QVector<QLineEdit*> v;
     v << Pui->nameLineEdit1 << Pui->priceLineEdit1 << Pui->sortLineEdit1;
 
-    int id = makepid();
+    int key = makepid();
     int row = Pui->tableWidget1->rowCount();
     for(int x = 0; x < 4; x++)
     {
         w[x]->setRowCount(w[x]->rowCount()+1);
-        w[x]->setItem(row, 0, new QTableWidgetItem(QString::number(id)));
+        w[x]->setItem(row, 0, new QTableWidgetItem(QString::number(key)));
         for (int i = 0 ; i < 3; i++)
         {
             QString s = v[i]->text();
@@ -84,10 +83,11 @@ void ProductHandlerForm::on_enrollPushButton_clicked()
         }
     }
 
-    ProductInformaiton *p = new ProductInformaiton(id, v[0]->text(), v[1]->text().toInt(), v[2]->text());
+    ProductInformaiton *p = new ProductInformaiton(key, v[0]->text(), v[1]->text().toInt(), v[2]->text());
 
-    productInfo.insert(id, p);
+    productInfo.insert(key, p);
     update();
+    emit productAdded(key);
 }
 
 
@@ -96,7 +96,10 @@ void ProductHandlerForm::on_removePushButton_clicked()
     QVector<QTableWidget*> w;
     w << Pui->tableWidget1 << Pui->tableWidget2 << Pui->tableWidget4 << Pui->tableWidget5;
 
-    productInfo.remove(w[2]->item(w[2]->currentRow(),0)->text().toInt());
+    int key =w[2]->item(w[2]->currentRow(),0)->text().toInt();
+    emit productRemoved(key);
+
+    productInfo.remove(key);
     for(int i = 0; i < 4; i++)
     {
         for(int j = 0; j < 4; j++)
@@ -166,5 +169,14 @@ void ProductHandlerForm::on_modifyPushButton_clicked()
     ProductInformaiton *p = new ProductInformaiton(key, v[1]->text(), v[2]->text().toInt(), v[3]->text());
     productInfo.insert(key,p);
     update();
+    //    emit productModified(w[2]->item(w[2]->currentRow(),0)->text().toInt());
+}
+
+void ProductHandlerForm::orderAddedProduct(int pid)
+{
+    QList<QString> pinfo;
+    pinfo << productInfo[pid]->getProductSort() << productInfo[pid]->getProductName()
+          << QString::number(productInfo[pid]->getProductPrice());
+    emit orderReturn(pinfo);
 }
 

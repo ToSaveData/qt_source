@@ -1,13 +1,13 @@
 #ifndef CLIENTHANDLERFORM_H
 #define CLIENTHANDLERFORM_H
+#include "clientinformaiton.h"
 
 #include <QWidget>
-#include <QMap>
+
 namespace Ui {
 class ClientHandlerForm;
 }
 
-class ClientInformaiton;
 class QTableWidgetItem;
 
 class ClientHandlerForm : public QWidget
@@ -20,14 +20,11 @@ public:
 
 private slots:
     void on_enrollPushButton_clicked();
-
     void on_searchPushButton_clicked();
-
     void on_removePushButton_clicked();
-
     void on_modifyPushButton_clicked();
-
     void on_tableWidget5_itemClicked(QTableWidgetItem *item);
+    void orderAddedClient(int);
 
 private:
     int makecid();
@@ -36,7 +33,9 @@ private:
 
 signals:
     void clientAdded(int);
-
+    void clientRemoved(int);
+    void clientModified(int);
+    void orderReturn(QList<QString>);
 };
 
 #endif // CLIENTHANDLERFORM_H
