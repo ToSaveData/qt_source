@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,6 +9,9 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    chatform.cpp \
+    chattingclient.cpp \
+    chattingserver.cpp \
     clienthandlerform.cpp \
     clientinformaiton.cpp \
     main.cpp \
@@ -19,6 +22,9 @@ SOURCES += \
     productinformaiton.cpp
 
 HEADERS += \
+    chatform.h \
+    chattingclient.h \
+    chattingserver.h \
     clienthandlerform.h \
     clientinformaiton.h \
     cs_app.h \
@@ -28,6 +34,7 @@ HEADERS += \
     productinformaiton.h
 
 FORMS += \
+    chatform.ui \
     clienthandlerform.ui \
     cs_app.ui \
     orderhandlerform.ui \

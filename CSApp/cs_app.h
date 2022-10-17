@@ -10,6 +10,7 @@ QT_END_NAMESPACE
 class ClientHandlerForm;
 class ProductHandlerForm;
 class OrderHandlerForm;
+class ChatForm;
 
 class CS_App : public QMainWindow
 {
@@ -27,10 +28,13 @@ private slots:
 
     void on_actiontr_OrderInformationForm_triggered();
 
+    void on_actiontr_ChattingForm_triggered();
+
 private:
     Ui::CS_App *ui;
     ClientHandlerForm *CForm;
     ProductHandlerForm *PForm;
     OrderHandlerForm *OForm;
+    ChatForm *ChattingForm;
 };
 #endif // CS_APP_H

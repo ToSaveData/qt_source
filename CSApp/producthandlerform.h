@@ -10,6 +10,7 @@ class ProductHandlerForm;
 
 class ProductInformaiton;
 class QTableWidgetItem;
+class QComboBox;
 
 class ProductHandlerForm : public QWidget
 {
@@ -26,6 +27,8 @@ private slots:
     void on_tableWidget5_itemClicked(QTableWidgetItem *item);
     void on_modifyPushButton_clicked();
     void orderAddedProduct(int);
+    void ordersearchedProduct(int);
+    void setproductComboBox(QComboBox*, QComboBox*);
 
 private:
     Ui::ProductHandlerForm *Pui;
@@ -35,8 +38,10 @@ private:
 signals:
     void productAdded(int);
     void productRemoved(int);
-    void productModified(int);
-    void orderReturn(QList<QString>);
+    void productModified(int, QList<QString>);
+    void addReturn(QList<QString>);
+    void searchReturn(QList<QString>);
+    void productSize(int);
 };
 
 #endif // PRODUCTHANDLERFORM_H

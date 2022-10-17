@@ -4,59 +4,177 @@
 <context>
     <name>CS_App</name>
     <message>
-        <location filename="cs_app.ui" line="14"/>
+        <location filename="cs_app.ui" line="20"/>
         <source>CS_App</source>
         <translation>고객 상품 관리 프로그램</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="59"/>
+        <location filename="cs_app.ui" line="65"/>
         <source>tr(&quot;menu&quot;)</source>
         <translation>메뉴</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="63"/>
+        <location filename="cs_app.ui" line="69"/>
         <source>tr(&quot;formManagement&quot;)</source>
         <translation>폼 관리</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="78"/>
+        <location filename="cs_app.ui" line="85"/>
         <source>toolBar</source>
         <translation>도구 바</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="94"/>
+        <location filename="cs_app.ui" line="102"/>
         <source>tr(&quot;ClientInformationForm&quot;)</source>
         <translation>고객 정보 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="99"/>
+        <location filename="cs_app.ui" line="107"/>
         <source>tr(&quot;ProductInformationForm&quot;)</source>
         <translation>상품 정보 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="104"/>
+        <location filename="cs_app.ui" line="112"/>
         <source>tr(&quot;OrderInformationForm&quot;)</source>
         <translation>주문 정보 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="109"/>
+        <location filename="cs_app.ui" line="117"/>
         <source>tr(&quot;quit&quot;)</source>
         <translation>종료</translation>
     </message>
     <message>
-        <location filename="cs_app.cpp" line="19"/>
+        <location filename="cs_app.ui" line="122"/>
+        <source>tr(&quot;ChattingForm&quot;)</source>
+        <translation>서버 관리 폼</translation>
+    </message>
+    <message>
+        <location filename="cs_app.cpp" line="17"/>
+        <source>ChattingForm</source>
+        <translation>서버 관리 폼</translation>
+    </message>
+    <message>
+        <location filename="cs_app.cpp" line="22"/>
         <source>ClientInformationHandlerForm</source>
         <translation>고객 정보 관리</translation>
     </message>
     <message>
-        <location filename="cs_app.cpp" line="24"/>
+        <location filename="cs_app.cpp" line="27"/>
         <source>ProductInformationHandlerForm</source>
         <translation>상품 정보 관리</translation>
     </message>
     <message>
-        <location filename="cs_app.cpp" line="28"/>
+        <location filename="cs_app.cpp" line="31"/>
         <source>OrderInformationHandlerForm</source>
         <translation>주문 정보 관리</translation>
+    </message>
+</context>
+<context>
+    <name>ChatForm</name>
+    <message>
+        <location filename="chatform.ui" line="14"/>
+        <source>Form</source>
+        <translation>폼</translation>
+    </message>
+    <message>
+        <source>tr(&quot;Client List&quot;)</source>
+        <translation type="vanished">고객 목록</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="31"/>
+        <source>tr(&quot;Client status&quot;)</source>
+        <translation>접속 여부</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="36"/>
+        <source>tr(&quot;Client list&quot;)</source>
+        <translation>고객 목록</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="54"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="69"/>
+        <source>tr(&quot;new chat&quot;)</source>
+        <translation>새 채팅</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="83"/>
+        <source>IP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="88"/>
+        <source>tr(&quot;Port&quot;)</source>
+        <translation>포트</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="93"/>
+        <source>tr(&quot;ID&quot;)</source>
+        <translation>아이디</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="98"/>
+        <source>tr(&quot;name&quot;)</source>
+        <translation>성명</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="103"/>
+        <source>tr(&quot;message&quot;)</source>
+        <translation>메세지</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="108"/>
+        <source>tr(&quot;time&quot;)</source>
+        <translation>시간</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="124"/>
+        <source>tr(&quot;remove&quot;)</source>
+        <translation>삭제</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="137"/>
+        <source>tr(&quot;save&quot;)</source>
+        <translation>저장</translation>
+    </message>
+</context>
+<context>
+    <name>ChattingClient</name>
+    <message>
+        <location filename="chattingclient.cpp" line="68"/>
+        <source>Echo Client</source>
+        <translation>고객 채팅</translation>
+    </message>
+</context>
+<context>
+    <name>ChattingServer</name>
+    <message>
+        <location filename="chattingserver.cpp" line="34"/>
+        <source>Echo Server</source>
+        <translation>서버 채팅</translation>
+    </message>
+    <message>
+        <location filename="chattingserver.cpp" line="35"/>
+        <source>Unable to start the server: %1.</source>
+        <translation>서버에 연결할 수 없습니다 : %1</translation>
+    </message>
+    <message>
+        <location filename="chattingserver.cpp" line="41"/>
+        <source>The server is running on port %1.</source>
+        <translation>서버가 포트에서 작동 중입니다 : %1</translation>
+    </message>
+    <message>
+        <location filename="chattingserver.cpp" line="43"/>
+        <source>Chat Server(%1)</source>
+        <translation>채팅 서버 : %1</translation>
+    </message>
+    <message>
+        <location filename="chattingserver.cpp" line="51"/>
+        <source>new connection is established...</source>
+        <translation>새로운 연결에 성공했습니다...</translation>
     </message>
 </context>
 <context>
@@ -72,75 +190,75 @@
         <translation>고객 정보 등록</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="49"/>
+        <location filename="clienthandlerform.ui" line="55"/>
         <source>tr(&quot;Input client information&quot;)</source>
         <translation>등록할 고객의 정보를 입력하세요.</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="66"/>
-        <location filename="clienthandlerform.ui" line="150"/>
-        <location filename="clienthandlerform.ui" line="250"/>
-        <location filename="clienthandlerform.ui" line="351"/>
-        <location filename="clienthandlerform.ui" line="451"/>
-        <location filename="clienthandlerform.ui" line="559"/>
-        <location filename="clienthandlerform.ui" line="613"/>
+        <location filename="clienthandlerform.ui" line="72"/>
+        <location filename="clienthandlerform.ui" line="156"/>
+        <location filename="clienthandlerform.ui" line="262"/>
+        <location filename="clienthandlerform.ui" line="369"/>
+        <location filename="clienthandlerform.ui" line="475"/>
+        <location filename="clienthandlerform.ui" line="591"/>
+        <location filename="clienthandlerform.ui" line="646"/>
         <source>tr(&quot;client name&quot;)</source>
         <translation>고객 성명</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="81"/>
-        <location filename="clienthandlerform.ui" line="155"/>
-        <location filename="clienthandlerform.ui" line="255"/>
-        <location filename="clienthandlerform.ui" line="356"/>
-        <location filename="clienthandlerform.ui" line="456"/>
-        <location filename="clienthandlerform.ui" line="564"/>
-        <location filename="clienthandlerform.ui" line="632"/>
+        <location filename="clienthandlerform.ui" line="87"/>
+        <location filename="clienthandlerform.ui" line="161"/>
+        <location filename="clienthandlerform.ui" line="267"/>
+        <location filename="clienthandlerform.ui" line="374"/>
+        <location filename="clienthandlerform.ui" line="480"/>
+        <location filename="clienthandlerform.ui" line="596"/>
+        <location filename="clienthandlerform.ui" line="665"/>
         <source>tr(&quot;client birth year month day&quot;)</source>
         <translation>고객 생년월일</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="96"/>
-        <location filename="clienthandlerform.ui" line="160"/>
-        <location filename="clienthandlerform.ui" line="260"/>
-        <location filename="clienthandlerform.ui" line="361"/>
-        <location filename="clienthandlerform.ui" line="461"/>
-        <location filename="clienthandlerform.ui" line="569"/>
-        <location filename="clienthandlerform.ui" line="647"/>
+        <location filename="clienthandlerform.ui" line="102"/>
+        <location filename="clienthandlerform.ui" line="166"/>
+        <location filename="clienthandlerform.ui" line="272"/>
+        <location filename="clienthandlerform.ui" line="379"/>
+        <location filename="clienthandlerform.ui" line="485"/>
+        <location filename="clienthandlerform.ui" line="601"/>
+        <location filename="clienthandlerform.ui" line="680"/>
         <source>tr(&quot;client phone number&quot;)</source>
         <translation>고객 전화번호</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="111"/>
-        <location filename="clienthandlerform.ui" line="165"/>
-        <location filename="clienthandlerform.ui" line="265"/>
-        <location filename="clienthandlerform.ui" line="366"/>
-        <location filename="clienthandlerform.ui" line="466"/>
-        <location filename="clienthandlerform.ui" line="574"/>
-        <location filename="clienthandlerform.ui" line="662"/>
+        <location filename="clienthandlerform.ui" line="117"/>
+        <location filename="clienthandlerform.ui" line="171"/>
+        <location filename="clienthandlerform.ui" line="277"/>
+        <location filename="clienthandlerform.ui" line="384"/>
+        <location filename="clienthandlerform.ui" line="490"/>
+        <location filename="clienthandlerform.ui" line="606"/>
+        <location filename="clienthandlerform.ui" line="695"/>
         <source>tr(&quot;client address&quot;)</source>
         <translation>고객 주소</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="126"/>
+        <location filename="clienthandlerform.ui" line="132"/>
         <source>tr(&quot;client email address&quot;)</source>
         <translation>고객 이메일 주소</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="145"/>
-        <location filename="clienthandlerform.ui" line="245"/>
-        <location filename="clienthandlerform.ui" line="346"/>
-        <location filename="clienthandlerform.ui" line="446"/>
-        <location filename="clienthandlerform.ui" line="554"/>
+        <location filename="clienthandlerform.ui" line="151"/>
+        <location filename="clienthandlerform.ui" line="257"/>
+        <location filename="clienthandlerform.ui" line="364"/>
+        <location filename="clienthandlerform.ui" line="470"/>
+        <location filename="clienthandlerform.ui" line="586"/>
         <source>tr(&quot;clietn ID&quot;)</source>
         <translation>고객 ID</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="170"/>
-        <location filename="clienthandlerform.ui" line="270"/>
-        <location filename="clienthandlerform.ui" line="371"/>
-        <location filename="clienthandlerform.ui" line="471"/>
-        <location filename="clienthandlerform.ui" line="579"/>
-        <location filename="clienthandlerform.ui" line="677"/>
+        <location filename="clienthandlerform.ui" line="176"/>
+        <location filename="clienthandlerform.ui" line="282"/>
+        <location filename="clienthandlerform.ui" line="389"/>
+        <location filename="clienthandlerform.ui" line="495"/>
+        <location filename="clienthandlerform.ui" line="611"/>
+        <location filename="clienthandlerform.ui" line="710"/>
         <source>tr(&quot;client e-mail address&quot;)</source>
         <translation>고객 이메일 주소</translation>
     </message>
@@ -149,17 +267,17 @@
         <translation type="vanished">취소</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="193"/>
+        <location filename="clienthandlerform.ui" line="199"/>
         <source>tr(&quot;enroll&quot;)</source>
         <translation>등록</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="218"/>
+        <location filename="clienthandlerform.ui" line="224"/>
         <source>tr(&quot;Client information show&quot;)</source>
         <translation>고객 정보 현황</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="231"/>
+        <location filename="clienthandlerform.ui" line="243"/>
         <source>tr(&quot;Current client information&quot;)</source>
         <translation>고객 정보 현황</translation>
     </message>
@@ -168,52 +286,52 @@
         <translation type="vanished">확인</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="284"/>
+        <location filename="clienthandlerform.ui" line="296"/>
         <source>tr(&quot;Client information search&quot;)</source>
         <translation>고객 정보 검색</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="297"/>
+        <location filename="clienthandlerform.ui" line="315"/>
         <source>tr(&quot;Input client ID to search&quot;)</source>
         <translation>검색할 고객 ID를 입력하세요.</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="394"/>
+        <location filename="clienthandlerform.ui" line="412"/>
         <source>tr(&quot;search&quot;)</source>
         <translation>검색</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="419"/>
+        <location filename="clienthandlerform.ui" line="437"/>
         <source>tr(&quot;Client information remove&quot;)</source>
         <translation>고객 정보 삭제</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="432"/>
+        <location filename="clienthandlerform.ui" line="456"/>
         <source>tr(&quot;Select row to remove&quot;)</source>
         <translation>삭제할 행을 선택하세요.</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="494"/>
+        <location filename="clienthandlerform.ui" line="518"/>
         <source>tr(&quot;remove&quot;)</source>
         <translation>삭제</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="519"/>
+        <location filename="clienthandlerform.ui" line="543"/>
         <source>tr(&quot;Client information modify&quot;)</source>
         <translation>고객 정보 수정</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="532"/>
+        <location filename="clienthandlerform.ui" line="562"/>
         <source>tr(&quot;Select row to modify&quot;)</source>
         <translation>수정할 행을 선택하세요.</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="594"/>
+        <location filename="clienthandlerform.ui" line="627"/>
         <source>tr(&quot;client ID&quot;)</source>
         <translation>고객 ID</translation>
     </message>
     <message>
-        <location filename="clienthandlerform.ui" line="719"/>
+        <location filename="clienthandlerform.ui" line="754"/>
         <source>tr(&quot;modify&quot;)</source>
         <translation>수정</translation>
     </message>
@@ -231,122 +349,123 @@
         <translation>주문 정보 등록</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="41"/>
+        <location filename="orderhandlerform.ui" line="47"/>
         <source>tr(&quot;Input order information to enroll.&quot;)</source>
         <translation>등록할 주문 정보를 입력하세요.</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="63"/>
-        <location filename="orderhandlerform.ui" line="132"/>
-        <location filename="orderhandlerform.ui" line="227"/>
-        <location filename="orderhandlerform.ui" line="348"/>
-        <location filename="orderhandlerform.ui" line="468"/>
-        <location filename="orderhandlerform.ui" line="590"/>
-        <location filename="orderhandlerform.ui" line="664"/>
+        <location filename="orderhandlerform.ui" line="69"/>
+        <location filename="orderhandlerform.ui" line="141"/>
+        <location filename="orderhandlerform.ui" line="245"/>
+        <location filename="orderhandlerform.ui" line="375"/>
+        <location filename="orderhandlerform.ui" line="504"/>
+        <location filename="orderhandlerform.ui" line="646"/>
+        <location filename="orderhandlerform.ui" line="724"/>
         <source>tr(&quot;order date&quot;)</source>
         <translation>주문일자</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="81"/>
-        <location filename="orderhandlerform.ui" line="137"/>
-        <location filename="orderhandlerform.ui" line="262"/>
-        <location filename="orderhandlerform.ui" line="383"/>
-        <location filename="orderhandlerform.ui" line="503"/>
-        <location filename="orderhandlerform.ui" line="625"/>
-        <location filename="orderhandlerform.ui" line="679"/>
+        <location filename="orderhandlerform.ui" line="87"/>
+        <location filename="orderhandlerform.ui" line="146"/>
+        <location filename="orderhandlerform.ui" line="280"/>
+        <location filename="orderhandlerform.ui" line="410"/>
+        <location filename="orderhandlerform.ui" line="539"/>
+        <location filename="orderhandlerform.ui" line="681"/>
+        <location filename="orderhandlerform.ui" line="739"/>
         <source>tr(&quot;order quantity&quot;)</source>
         <translation>주문수량</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="99"/>
-        <location filename="orderhandlerform.ui" line="142"/>
+        <location filename="orderhandlerform.ui" line="105"/>
+        <location filename="orderhandlerform.ui" line="151"/>
         <source>tr(&quot;client ID&quot;)</source>
         <translation>고객 ID</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="114"/>
-        <location filename="orderhandlerform.ui" line="147"/>
+        <location filename="orderhandlerform.ui" line="120"/>
+        <location filename="orderhandlerform.ui" line="156"/>
         <source>tr(&quot;product ID&quot;)</source>
         <translation>상품 ID</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="127"/>
-        <location filename="orderhandlerform.ui" line="222"/>
-        <location filename="orderhandlerform.ui" line="343"/>
-        <location filename="orderhandlerform.ui" line="463"/>
-        <location filename="orderhandlerform.ui" line="585"/>
-        <location filename="orderhandlerform.ui" line="642"/>
+        <location filename="orderhandlerform.ui" line="136"/>
+        <location filename="orderhandlerform.ui" line="240"/>
+        <location filename="orderhandlerform.ui" line="370"/>
+        <location filename="orderhandlerform.ui" line="499"/>
+        <location filename="orderhandlerform.ui" line="641"/>
+        <location filename="orderhandlerform.ui" line="702"/>
         <source>tr(&quot;order ID&quot;)</source>
         <translation>주문 ID</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="170"/>
+        <location filename="orderhandlerform.ui" line="179"/>
         <source>tr(&quot;enroll&quot;)</source>
         <oldsource>tr(&quot;cancel&quot;)</oldsource>
         <translation>등록</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="195"/>
+        <location filename="orderhandlerform.ui" line="204"/>
         <source>tr(&quot;order information show&quot;)</source>
         <translation>주문 정보 현황</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="208"/>
+        <location filename="orderhandlerform.ui" line="223"/>
         <source>tr(&quot;Current order information&quot;)</source>
         <translation>주문 정보 현황</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="232"/>
-        <location filename="orderhandlerform.ui" line="353"/>
-        <location filename="orderhandlerform.ui" line="473"/>
-        <location filename="orderhandlerform.ui" line="595"/>
+        <location filename="orderhandlerform.ui" line="250"/>
+        <location filename="orderhandlerform.ui" line="380"/>
+        <location filename="orderhandlerform.ui" line="509"/>
+        <location filename="orderhandlerform.ui" line="651"/>
         <source>tr(&quot;client name&quot;)</source>
         <translation>고객 성명</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="237"/>
-        <location filename="orderhandlerform.ui" line="358"/>
-        <location filename="orderhandlerform.ui" line="478"/>
-        <location filename="orderhandlerform.ui" line="600"/>
+        <location filename="orderhandlerform.ui" line="255"/>
+        <location filename="orderhandlerform.ui" line="385"/>
+        <location filename="orderhandlerform.ui" line="514"/>
+        <location filename="orderhandlerform.ui" line="656"/>
         <source>tr(&quot;client phone number&quot;)</source>
         <translation>고객 전화번호</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="242"/>
-        <location filename="orderhandlerform.ui" line="363"/>
-        <location filename="orderhandlerform.ui" line="483"/>
-        <location filename="orderhandlerform.ui" line="605"/>
+        <location filename="orderhandlerform.ui" line="260"/>
+        <location filename="orderhandlerform.ui" line="390"/>
+        <location filename="orderhandlerform.ui" line="519"/>
+        <location filename="orderhandlerform.ui" line="661"/>
         <source>tr(&quot;client address&quot;)</source>
         <translation>고객 주소</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="247"/>
-        <location filename="orderhandlerform.ui" line="368"/>
-        <location filename="orderhandlerform.ui" line="488"/>
-        <location filename="orderhandlerform.ui" line="610"/>
+        <location filename="orderhandlerform.ui" line="265"/>
+        <location filename="orderhandlerform.ui" line="395"/>
+        <location filename="orderhandlerform.ui" line="524"/>
+        <location filename="orderhandlerform.ui" line="666"/>
         <source>tr(&quot;product sort&quot;)</source>
         <translation>제품 분류</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="252"/>
-        <location filename="orderhandlerform.ui" line="373"/>
-        <location filename="orderhandlerform.ui" line="493"/>
-        <location filename="orderhandlerform.ui" line="615"/>
+        <location filename="orderhandlerform.ui" line="270"/>
+        <location filename="orderhandlerform.ui" line="400"/>
+        <location filename="orderhandlerform.ui" line="529"/>
+        <location filename="orderhandlerform.ui" line="671"/>
         <source>tr(&quot;product name&quot;)</source>
         <translation>제품명</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="257"/>
-        <location filename="orderhandlerform.ui" line="378"/>
-        <location filename="orderhandlerform.ui" line="498"/>
-        <location filename="orderhandlerform.ui" line="620"/>
+        <location filename="orderhandlerform.ui" line="275"/>
+        <location filename="orderhandlerform.ui" line="405"/>
+        <location filename="orderhandlerform.ui" line="534"/>
+        <location filename="orderhandlerform.ui" line="676"/>
         <source>tr(&quot;product price&quot;)</source>
         <translation>제품 가격</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="267"/>
-        <location filename="orderhandlerform.ui" line="388"/>
-        <location filename="orderhandlerform.ui" line="508"/>
+        <location filename="orderhandlerform.ui" line="285"/>
+        <location filename="orderhandlerform.ui" line="415"/>
+        <location filename="orderhandlerform.ui" line="544"/>
+        <location filename="orderhandlerform.ui" line="686"/>
         <source>tr(&quot;total price&quot;)</source>
         <translation>총 가격</translation>
     </message>
@@ -355,59 +474,67 @@
         <translation type="vanished">확인</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="281"/>
+        <location filename="orderhandlerform.ui" line="299"/>
         <source>tr(&quot;order information search&quot;)</source>
         <translation>주문 정보 검색</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="294"/>
+        <location filename="orderhandlerform.ui" line="318"/>
         <source>tr(&quot;Input order ID to search.&quot;)</source>
         <translation>검색할 주문 ID를 입력하세요.</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="411"/>
+        <location filename="orderhandlerform.ui" line="438"/>
         <source>tr(&quot;search&quot;)</source>
         <translation>검색</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="436"/>
+        <location filename="orderhandlerform.ui" line="463"/>
         <source>tr(&quot;order information remove&quot;)</source>
         <translation>주문 정보 삭제</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="449"/>
+        <location filename="orderhandlerform.ui" line="482"/>
         <source>tr(&quot;Select row to remove.&quot;)</source>
         <translation>삭제할 행을 선택하세요.</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="531"/>
+        <location filename="orderhandlerform.ui" line="567"/>
         <source>tr(&quot;remove&quot;)</source>
         <translation>삭제</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="556"/>
+        <location filename="orderhandlerform.ui" line="592"/>
         <source>tr(&quot;order information modify&quot;)</source>
         <translation>주문 정보 수정</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="569"/>
+        <location filename="orderhandlerform.ui" line="611"/>
         <source>tr(&quot;Select row to modify.&quot;)</source>
         <translation>수정할 행을 선택하세요</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="694"/>
+        <location filename="orderhandlerform.ui" line="754"/>
         <source>tr(&quot;client Name(phoneNumber))&quot;)</source>
         <translation>고객 성명(전화번호)</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="709"/>
+        <location filename="orderhandlerform.ui" line="769"/>
         <source>tr(&quot;product name(sort))&quot;)</source>
         <translation>제품명(종류)</translation>
     </message>
     <message>
-        <location filename="orderhandlerform.ui" line="753"/>
+        <location filename="orderhandlerform.ui" line="819"/>
         <source>tr(&quot;modify&quot;)</source>
         <translation>수정</translation>
+    </message>
+    <message>
+        <location filename="orderhandlerform.cpp" line="23"/>
+        <location filename="orderhandlerform.cpp" line="24"/>
+        <location filename="orderhandlerform.cpp" line="25"/>
+        <location filename="orderhandlerform.cpp" line="26"/>
+        <source>select item</source>
+        <translation>선택하세요</translation>
     </message>
 </context>
 <context>
@@ -423,50 +550,50 @@
         <translation>제품 정보 등록</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="43"/>
+        <location filename="producthandlerform.ui" line="49"/>
         <source>tr(&quot;Input product information.&quot;)</source>
         <translation>등록할 제품 정보를 입력하세요.</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="63"/>
-        <location filename="producthandlerform.ui" line="123"/>
-        <location filename="producthandlerform.ui" line="213"/>
-        <location filename="producthandlerform.ui" line="304"/>
-        <location filename="producthandlerform.ui" line="495"/>
+        <location filename="producthandlerform.ui" line="69"/>
+        <location filename="producthandlerform.ui" line="129"/>
+        <location filename="producthandlerform.ui" line="225"/>
+        <location filename="producthandlerform.ui" line="322"/>
+        <location filename="producthandlerform.ui" line="533"/>
         <source>tr(&quot;Product name&quot;)</source>
         <translation>제품명</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="81"/>
-        <location filename="producthandlerform.ui" line="128"/>
-        <location filename="producthandlerform.ui" line="218"/>
-        <location filename="producthandlerform.ui" line="309"/>
-        <location filename="producthandlerform.ui" line="399"/>
-        <location filename="producthandlerform.ui" line="500"/>
+        <location filename="producthandlerform.ui" line="87"/>
+        <location filename="producthandlerform.ui" line="134"/>
+        <location filename="producthandlerform.ui" line="230"/>
+        <location filename="producthandlerform.ui" line="327"/>
+        <location filename="producthandlerform.ui" line="423"/>
+        <location filename="producthandlerform.ui" line="538"/>
         <source>tr(&quot;Product price&quot;)</source>
         <translation>제품 가격</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="99"/>
+        <location filename="producthandlerform.ui" line="105"/>
         <source>tr(&quot;Proudct sort&quot;)</source>
         <translation>제품 분류</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="118"/>
-        <location filename="producthandlerform.ui" line="208"/>
-        <location filename="producthandlerform.ui" line="299"/>
-        <location filename="producthandlerform.ui" line="389"/>
-        <location filename="producthandlerform.ui" line="490"/>
-        <location filename="producthandlerform.ui" line="565"/>
+        <location filename="producthandlerform.ui" line="124"/>
+        <location filename="producthandlerform.ui" line="220"/>
+        <location filename="producthandlerform.ui" line="317"/>
+        <location filename="producthandlerform.ui" line="413"/>
+        <location filename="producthandlerform.ui" line="528"/>
+        <location filename="producthandlerform.ui" line="602"/>
         <source>tr(&quot;Product ID&quot;)</source>
         <translation>제품 ID</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="133"/>
-        <location filename="producthandlerform.ui" line="223"/>
-        <location filename="producthandlerform.ui" line="314"/>
-        <location filename="producthandlerform.ui" line="404"/>
-        <location filename="producthandlerform.ui" line="505"/>
+        <location filename="producthandlerform.ui" line="139"/>
+        <location filename="producthandlerform.ui" line="235"/>
+        <location filename="producthandlerform.ui" line="332"/>
+        <location filename="producthandlerform.ui" line="428"/>
+        <location filename="producthandlerform.ui" line="543"/>
         <source>tr(&quot;Product sort&quot;)</source>
         <translation>제품 분류</translation>
     </message>
@@ -475,17 +602,17 @@
         <translation type="vanished">취소</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="156"/>
+        <location filename="producthandlerform.ui" line="162"/>
         <source>tr(&quot;enroll&quot;)</source>
         <translation>등록</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="181"/>
+        <location filename="producthandlerform.ui" line="187"/>
         <source>tr(&quot;Product information show&quot;)</source>
         <translation>제품 정보 현황</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="194"/>
+        <location filename="producthandlerform.ui" line="206"/>
         <source>tr(&quot;Current product information show&quot;)</source>
         <translation>제품 정보 현황</translation>
     </message>
@@ -494,67 +621,67 @@
         <translation type="vanished">확인</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="237"/>
+        <location filename="producthandlerform.ui" line="249"/>
         <source>tr(&quot;Product information search&quot;)</source>
         <translation>제품 정보 검색</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="250"/>
+        <location filename="producthandlerform.ui" line="268"/>
         <source>tr(&quot;Input product ID to search product information.&quot;)</source>
         <translation>검색할 제품 ID를 입력하세요.</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="337"/>
+        <location filename="producthandlerform.ui" line="355"/>
         <source>tr(&quot;search&quot;)</source>
         <translation>검색</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="362"/>
+        <location filename="producthandlerform.ui" line="380"/>
         <source>tr(&quot;Product information remove&quot;)</source>
         <translation>제품 정보 삭제</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="375"/>
+        <location filename="producthandlerform.ui" line="399"/>
         <source>tr(&quot;Select row to remove&quot;)</source>
         <translation>삭제할 행을 선택하세요.</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="394"/>
+        <location filename="producthandlerform.ui" line="418"/>
         <source>tr(&quot;Product name&apos;&quot;)</source>
         <translation>제품명</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="427"/>
+        <location filename="producthandlerform.ui" line="451"/>
         <source>tr(&quot;remove&quot;)</source>
         <translation>삭제</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="452"/>
+        <location filename="producthandlerform.ui" line="476"/>
         <source>tr(&quot;Product information modify&quot;)</source>
         <translation>제품 정보 수정</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="465"/>
+        <location filename="producthandlerform.ui" line="495"/>
         <source>tr(&quot;Select row to modify&quot;)</source>
         <translation>수정할 행을 선택하세요.</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="583"/>
+        <location filename="producthandlerform.ui" line="620"/>
         <source>tr(&quot;Product Name&quot;)</source>
         <translation>제품명</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="550"/>
+        <location filename="producthandlerform.ui" line="587"/>
         <source>tr(&quot;Product Price&quot;)</source>
         <translation>제품 가격</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="522"/>
+        <location filename="producthandlerform.ui" line="559"/>
         <source>tr(&quot;Product Sort&quot;)</source>
         <translation>제품 종류</translation>
     </message>
     <message>
-        <location filename="producthandlerform.ui" line="627"/>
+        <location filename="producthandlerform.ui" line="664"/>
         <source>tr(&quot;modify&quot;)</source>
         <translation>수정</translation>
     </message>

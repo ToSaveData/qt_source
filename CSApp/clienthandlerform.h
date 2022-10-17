@@ -9,6 +9,7 @@ class ClientHandlerForm;
 }
 
 class QTableWidgetItem;
+class QComboBox;
 
 class ClientHandlerForm : public QWidget
 {
@@ -17,6 +18,7 @@ class ClientHandlerForm : public QWidget
 public:
     explicit ClientHandlerForm(QWidget *parent = nullptr);
     ~ClientHandlerForm();
+    void dataload();
 
 private slots:
     void on_enrollPushButton_clicked();
@@ -25,6 +27,8 @@ private slots:
     void on_modifyPushButton_clicked();
     void on_tableWidget5_itemClicked(QTableWidgetItem *item);
     void orderAddedClient(int);
+    void ordersearchedClient(int);
+    void setclientComboBox(QComboBox*, QComboBox*);
 
 private:
     int makecid();
@@ -34,8 +38,11 @@ private:
 signals:
     void clientAdded(int);
     void clientRemoved(int);
-    void clientModified(int);
-    void orderReturn(QList<QString>);
+    void clientModified(int, QList<QString>);
+    void addReturn(QList<QString>);
+    void searchReturn(QList<QString>);
+    void clientSize(int);
+    void clientLoad(QList<QString>);
 };
 
 #endif // CLIENTHANDLERFORM_H
