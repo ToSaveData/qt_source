@@ -29,7 +29,6 @@ void ChatForm::addClient(QList<QString> clist)
 {
     Q_FOREACH(auto i, clist)
     {
-        qDebug() << i;
         QTreeWidgetItem *item = new QTreeWidgetItem();
         item->setText(0, "X");
         item->setText(1, i);

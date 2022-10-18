@@ -45,7 +45,7 @@
        <bool>false</bool>
       </property>
       <property name="tabPosition">
-       <enum>QTabWidget::West</enum>
+       <enum>QTabWidget::South</enum>
       </property>
      </widget>
     </item>
@@ -83,6 +83,12 @@
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
     <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
