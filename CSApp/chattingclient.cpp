@@ -41,7 +41,7 @@ ChattingClient::ChattingClient(QWidget *parent)
     inputLine = new QLineEdit(this);
     QPushButton *sentButton = new QPushButton("Send", this);
     connect(sentButton, SIGNAL(clicked()), SLOT(sendData()));
-//    connect(sentButton, SIGNAL(returnPressed()), SLOT(sendData()));
+    connect(inputLine, SIGNAL(returnPressed()), this, SLOT(sendData()));
     QHBoxLayout *inputLayout = new QHBoxLayout;
     inputLayout->addWidget(inputLine);
     inputLayout->addWidget(sentButton);

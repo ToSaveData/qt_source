@@ -27,8 +27,9 @@ private slots:
     void on_modifyPushButton_clicked();
     void on_tableWidget5_itemClicked(QTableWidgetItem *item);
     void orderAddedClient(int);
-    void ordersearchedClient(int);
-    void setclientComboBox(QComboBox*, QComboBox*);
+    void orderSearchedClient(int);
+    void orderModifiedClient(int, int);
+    void setClientComboBox(QComboBox*, QComboBox*);
 
 private:
     int makecid();
@@ -41,8 +42,10 @@ signals:
     void clientModified(int, QList<QString>);
     void addReturn(QList<QString>);
     void searchReturn(QList<QString>);
+    void modifyReturn(QList<QString>, int);
     void clientSize(int);
     void clientLoad(QList<QString>);
+    void sendServer(QList<QString>);
 };
 
 #endif // CLIENTHANDLERFORM_H

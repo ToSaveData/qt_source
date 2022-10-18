@@ -64,7 +64,7 @@ int ProductHandlerForm::makepid()
     else    return productInfo.size() + 1001;
 }
 
-void ProductHandlerForm::setproductComboBox(QComboBox* PidBox, QComboBox* PinfoBox)
+void ProductHandlerForm::setProductComboBox(QComboBox* PidBox, QComboBox* PinfoBox)
 {
     Q_FOREACH(auto i, productInfo)
     {
@@ -209,10 +209,18 @@ void ProductHandlerForm::orderAddedProduct(int pid)
     emit addReturn(pinfo);
 }
 
-void ProductHandlerForm::ordersearchedProduct(int pid)
+void ProductHandlerForm::orderSearchedProduct(int pid)
 {
     QList<QString> pinfo;
     pinfo << productInfo[pid]->getProductSort() << productInfo[pid]->getProductName()
           << QString::number(productInfo[pid]->getProductPrice());
     emit searchReturn(pinfo);
+}
+
+void ProductHandlerForm::orderModifiedProduct(int pid, int row)
+{
+    QList<QString> pinfo;
+    pinfo << productInfo[pid]->getProductSort() << productInfo[pid]->getProductName()
+          << QString::number(productInfo[pid]->getProductPrice());
+    emit modifyReturn(pinfo, row);
 }

@@ -17,7 +17,7 @@ public:
 
 private slots:
     void on_newChatPushButton_clicked();
-    void isertClient(QList<QString>);
+    void addClient(QList<QString>);
 
 private:
     Ui::ChatForm *ui;

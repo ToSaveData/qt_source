@@ -39,16 +39,21 @@ CS_App::CS_App(QWidget *parent)
     connect(CForm, SIGNAL(clientRemoved(int)), OForm, SLOT(clientRemoved(int)));
     connect(PForm, SIGNAL(productRemoved(int)), OForm, SLOT(productRemoved(int)));
     connect(OForm, SIGNAL(clientComboBox(QComboBox*, QComboBox*)), CForm,
-            SLOT(setclientComboBox(QComboBox*, QComboBox*)));
+            SLOT(setClientComboBox(QComboBox*, QComboBox*)));
     connect(OForm, SIGNAL(productComboBox(QComboBox*, QComboBox*)), PForm,
-            SLOT(setproductComboBox(QComboBox*, QComboBox*)));
+            SLOT(setProductComboBox(QComboBox*, QComboBox*)));
     connect(CForm, SIGNAL(clientModified(int,QList<QString>)), OForm, SLOT(clientModified(int,QList<QString>)));
     connect(PForm, SIGNAL(productModified(int,QList<QString>)), OForm, SLOT(productModified(int,QList<QString>)));
-    connect(CForm, SIGNAL(clientLoad(QList<QString>)), ChattingForm, SLOT(isertClient(QList<QString>)));
-    connect(OForm, SIGNAL(orderSearchedClient(int)), CForm, SLOT(ordersearchedClient(int)));
-    connect(OForm, SIGNAL(orderSearchedProduct(int)), PForm, SLOT(ordersearchedProduct(int)));
+    connect(CForm, SIGNAL(clientLoad(QList<QString>)), ChattingForm, SLOT(addClient(QList<QString>)));
+    connect(CForm, SIGNAL(sendServer(QList<QString>)), ChattingForm, SLOT(addClient(QList<QString>)));
+    connect(OForm, SIGNAL(orderSearchedClient(int)), CForm, SLOT(orderSearchedClient(int)));
+    connect(OForm, SIGNAL(orderSearchedProduct(int)), PForm, SLOT(orderSearchedProduct(int)));
     connect(CForm, SIGNAL(searchReturn(QList<QString>)), OForm, SLOT(searchReturnClient(QList<QString>)));
     connect(PForm, SIGNAL(searchReturn(QList<QString>)), OForm, SLOT(searchReturnProduct(QList<QString>)));
+    connect(OForm, SIGNAL(orderModifiedClient(int, int)), CForm, SLOT(orderModifiedClient(int, int)));
+    connect(OForm, SIGNAL(orderModifiedProduct(int, int)), PForm, SLOT(orderModifiedProduct(int, int)));
+    connect(CForm, SIGNAL(modifyReturn(QList<QString>, int)), OForm, SLOT(modifyReturnClient(QList<QString>, int)));
+    connect(PForm, SIGNAL(modifyReturn(QList<QString>, int)), OForm, SLOT(modifyReturnProduct(QList<QString>, int)));
     OForm->dataload();
     CForm->dataload();
 }

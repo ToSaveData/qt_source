@@ -76,7 +76,7 @@ int ClientHandlerForm::makecid()
     if(clientInfo.isEmpty())    return 5001;
     else    return clientInfo.size() + 5001;
 }
-void ClientHandlerForm::setclientComboBox(QComboBox* CidBox, QComboBox* CinfoBox)
+void ClientHandlerForm::setClientComboBox(QComboBox* CidBox, QComboBox* CinfoBox)
 {
     Q_FOREACH(auto i, clientInfo)
     {
@@ -99,7 +99,7 @@ void ClientHandlerForm::on_enrollPushButton_clicked()
 
     QVector<QLineEdit*> lineEidt;
     lineEidt << Cui->nameLineEdit1 << Cui->birthdayLineEdit1 << Cui->phoneNumLineEdit1 <<
-         Cui->addressLineEdit1 << Cui->emailLineEdit1;
+                Cui->addressLineEdit1 << Cui->emailLineEdit1;
     int key = makecid();
     int row = Cui->tableWidget1->rowCount();
     for(int x = 0; x < 4; x++)
@@ -119,6 +119,10 @@ void ClientHandlerForm::on_enrollPushButton_clicked()
     clientInfo.insert(key, c);
     update();
     emit clientAdded(key);
+
+    QList<QString> cinfo;
+    cinfo << lineEidt[0]->text();
+    emit sendServer(cinfo);
 
     for (int i = 0 ; i < 5; i++)    lineEidt[i]->clear();
 }
@@ -175,7 +179,7 @@ void ClientHandlerForm::on_modifyPushButton_clicked()
     table << Cui->tableWidget1 << Cui->tableWidget2 << Cui->tableWidget4 << Cui->tableWidget5;
     QVector<QLineEdit*> lineEidt;
     lineEidt << Cui->idLineEdit << Cui->nameLineEdit2 << Cui->birthdayLineEdit2
-      << Cui->phoneNumLineEdit2 << Cui->addressLineEdit2 << Cui->emailLineEdit2;
+             << Cui->phoneNumLineEdit2 << Cui->addressLineEdit2 << Cui->emailLineEdit2;
     int key = lineEidt[0]->text().toInt();
     int row = table[3]->currentRow();
 
@@ -203,7 +207,7 @@ void ClientHandlerForm::on_tableWidget5_itemClicked(QTableWidgetItem *item)
 {
     QVector<QLineEdit*> lineEidt;
     lineEidt << Cui->idLineEdit << Cui->nameLineEdit2 << Cui->birthdayLineEdit2
-      << Cui->phoneNumLineEdit2 << Cui->addressLineEdit2 << Cui->emailLineEdit2;
+             << Cui->phoneNumLineEdit2 << Cui->addressLineEdit2 << Cui->emailLineEdit2;
     item = Cui->tableWidget5->currentItem();
 
     for(int i = 0; i < 6; i++)
@@ -218,9 +222,16 @@ void ClientHandlerForm::orderAddedClient(int cid)
     emit addReturn(cinfo);
 }
 
-void ClientHandlerForm::ordersearchedClient(int cid)
+void ClientHandlerForm::orderSearchedClient(int cid)
 {
     QList<QString> cinfo;
     cinfo << clientInfo[cid]->getName() << clientInfo[cid]->getPhoneNumber() << clientInfo[cid]->getAddress();
     emit searchReturn(cinfo);
+}
+
+void ClientHandlerForm::orderModifiedClient(int cid, int row)
+{
+    QList<QString> cinfo;
+    cinfo << clientInfo[cid]->getName() << clientInfo[cid]->getPhoneNumber() << clientInfo[cid]->getAddress();
+    emit modifyReturn(cinfo, row);
 }

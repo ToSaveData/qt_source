@@ -27,8 +27,9 @@ private slots:
     void on_tableWidget5_itemClicked(QTableWidgetItem *item);
     void on_modifyPushButton_clicked();
     void orderAddedProduct(int);
-    void ordersearchedProduct(int);
-    void setproductComboBox(QComboBox*, QComboBox*);
+    void orderSearchedProduct(int);
+    void orderModifiedProduct(int, int);
+    void setProductComboBox(QComboBox*, QComboBox*);
 
 private:
     Ui::ProductHandlerForm *Pui;
@@ -41,6 +42,7 @@ signals:
     void productModified(int, QList<QString>);
     void addReturn(QList<QString>);
     void searchReturn(QList<QString>);
+    void modifyReturn(QList<QString>, int);
     void productSize(int);
 };
 
