@@ -1,37 +1,322 @@
 #include "chatform.h"
 #include "ui_chatform.h"
-#include "chattingserver.h"
-#include "chattingclient.h"
-#include <QLineEdit>
-#include <QTreeWidgetItem>
+#include "logthread.h"
+
+#include <QPushButton>
+#include <QBoxLayout>
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <QApplication>
+#include <QMessageBox>
+#include <QScrollBar>
+#include <QDateTime>
+#include <QDebug>
+#include <QMenu>
+#include <QFile>
+#include <QFileInfo>
+#include <QProgressDialog>
 
 ChatForm::ChatForm(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ChatForm)
+    ui(new Ui::ChatForm), totalSize(0), byteReceived(0)
 {
     ui->setupUi(this);
-    ChattingServer *server = new ChattingServer;
-    ui->currentServerLabel->setText(server->getInfoLable());
+    QList<int> sizes;
+    sizes << 120 << 500;
+    ui->splitter->setSizes(sizes);
+
+    chatServer = new QTcpServer(this);
+    connect(chatServer, SIGNAL(newConnection( )), SLOT(clientConnect( )));
+    if (!chatServer->listen(QHostAddress::Any, PORT_NUMBER)) {
+        QMessageBox::critical(this, tr("Chatting Server"), \
+                              tr("Unable to start the server: %1.") \
+                              .arg(chatServer->errorString( )));
+        close( );
+        return;
+    }
+
+    fileServer = new QTcpServer(this);
+    connect(fileServer, SIGNAL(newConnection()), SLOT(acceptConnection()));
+    if (!fileServer->listen(QHostAddress::Any, PORT_NUMBER+1)) {
+        QMessageBox::critical(this, tr("Chatting Server"), \
+                              tr("Unable to start the server: %1.") \
+                              .arg(fileServer->errorString( )));
+        close( );
+        return;
+    }
+
+    qDebug("Start listening ...");
+
+    QAction* inviteAction = new QAction(tr("&Invite"));
+    inviteAction->setObjectName("Invite");
+    connect(inviteAction, SIGNAL(triggered()), SLOT(inviteClient()));
+
+    QAction* removeAction = new QAction(tr("&Kick out"));
+    connect(removeAction, SIGNAL(triggered()), SLOT(kickOut()));
+
+    menu = new QMenu;
+    menu->addAction(inviteAction);
+    menu->addAction(removeAction);
+    ui->waittingRoomTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    progressDialog = new QProgressDialog(0);
+    progressDialog->setAutoClose(true);
+    progressDialog->reset();
+
+    logThread = new LogThread(this);
+    logThread->start();
+
+    connect(ui->savePushButton, SIGNAL(clicked()), logThread, SLOT(saveData()));
+
+    qDebug() << tr("The server is running on port %1.").arg(chatServer->serverPort( ));
 }
 
 ChatForm::~ChatForm()
 {
     delete ui;
+
+    logThread->terminate();
+    chatServer->close( );
+    fileServer->close( );
 }
 
-void ChatForm::on_newChatPushButton_clicked()
+void ChatForm::addClient(QList<int> cIdInfo, QList<QString> cNameInfo)
 {
-    ChattingClient *chat = new ChattingClient(0);
-    chat->show();
-}
-
-void ChatForm::addClient(QList<QString> clist)
-{
-    Q_FOREACH(auto i, clist)
+    int cnt = 0;
+    Q_FOREACH(auto i, cNameInfo)
     {
         QTreeWidgetItem *item = new QTreeWidgetItem();
         item->setText(0, "X");
         item->setText(1, i);
-        ui->clientTreeWidget->addTopLevelItem(item);
+        ui->waittingRoomTreeWidget->addTopLevelItem(item);
+        clientIDHash[i] = cIdInfo[cnt];
+        ui->waittingRoomTreeWidget->resizeColumnToContents(0);
     }
 }
+
+void ChatForm::clientConnect( )
+{
+    QTcpSocket *clientConnection = chatServer->nextPendingConnection( );
+    connect(clientConnection, SIGNAL(readyRead( )), SLOT(receiveData( )));
+    connect(clientConnection, SIGNAL(disconnected( )), SLOT(removeClient()));
+    qDebug("new connection is established...");
+}
+
+void ChatForm::receiveData( )
+{
+    QTcpSocket *clientConnection = dynamic_cast<QTcpSocket *>(sender( ));
+    QByteArray bytearray = clientConnection->read(BLOCK_SIZE);
+
+    Chat_Status type;       // 채팅의 목적
+    char data[1020];        // 전송되는 메시지/데이터
+    memset(data, 0, 1020);
+
+    QDataStream in(&bytearray, QIODevice::ReadOnly);
+    in.device()->seek(0);
+    in >> type;
+    in.readRawData(data, 1020);
+
+    QString ip = clientConnection->peerAddress().toString();
+    quint16 port = clientConnection->peerPort();
+    QString name = QString::fromStdString(data);
+
+    qDebug() << ip << " : " << type;
+
+    switch(type) {
+    case Chat_Login:
+        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchFixedString, 1)) {
+            if(item->text(0) != "-") {
+                item->setText(0, "-");
+                clientList.append(clientConnection);        // QList<QTcpSocket*> clientList;
+                clientSocketHash[name] = clientConnection;
+            }
+        }
+        break;
+    case Chat_In:
+        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchFixedString, 1)) {
+            if(item->text(0) != "O") {
+                item->setText(0, "O");
+            }
+            clientNameHash[port] = name;
+        }
+        break;
+    case Chat_Talk: {
+        foreach(QTcpSocket *sock, clientList) {
+            if(clientNameHash.contains(sock->peerPort()) && sock != clientConnection) {
+                QByteArray sendArray;
+                sendArray.clear();
+                QDataStream out(&sendArray, QIODevice::WriteOnly);
+                out << Chat_Talk;
+                sendArray.append("<font color=lightsteelblue>");
+                sendArray.append(clientNameHash[port].toStdString().data());
+                sendArray.append("</font> : ");
+                sendArray.append(name.toStdString().data());
+                sock->write(sendArray);
+                qDebug() << sock->peerPort();
+            }
+        }
+
+        QTreeWidgetItem* item = new QTreeWidgetItem(ui->logTreeWidget);
+        item->setText(0, ip);
+        item->setText(1, QString::number(port));
+        item->setText(2, QString::number(clientIDHash[clientNameHash[port]]));
+        item->setText(3, clientNameHash[port]);
+        item->setText(4, QString(data));
+        item->setText(5, QDateTime::currentDateTime().toString());
+        item->setToolTip(4, QString(data));
+        ui->logTreeWidget->addTopLevelItem(item);
+
+        for(int i = 0; i < ui->logTreeWidget->columnCount(); i++)
+            ui->logTreeWidget->resizeColumnToContents(i);
+
+        logThread->appendData(item);
+    }
+        break;
+    case Chat_Out:
+        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchContains, 1)) {
+            if(item->text(0) != "-") {
+                item->setText(0, "-");
+            }
+            clientNameHash.remove(port);
+        }
+        break;
+    case Chat_LogOut:
+        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchContains, 1)) {
+            if(item->text(0) != "X") {
+                item->setText(0, "X");
+                clientList.removeOne(clientConnection);        // QList<QTcpSocket*> clientList;
+                clientSocketHash.remove(name);
+            }
+        }
+        break;
+    }
+}
+
+void ChatForm::removeClient()
+{
+    QTcpSocket *clientConnection = dynamic_cast<QTcpSocket *>(sender( ));
+
+    QString name = clientNameHash[clientConnection->peerPort()];
+    foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchContains, 1)) {
+        item->setText(0, "X");
+    }
+
+    clientList.removeOne(clientConnection);
+    clientConnection->deleteLater();
+}
+
+void ChatForm::kickOut()
+{
+    QString name = ui->waittingRoomTreeWidget->currentItem()->text(1);
+    QTcpSocket* sock = clientSocketHash[name];
+
+    QByteArray sendArray;
+    QDataStream out(&sendArray, QIODevice::WriteOnly);
+    out << Chat_KickOut;
+    out.writeRawData("", 1020);
+    sock->write(sendArray);
+
+    ui->waittingRoomTreeWidget->currentItem()->setText(0, "-");
+}
+
+void ChatForm::inviteClient()
+{
+    if(ui->waittingRoomTreeWidget->topLevelItemCount()) {
+        QString name = ui->waittingRoomTreeWidget->currentItem()->text(1);
+
+        QByteArray sendArray;
+        QDataStream out(&sendArray, QIODevice::WriteOnly);
+        out << Chat_Invite;
+        out.writeRawData("", 1020);
+        QTcpSocket* sock = clientSocketHash[name];
+        sock->write(sendArray);
+
+        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchFixedString, 1)) {
+            if(item->text(1) != "O") {
+                item->setText(0, "O");
+            }
+        }
+    }
+}
+
+/* 파일 전송 */
+void ChatForm::acceptConnection()
+{
+    qDebug("Connected, preparing to receive files!");
+
+    QTcpSocket* receivedSocket = fileServer->nextPendingConnection();
+    connect(receivedSocket, SIGNAL(readyRead()), this, SLOT(readClient()));
+}
+
+void ChatForm::readClient()
+{
+    qDebug("Receiving file ...");
+    QTcpSocket* receivedSocket = dynamic_cast<QTcpSocket *>(sender( ));
+    QString filename, name;
+
+    if (byteReceived == 0) { // just started to receive data, this data is file information
+        progressDialog->reset();
+        progressDialog->show();
+
+        QString ip = receivedSocket->peerAddress().toString();
+        quint16 port = receivedSocket->peerPort();
+
+        QDataStream in(receivedSocket);
+        in >> totalSize >> byteReceived >> filename >> name;
+        progressDialog->setMaximum(totalSize);
+
+        QTreeWidgetItem* item = new QTreeWidgetItem(ui->logTreeWidget);
+        item->setText(0, ip);
+        item->setText(1, QString::number(port));
+        item->setText(2, QString::number(clientIDHash[name]));
+        item->setText(3, name);
+        item->setText(4, filename);
+        item->setText(5, QDateTime::currentDateTime().toString());
+        item->setToolTip(4, filename);
+
+        for(int i = 0; i < ui->logTreeWidget->columnCount(); i++)
+            ui->logTreeWidget->resizeColumnToContents(i);
+
+        ui->logTreeWidget->addTopLevelItem(item);
+
+        logThread->appendData(item);
+
+        QFileInfo info(filename);
+        QString currentFileName = info.fileName();
+        file = new QFile(currentFileName);
+        file->open(QFile::WriteOnly);
+    } else { // Officially read the file content
+        inBlock = receivedSocket->readAll();
+
+        byteReceived += inBlock.size();
+        file->write(inBlock);
+        file->flush();
+    }
+
+    progressDialog->setValue(byteReceived);
+
+    if (byteReceived == totalSize) {
+        qDebug() << QString("%1 receive completed").arg(filename);
+
+        inBlock.clear();
+        byteReceived = 0;
+        totalSize = 0;
+        progressDialog->reset();
+        progressDialog->hide();
+        file->close();
+        delete file;
+    }
+}
+
+void ChatForm::on_waittingRoomTreeWidget_customContextMenuRequested(const QPoint &pos)
+{
+    foreach(QAction *action, menu->actions()) {
+        if(action->objectName() == "Invite")
+            action->setEnabled(ui->waittingRoomTreeWidget->currentItem()->text(0) != "O");
+        else
+            action->setEnabled(ui->waittingRoomTreeWidget->currentItem()->text(0) == "O");
+    }
+    QPoint globalPos = ui->waittingRoomTreeWidget->mapToGlobal(pos);
+    menu->exec(globalPos);
+}
+

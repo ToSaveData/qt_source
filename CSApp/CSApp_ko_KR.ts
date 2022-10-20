@@ -24,27 +24,27 @@
         <translation>도구 바</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="102"/>
+        <location filename="cs_app.ui" line="108"/>
         <source>tr(&quot;ClientInformationForm&quot;)</source>
         <translation>고객 정보 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="107"/>
+        <location filename="cs_app.ui" line="113"/>
         <source>tr(&quot;ProductInformationForm&quot;)</source>
         <translation>상품 정보 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="112"/>
+        <location filename="cs_app.ui" line="118"/>
         <source>tr(&quot;OrderInformationForm&quot;)</source>
         <translation>주문 정보 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="117"/>
+        <location filename="cs_app.ui" line="123"/>
         <source>tr(&quot;quit&quot;)</source>
         <translation>종료</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="122"/>
+        <location filename="cs_app.ui" line="128"/>
         <source>tr(&quot;ChattingForm&quot;)</source>
         <translation>서버 관리 폼</translation>
     </message>
@@ -81,62 +81,79 @@
         <translation type="vanished">고객 목록</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="31"/>
+        <location filename="chatform.ui" line="41"/>
+        <source>tr(&quot;waitting room&quot;)</source>
+        <translation>대기실</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="55"/>
+        <location filename="chatform.ui" line="98"/>
         <source>tr(&quot;Client status&quot;)</source>
         <translation>접속 여부</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="36"/>
+        <location filename="chatform.ui" line="60"/>
+        <location filename="chatform.ui" line="103"/>
         <source>tr(&quot;Client list&quot;)</source>
         <translation>고객 목록</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="54"/>
+        <location filename="chatform.ui" line="84"/>
+        <source>tr(&quot;chatting room&quot;)</source>
+        <translation>채팅방</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="123"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="69"/>
+        <location filename="chatform.ui" line="138"/>
         <source>tr(&quot;new chat&quot;)</source>
         <translation>새 채팅</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="83"/>
+        <location filename="chatform.ui" line="163"/>
+        <source>tr(&quot;chatting log&quot;)</source>
+        <translation>채팅 기록</translation>
+    </message>
+    <message>
+        <location filename="chatform.ui" line="171"/>
         <source>IP</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="88"/>
+        <location filename="chatform.ui" line="176"/>
         <source>tr(&quot;Port&quot;)</source>
         <translation>포트</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="93"/>
+        <location filename="chatform.ui" line="181"/>
         <source>tr(&quot;ID&quot;)</source>
         <translation>아이디</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="98"/>
+        <location filename="chatform.ui" line="186"/>
         <source>tr(&quot;name&quot;)</source>
         <translation>성명</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="103"/>
+        <location filename="chatform.ui" line="191"/>
         <source>tr(&quot;message&quot;)</source>
         <translation>메세지</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="108"/>
+        <location filename="chatform.ui" line="196"/>
         <source>tr(&quot;time&quot;)</source>
         <translation>시간</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="124"/>
+        <location filename="chatform.ui" line="212"/>
         <source>tr(&quot;remove&quot;)</source>
         <translation>삭제</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="137"/>
+        <location filename="chatform.ui" line="225"/>
         <source>tr(&quot;save&quot;)</source>
         <translation>저장</translation>
     </message>
@@ -144,7 +161,7 @@
 <context>
     <name>ChattingClient</name>
     <message>
-        <location filename="chattingclient.cpp" line="68"/>
+        <location filename="chattingclient.cpp" line="71"/>
         <source>Echo Client</source>
         <translation>고객 채팅</translation>
     </message>
@@ -533,6 +550,8 @@
         <location filename="orderhandlerform.cpp" line="24"/>
         <location filename="orderhandlerform.cpp" line="25"/>
         <location filename="orderhandlerform.cpp" line="26"/>
+        <location filename="orderhandlerform.cpp" line="149"/>
+        <location filename="orderhandlerform.cpp" line="150"/>
         <source>select item</source>
         <translation>선택하세요</translation>
     </message>

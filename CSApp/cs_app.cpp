@@ -44,8 +44,8 @@ CS_App::CS_App(QWidget *parent)
             SLOT(setProductComboBox(QComboBox*, QComboBox*)));
     connect(CForm, SIGNAL(clientModified(int,QList<QString>)), OForm, SLOT(clientModified(int,QList<QString>)));
     connect(PForm, SIGNAL(productModified(int,QList<QString>)), OForm, SLOT(productModified(int,QList<QString>)));
-    connect(CForm, SIGNAL(clientLoad(QList<QString>)), ChattingForm, SLOT(addClient(QList<QString>)));
-    connect(CForm, SIGNAL(sendServer(QList<QString>)), ChattingForm, SLOT(addClient(QList<QString>)));
+    connect(CForm, SIGNAL(clientLoad(QList<int>, QList<QString>)), ChattingForm, SLOT(addClient(QList<int>, QList<QString>)));
+    connect(CForm, SIGNAL(sendServer(QList<int>, QList<QString>)), ChattingForm, SLOT(addClient(QList<int>, QList<QString>)));
     connect(OForm, SIGNAL(orderSearchedClient(int)), CForm, SLOT(orderSearchedClient(int)));
     connect(OForm, SIGNAL(orderSearchedProduct(int)), PForm, SLOT(orderSearchedProduct(int)));
     connect(CForm, SIGNAL(searchReturn(QList<QString>)), OForm, SLOT(searchReturnClient(QList<QString>)));

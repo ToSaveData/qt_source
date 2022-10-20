@@ -44,8 +44,8 @@ signals:
     void searchReturn(QList<QString>);
     void modifyReturn(QList<QString>, int);
     void clientSize(int);
-    void clientLoad(QList<QString>);
-    void sendServer(QList<QString>);
+    void clientLoad(QList<int>, QList<QString>);
+    void sendServer(QList<int>, QList<QString>);
 };
 
 #endif // CLIENTHANDLERFORM_H

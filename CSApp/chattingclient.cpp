@@ -13,6 +13,7 @@
 ChattingClient::ChattingClient(QWidget *parent)
     : QWidget{parent}
 {
+    //연결한 서버 정보를 위한 위젯들
     QLineEdit *serverAddress = new QLineEdit(this);
     serverAddress->setText("127.0.0.1");
 
@@ -35,9 +36,10 @@ ChattingClient::ChattingClient(QWidget *parent)
     serverLayout->addWidget(serverPort);
     serverLayout->addWidget(connectButton);
 
-    message = new QTextEdit(this);
+    message = new QTextEdit(this);                          //서버에서 오는 메시지 표시용
     message->setReadOnly(true);
 
+    //서버로 보낼 메시지를 위한 것들
     inputLine = new QLineEdit(this);
     QPushButton *sentButton = new QPushButton("Send", this);
     connect(sentButton, SIGNAL(clicked()), SLOT(sendData()));
@@ -46,12 +48,13 @@ ChattingClient::ChattingClient(QWidget *parent)
     inputLayout->addWidget(inputLine);
     inputLayout->addWidget(sentButton);
 
-    QPushButton *quitButton = new QPushButton("Quit", this);
-    connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
+    //종료기능
+//    QPushButton *quitButton = new QPushButton("Quit", this);
+//    connect(quitButton, SIGNAL(clicked()), qapp, SLOT(quit()));
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
     buttonLayout->addStretch(1);
-    buttonLayout->addWidget(quitButton);
+//    buttonLayout->addWidget(quitButton);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(serverLayout);
@@ -61,7 +64,7 @@ ChattingClient::ChattingClient(QWidget *parent)
 
     setLayout(mainLayout);
 
-    clientSocket = new QTcpSocket(this);
+    clientSocket = new QTcpSocket(this);                        //클라이언트 소켓 생성
     connect(clientSocket, &QAbstractSocket::errorOccurred,
             [=]{qDebug() << clientSocket->errorString();});
     connect(clientSocket, SIGNAL(readyRead()), SLOT(echoData()));

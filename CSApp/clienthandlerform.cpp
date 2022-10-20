@@ -61,14 +61,16 @@ ClientHandlerForm::~ClientHandlerForm()
 
 void ClientHandlerForm::dataload()
 {
-    QList<QString> clist;
+    QList<QString> cNameList;
+    QList<int> cIdList;
     Q_FOREACH(auto c, clientInfo)
     {
-        clist << c->getName();
-        clientInfo[clientInfo.key(c)]->getName();
+        int key = clientInfo.key(c);
+        cNameList << c->getName();
+        cIdList << key;
     }
 
-    emit clientLoad(clist);
+    emit clientLoad(cIdList, cNameList);
 }
 
 int ClientHandlerForm::makecid()
@@ -120,9 +122,11 @@ void ClientHandlerForm::on_enrollPushButton_clicked()
     update();
     emit clientAdded(key);
 
-    QList<QString> cinfo;
-    cinfo << lineEidt[0]->text();
-    emit sendServer(cinfo);
+    QList<QString> cNameInfo;
+    cNameInfo << lineEidt[0]->text();
+    QList<int> cIdInfo;
+    cIdInfo << key;
+    emit sendServer(cIdInfo, cNameInfo);
 
     for (int i = 0 ; i < 5; i++)    lineEidt[i]->clear();
 }

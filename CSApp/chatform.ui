@@ -13,50 +13,102 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_4">
+  <layout class="QVBoxLayout" name="verticalLayout_6">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QWidget" name="layoutWidget">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QTreeWidget" name="clientTreeWidget">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <column>
-          <property name="text">
-           <string>tr(&quot;Client status&quot;)</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>tr(&quot;Client list&quot;)</string>
-          </property>
-         </column>
-        </widget>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="waitingRoomLabel">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>tr(&quot;waitting room&quot;)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTreeWidget" name="waittingRoomTreeWidget">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <column>
+            <property name="text">
+             <string>tr(&quot;Client status&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;Client list&quot;)</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QLabel" name="chattingRoomLabel">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>tr(&quot;chatting room&quot;)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTreeWidget" name="chattingRoomTreeWidget">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <column>
+            <property name="text">
+             <string>tr(&quot;Client status&quot;)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>tr(&quot;Client list&quot;)</string>
+            </property>
+           </column>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <item>
-            <widget class="QLabel" name="currentServerLabel">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
          <item>
           <widget class="QPushButton" name="newChatPushButton">
            <property name="minimumSize">
@@ -73,9 +125,28 @@
         </layout>
        </item>
       </layout>
-     </item>
-     <item>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="logLabel">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>tr(&quot;chatting log&quot;)</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QTreeWidget" name="logTreeWidget">
          <column>
@@ -141,8 +212,8 @@
         </layout>
        </item>
       </layout>
-     </item>
-    </layout>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>
