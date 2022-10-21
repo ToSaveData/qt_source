@@ -344,6 +344,8 @@ void ChatForm::readClient()
 
 void ChatForm::on_waittingRoomTreeWidget_customContextMenuRequested(const QPoint &pos)
 {
+    if(ui->waittingRoomTreeWidget->currentItem() != nullptr)
+    {
     QString name = ui->waittingRoomTreeWidget->currentItem()->text(1).left(3);
     foreach(QAction *action, menu->actions()) {
         if(action->objectName() == "Invite")
@@ -353,11 +355,14 @@ void ChatForm::on_waittingRoomTreeWidget_customContextMenuRequested(const QPoint
     }
     QPoint globalPos = ui->waittingRoomTreeWidget->mapToGlobal(pos);
     menu->exec(globalPos);
+    }
 }
 
 
 void ChatForm::on_chattingRoomTreeWidget_customContextMenuRequested(const QPoint &pos)
 {
+    if(ui->chattingRoomTreeWidget->currentItem() != nullptr)
+    {
     QString name = ui->chattingRoomTreeWidget->currentItem()->text(1);
     foreach(QAction *action, menu->actions()) {
         if(action->objectName() == "Invite")
@@ -367,6 +372,7 @@ void ChatForm::on_chattingRoomTreeWidget_customContextMenuRequested(const QPoint
     }
     QPoint globalPos = ui->waittingRoomTreeWidget->mapToGlobal(pos);
     menu->exec(globalPos);
+    }
 }
 
 void ChatForm::on_resetPushButton_clicked()

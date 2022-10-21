@@ -25,6 +25,7 @@ Widget::Widget(QWidget *parent) : QWidget(parent), isSent(false) {
     QSettings settings("ChatClient", "Chat Client");
     name->setText(settings.value("ChatClient/ID").toString());
 
+
     serverAddress = new QLineEdit(this);
     serverAddress->setText("127.0.0.1");
     //serverAddress->setInputMask("999.999.999.999;_");
@@ -42,6 +43,7 @@ Widget::Widget(QWidget *parent) : QWidget(parent), isSent(false) {
     serverPort->setPlaceholderText("Server Port No");
 
     connectButton = new QPushButton(tr("Log In"), this);
+    connect(name, SIGNAL(returnPressed()), connectButton, SIGNAL(clicked()));
 
     QHBoxLayout *serverLayout = new QHBoxLayout;
     serverLayout->addWidget(name);
