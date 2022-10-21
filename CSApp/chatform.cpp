@@ -15,6 +15,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QProgressDialog>
+#include <QIcon>
 
 ChatForm::ChatForm(QWidget *parent) :
     QWidget(parent),
@@ -58,6 +59,7 @@ ChatForm::ChatForm(QWidget *parent) :
     menu->addAction(inviteAction);
     menu->addAction(removeAction);
     ui->waittingRoomTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->chattingRoomTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
 
     progressDialog = new QProgressDialog(0);
     progressDialog->setAutoClose(true);
@@ -86,8 +88,8 @@ void ChatForm::addClient(QList<int> cIdInfo, QList<QString> cNameInfo)
     Q_FOREACH(auto i, cNameInfo)
     {
         QTreeWidgetItem *item = new QTreeWidgetItem();
-        item->setText(0, "X");
-        item->setText(1, i);
+        item->setIcon(0, QIcon(":/icon_image/redLight.png"));
+        item->setText(1, i + "  ");
         ui->waittingRoomTreeWidget->addTopLevelItem(item);
         clientIDHash[i] = cIdInfo[cnt];
         ui->waittingRoomTreeWidget->resizeColumnToContents(0);
@@ -122,22 +124,31 @@ void ChatForm::receiveData( )
 
     qDebug() << ip << " : " << type;
 
+
+
     switch(type) {
     case Chat_Login:
-        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchFixedString, 1)) {
-            if(item->text(0) != "-") {
-                item->setText(0, "-");
+        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name + "  ", Qt::MatchFixedString, 1)) {
+            if(item->text(1) != name + " ") {
+                item->setIcon(0, QIcon(":/icon_image/greenLight.png"));
+                item->setText(1, name + " ");
                 clientList.append(clientConnection);        // QList<QTcpSocket*> clientList;
                 clientSocketHash[name] = clientConnection;
             }
         }
         break;
     case Chat_In:
-        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchFixedString, 1)) {
-            if(item->text(0) != "O") {
-                item->setText(0, "O");
+        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name + " ", Qt::MatchFixedString, 1)) {
+            if(item->text(1) != name) {
+                item->setIcon(0, QIcon(":/icon_image/chatting1.png"));
+                item->setText(1, name);
             }
             clientNameHash[port] = name;
+            int index = ui->waittingRoomTreeWidget->indexOfTopLevelItem(item);
+            ui->waittingRoomTreeWidget->takeTopLevelItem(index);
+            ui->chattingRoomTreeWidget->addTopLevelItem(item);
+            for(int i = 0; i < ui->waittingRoomTreeWidget->columnCount(); i++)
+                ui->chattingRoomTreeWidget->resizeColumnToContents(i);
         }
         break;
     case Chat_Talk: {
@@ -173,19 +184,24 @@ void ChatForm::receiveData( )
     }
         break;
     case Chat_Out:
-        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchContains, 1)) {
-            if(item->text(0) != "-") {
-                item->setText(0, "-");
+        foreach(auto item, ui->chattingRoomTreeWidget->findItems(name, Qt::MatchContains, 1)) {
+            if(item->text(1) != name + " ") {
+                item->setIcon(0, QIcon(":/icon_image/greenLight.png"));
+                item->setText(1, name + " ");
             }
             clientNameHash.remove(port);
+            int index = ui->chattingRoomTreeWidget->indexOfTopLevelItem(item);
+            ui->chattingRoomTreeWidget->takeTopLevelItem(index);
+            ui->waittingRoomTreeWidget->addTopLevelItem(item);
         }
         break;
     case Chat_LogOut:
-        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchContains, 1)) {
-            if(item->text(0) != "X") {
-                item->setText(0, "X");
+        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name + " ", Qt::MatchContains, 1)) {
+            if(item->text(1) != name + "  ") {
+                item->setIcon(0, QIcon(":/icon_image/redLight.png"));
+                item->setText(1, name + "  ");
                 clientList.removeOne(clientConnection);        // QList<QTcpSocket*> clientList;
-                clientSocketHash.remove(name);
+                clientSocketHash.take(name);
             }
         }
         break;
@@ -197,9 +213,18 @@ void ChatForm::removeClient()
     QTcpSocket *clientConnection = dynamic_cast<QTcpSocket *>(sender( ));
 
     QString name = clientNameHash[clientConnection->peerPort()];
-    foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchContains, 1)) {
-        item->setText(0, "X");
+    foreach(auto item, ui->chattingRoomTreeWidget->findItems(name, Qt::MatchContains, 1)) {
+        int index = ui->chattingRoomTreeWidget->indexOfTopLevelItem(item);
+        item->setIcon(0, QIcon(":/icon_image/redLight.png"));
+        item->setText(1, name + "  ");
+        ui->chattingRoomTreeWidget->takeTopLevelItem(index);
+        ui->waittingRoomTreeWidget->addTopLevelItem(item);
     }
+    foreach(auto item, ui->waittingRoomTreeWidget->findItems(name + " ", Qt::MatchContains, 1)) {
+        item->setIcon(0, QIcon(":/icon_image/redLight.png"));
+        item->setText(1, name + "  ");
+    }
+
 
     clientList.removeOne(clientConnection);
     clientConnection->deleteLater();
@@ -208,7 +233,7 @@ void ChatForm::removeClient()
 void ChatForm::kickOut()
 {
     QString name = ui->waittingRoomTreeWidget->currentItem()->text(1);
-    QTcpSocket* sock = clientSocketHash[name];
+    QTcpSocket* sock = clientSocketHash[name.left(3)];
 
     QByteArray sendArray;
     QDataStream out(&sendArray, QIODevice::WriteOnly);
@@ -216,7 +241,7 @@ void ChatForm::kickOut()
     out.writeRawData("", 1020);
     sock->write(sendArray);
 
-    ui->waittingRoomTreeWidget->currentItem()->setText(0, "-");
+    ui->waittingRoomTreeWidget->currentItem()->setIcon(0, QIcon(":/icon_image/greenLight.png"));
 }
 
 void ChatForm::inviteClient()
@@ -224,16 +249,25 @@ void ChatForm::inviteClient()
     if(ui->waittingRoomTreeWidget->topLevelItemCount()) {
         QString name = ui->waittingRoomTreeWidget->currentItem()->text(1);
 
+
         QByteArray sendArray;
         QDataStream out(&sendArray, QIODevice::WriteOnly);
         out << Chat_Invite;
         out.writeRawData("", 1020);
-        QTcpSocket* sock = clientSocketHash[name];
+        QTcpSocket* sock = clientSocketHash[name.left(3)];
         sock->write(sendArray);
+        qDebug() << sock->peerPort();
+
+        quint16 port = sock->peerPort();
+        clientNameHash[port] = name.left(3);
 
         foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchFixedString, 1)) {
-            if(item->text(1) != "O") {
-                item->setText(0, "O");
+            if(item->text(1) != name.left(3)) {
+                item->setIcon(0, QIcon(":/icon_image/chatting1.png"));
+                item->setText(1, name.left(3));
+                int index = ui->waittingRoomTreeWidget->indexOfTopLevelItem(item);
+                ui->waittingRoomTreeWidget->takeTopLevelItem(index);
+                ui->chattingRoomTreeWidget->addTopLevelItem(item);
             }
         }
     }
@@ -310,13 +344,34 @@ void ChatForm::readClient()
 
 void ChatForm::on_waittingRoomTreeWidget_customContextMenuRequested(const QPoint &pos)
 {
+    QString name = ui->waittingRoomTreeWidget->currentItem()->text(1).left(3);
     foreach(QAction *action, menu->actions()) {
         if(action->objectName() == "Invite")
-            action->setEnabled(ui->waittingRoomTreeWidget->currentItem()->text(0) != "O");
+            action->setEnabled(ui->waittingRoomTreeWidget->currentItem()->text(1) != name);
         else
-            action->setEnabled(ui->waittingRoomTreeWidget->currentItem()->text(0) == "O");
+            action->setEnabled(ui->waittingRoomTreeWidget->currentItem()->text(0) == name);
     }
     QPoint globalPos = ui->waittingRoomTreeWidget->mapToGlobal(pos);
     menu->exec(globalPos);
+}
+
+
+void ChatForm::on_chattingRoomTreeWidget_customContextMenuRequested(const QPoint &pos)
+{
+    QString name = ui->chattingRoomTreeWidget->currentItem()->text(1);
+    foreach(QAction *action, menu->actions()) {
+        if(action->objectName() == "Invite")
+            action->setEnabled(ui->chattingRoomTreeWidget->currentItem()->text(1) == name);
+        else
+            action->setEnabled(ui->chattingRoomTreeWidget->currentItem()->text(0) != name);
+    }
+    QPoint globalPos = ui->waittingRoomTreeWidget->mapToGlobal(pos);
+    menu->exec(globalPos);
+}
+
+void ChatForm::on_resetPushButton_clicked()
+{
+    ui->waittingRoomTreeWidget->clear();
+    emit reset();
 }
 

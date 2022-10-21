@@ -32,6 +32,7 @@ public:
     ~Widget();
 
 private slots:
+    void connectButtonClicked();
     void receiveData( );			// 서버에서 데이터가 올 때
     void sendData( );               // 서버로 데이터를 보낼 때
     void disconnect( );

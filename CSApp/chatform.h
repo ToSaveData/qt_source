@@ -33,6 +33,8 @@ class ChatForm : public QWidget
 public:
     explicit ChatForm(QWidget *parent = nullptr);
     ~ChatForm();
+signals:
+    void reset();
 
 private slots:
     void acceptConnection();                /* 파일 서버 */
@@ -45,6 +47,10 @@ private slots:
     void inviteClient();
     void kickOut();
     void on_waittingRoomTreeWidget_customContextMenuRequested(const QPoint &pos);
+
+    void on_chattingRoomTreeWidget_customContextMenuRequested(const QPoint &pos);
+
+    void on_resetPushButton_clicked();
 
 private:
     const int BLOCK_SIZE = 1024;

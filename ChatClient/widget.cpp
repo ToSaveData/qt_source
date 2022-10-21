@@ -103,29 +103,7 @@ Widget::Widget(QWidget *parent) : QWidget(parent), isSent(false) {
     progressDialog->setAutoClose(true);
     progressDialog->reset();
 
-    connect(connectButton, &QPushButton::clicked,
-            [=]{
-        if(connectButton->text() == tr("Log In")) {
-            clientSocket->connectToHost(serverAddress->text( ),
-                                        serverPort->text( ).toInt( ));
-            clientSocket->waitForConnected();
-            sendProtocol(Chat_Login, name->text().toStdString().data());
-            connectButton->setText(tr("Chat in"));
-            name->setReadOnly(true);
-        } else if(connectButton->text() == tr("Chat in"))  {
-            sendProtocol(Chat_In, name->text().toStdString().data());
-            connectButton->setText(tr("Chat Out"));
-            inputLine->setEnabled(true);
-            sentButton->setEnabled(true);
-            fileButton->setEnabled(true);
-        } else if(connectButton->text() == tr("Chat Out"))  {
-            sendProtocol(Chat_Out, name->text().toStdString().data());
-            connectButton->setText(tr("Chat in"));
-            inputLine->setDisabled(true);
-            sentButton->setDisabled(true);
-            fileButton->setDisabled(true);
-        }
-    } );
+    connect(connectButton, SIGNAL(clicked()), this , SLOT(connectButtonClicked()));
 
     setWindowTitle(tr("Chat Client"));
 }
@@ -137,6 +115,31 @@ Widget::~Widget( )
     settings.setValue("ChatClient/ID", name->text());
 }
 
+void Widget::connectButtonClicked()
+{
+//    QString clientName = name->text();
+//    Q_FOREACH(auto i, )
+    if(connectButton->text() == tr("Log In")) {
+        clientSocket->connectToHost(serverAddress->text( ),
+                                    serverPort->text( ).toInt( ));
+        clientSocket->waitForConnected();
+        sendProtocol(Chat_Login, name->text().toStdString().data());
+        connectButton->setText(tr("Chat in"));
+        name->setReadOnly(true);
+    } else if(connectButton->text() == tr("Chat in"))  {
+        sendProtocol(Chat_In, name->text().toStdString().data());
+        connectButton->setText(tr("Chat Out"));
+        inputLine->setEnabled(true);
+        sentButton->setEnabled(true);
+        fileButton->setEnabled(true);
+    } else if(connectButton->text() == tr("Chat Out"))  {
+        sendProtocol(Chat_Out, name->text().toStdString().data());
+        connectButton->setText(tr("Chat in"));
+        inputLine->setDisabled(true);
+        sentButton->setDisabled(true);
+        fileButton->setDisabled(true);
+    }
+}
 /* 창이 닫힐 때 서버에 연결 접속 메시지를 보내고 종료 */
 void Widget::closeEvent(QCloseEvent*)
 {
@@ -178,12 +181,13 @@ void Widget::receiveData( )
         name->setReadOnly(false);           // 메시지 입력 불가
         break;
     case Chat_Invite:       // 초대면
-        QMessageBox::critical(this, tr("Chatting Client"), \
-                              tr("Invited from Server"));
+        QMessageBox::information(this, tr("Chatting Client"), \
+                                 tr("Invited from Server"));
         inputLine->setEnabled(true);
         sentButton->setEnabled(true);
         fileButton->setEnabled(true);
         name->setReadOnly(true);            // 메시지 입력 가능
+        connectButton->setText(tr("Chat Out"));
         break;
     };
 }
@@ -197,6 +201,11 @@ void Widget::disconnect( )
     name->setReadOnly(false);
     sentButton->setEnabled(false);
     connectButton->setText(tr("Log in"));
+
+    sendProtocol(Chat_LogOut, name->text().toStdString().data());
+    clientSocket->disconnectFromHost();
+    if(clientSocket->state() != QAbstractSocket::UnconnectedState)
+        clientSocket->waitForDisconnected();
 }
 
 /* 프로토콜을 생성해서 서버로 전송 */

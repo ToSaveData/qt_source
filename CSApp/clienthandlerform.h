@@ -18,8 +18,10 @@ class ClientHandlerForm : public QWidget
 public:
     explicit ClientHandlerForm(QWidget *parent = nullptr);
     ~ClientHandlerForm();
-    void dataload();
 
+
+public slots:
+    void dataload();
 private slots:
     void on_enrollPushButton_clicked();
     void on_searchPushButton_clicked();
@@ -30,6 +32,7 @@ private slots:
     void orderSearchedClient(int);
     void orderModifiedClient(int, int);
     void setClientComboBox(QComboBox*, QComboBox*);
+
 
 private:
     int makecid();

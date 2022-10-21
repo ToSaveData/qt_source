@@ -110,7 +110,7 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QPushButton" name="newChatPushButton">
+          <widget class="QPushButton" name="resetPushButton">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -118,7 +118,7 @@
             </size>
            </property>
            <property name="text">
-            <string>tr(&quot;new chat&quot;)</string>
+            <string>tr(&quot;ClientListReset&quot;)</string>
            </property>
           </widget>
          </item>

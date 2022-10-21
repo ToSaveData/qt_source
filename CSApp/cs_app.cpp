@@ -12,23 +12,17 @@ CS_App::CS_App(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ChattingForm = new ChatForm();
-    ui->mdiArea->addSubWindow(ChattingForm);
-    ChattingForm->setWindowTitle(tr("ChattingForm"));
-
     CForm = new ClientHandlerForm();
-
-    ui->mdiArea->addSubWindow(CForm);
     CForm->setWindowTitle(tr("ClientInformationHandlerForm"));
 
     PForm = new ProductHandlerForm();
-
-    ui->mdiArea->addSubWindow(PForm);
     PForm->setWindowTitle(tr("ProductInformationHandlerForm"));
 
     OForm = new OrderHandlerForm();
-    ui->mdiArea->addSubWindow(OForm);
     OForm->setWindowTitle(tr("OrderInformationHandlerForm"));
+
+    ChattingForm = new ChatForm();
+    ChattingForm->setWindowTitle(tr("ChattingServerForm"));
 
     connect(CForm, SIGNAL(clientAdded(int)), OForm, SLOT(clientAdded()));
     connect(PForm, SIGNAL(productAdded(int)), OForm, SLOT(productAdded()));
@@ -54,8 +48,15 @@ CS_App::CS_App(QWidget *parent)
     connect(OForm, SIGNAL(orderModifiedProduct(int, int)), PForm, SLOT(orderModifiedProduct(int, int)));
     connect(CForm, SIGNAL(modifyReturn(QList<QString>, int)), OForm, SLOT(modifyReturnClient(QList<QString>, int)));
     connect(PForm, SIGNAL(modifyReturn(QList<QString>, int)), OForm, SLOT(modifyReturnProduct(QList<QString>, int)));
+    connect(ChattingForm, SIGNAL(reset()), CForm, SLOT(dataload()));
+
     OForm->dataload();
     CForm->dataload();
+
+    ui->mdiArea->addSubWindow(CForm);
+    ui->mdiArea->addSubWindow(PForm);
+    ui->mdiArea->addSubWindow(OForm);
+    ui->mdiArea->addSubWindow(ChattingForm);
 }
 
 CS_App::~CS_App()
