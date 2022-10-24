@@ -13,6 +13,7 @@ class QProgressDialog;
 
 typedef enum {
     Chat_Login,             // 로그인(서버 접속)   --> 초대를 위한 정보 저장
+    Chat_logCheck,          // 로그인 시 이름 확인
     Chat_In,                // 채팅방 입장
     Chat_Talk,              // 채팅
     Chat_Out,               // 채팅방 퇴장         --> 초대 가능

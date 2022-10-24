@@ -126,8 +126,9 @@ void Widget::connectButtonClicked()
                                     serverPort->text( ).toInt( ));
         clientSocket->waitForConnected();
         sendProtocol(Chat_Login, name->text().toStdString().data());
-        connectButton->setText(tr("Chat in"));
-        name->setReadOnly(true);
+        name->clearFocus();
+//        connectButton->setText(tr("Chat in"));
+//        name->setReadOnly(true);
     } else if(connectButton->text() == tr("Chat in"))  {
         sendProtocol(Chat_In, name->text().toStdString().data());
         connectButton->setText(tr("Chat Out"));
@@ -168,6 +169,10 @@ void Widget::receiveData( )
     in.readRawData(data, 1020);     // 실제 데이터
 
     switch(type) {
+    case Chat_logCheck:         // 서버에서 로그인을 허용하면
+        connectButton->setText(tr("Chat in"));
+        name->setReadOnly(true);
+        break;
     case Chat_Talk:         // 온 패킷의 타입이 대화이면
         message->append(QString(data));     // 온메시지를 화면에 표시
         inputLine->setEnabled(true);        // 버튼의 상태 변경

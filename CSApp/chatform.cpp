@@ -124,10 +124,19 @@ void ChatForm::receiveData( )
 
     qDebug() << ip << " : " << type;
 
-
-
     switch(type) {
     case Chat_Login:
+        qDebug() << ui->waittingRoomTreeWidget->findItems(name + "  ", Qt::MatchFixedString, 1).count();
+        if(ui->waittingRoomTreeWidget->findItems(name + "  ", Qt::MatchFixedString, 1).count() <= 0) {
+            return;
+        }   else {
+            QByteArray sendArray;
+            QDataStream out(&sendArray, QIODevice::WriteOnly);
+            out << Chat_logCheck;
+            out.writeRawData("", 1020);
+            clientConnection->write(sendArray);
+        }
+
         foreach(auto item, ui->waittingRoomTreeWidget->findItems(name + "  ", Qt::MatchFixedString, 1)) {
             if(item->text(1) != name + " ") {
                 item->setIcon(0, QIcon(":/icon_image/greenLight.png"));
