@@ -4,5 +4,10 @@
         <file>icon_image/greenLight.png</file>
         <file>icon_image/chatting.png</file>
         <file>icon_image/chatting1.png</file>
+        <file>icon_image/product.png</file>
+        <file>icon_image/client.png</file>
+        <file>icon_image/order.png</file>
+        <file>icon_image/Server.png</file>
+        <file>icon_image/quit.png</file>
     </qresource>
 </RCC>

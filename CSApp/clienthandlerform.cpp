@@ -203,6 +203,8 @@ void ClientHandlerForm::on_modifyPushButton_clicked()
     QList<QString> cinfo;
     cinfo << c->getName() << c->getPhoneNumber() << c->getAddress();
     emit clientModified(key, cinfo);
+    emit sendServerCModified(key, c->getName());
+
     for (int i = 0 ; i < 6; i++)    lineEidt[i]->clear();
 }
 

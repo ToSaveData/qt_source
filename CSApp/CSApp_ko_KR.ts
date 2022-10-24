@@ -173,6 +173,11 @@
         <translation>서버에 연결할 수 없습니다 : %1</translation>
     </message>
     <message>
+        <location filename="chatform.cpp" line="49"/>
+        <source>Start listening ...</source>
+        <translation>수신을 시작합니다...</translation>
+    </message>
+    <message>
         <location filename="chatform.cpp" line="51"/>
         <source>&amp;Invite</source>
         <translation>채팅방 초대</translation>
@@ -186,6 +191,26 @@
         <location filename="chatform.cpp" line="73"/>
         <source>The server is running on port %1.</source>
         <translation>서버가 포트에서 작동 중입니다 : %1</translation>
+    </message>
+    <message>
+        <location filename="chatform.cpp" line="129"/>
+        <source>new connection is established...</source>
+        <translation>새로운 연결에 성공했습니다...</translation>
+    </message>
+    <message>
+        <location filename="chatform.cpp" line="314"/>
+        <source>Connected, preparing to receive files!</source>
+        <translation>연결됨, 파일 수신 준비 중!</translation>
+    </message>
+    <message>
+        <location filename="chatform.cpp" line="322"/>
+        <source>Receiving file ...</source>
+        <translation>파일을 받는 중...</translation>
+    </message>
+    <message>
+        <location filename="chatform.cpp" line="368"/>
+        <source>%1 receive completed</source>
+        <translation>%1 수신을 완료했습니다</translation>
     </message>
 </context>
 <context>

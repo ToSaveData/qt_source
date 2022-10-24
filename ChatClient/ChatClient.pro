@@ -14,6 +14,9 @@ SOURCES += \
 
 HEADERS += \
     widget.h
+TRANSLATIONS += Widget_ko.ts
+CONFIG += lrelease
+CONFIG += embed_translations
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

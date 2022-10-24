@@ -49,6 +49,7 @@ CS_App::CS_App(QWidget *parent)
     connect(CForm, SIGNAL(modifyReturn(QList<QString>, int)), OForm, SLOT(modifyReturnClient(QList<QString>, int)));
     connect(PForm, SIGNAL(modifyReturn(QList<QString>, int)), OForm, SLOT(modifyReturnProduct(QList<QString>, int)));
     connect(ChattingForm, SIGNAL(reset()), CForm, SLOT(dataload()));
+    connect(CForm, SIGNAL(sendServerCModified(int, QString)), ChattingForm, SLOT(modifyClient(int, QString)));
 
     OForm->dataload();
     CForm->dataload();
@@ -57,6 +58,15 @@ CS_App::CS_App(QWidget *parent)
     ui->mdiArea->addSubWindow(PForm);
     ui->mdiArea->addSubWindow(OForm);
     ui->mdiArea->addSubWindow(ChattingForm);
+
+    ui->actiontr_ClientInformationForm->setIcon(QIcon(":/icon_image/client.png"));
+
+    ui->actiontr_ProductInformationForm->setIcon(QIcon(":/icon_image/product.png"));
+    ui->actiontr_OrderInformationForm->setIcon(QIcon(":/icon_image/order.png"));
+    ui->actiontr_ChattingForm->setIcon(QIcon(":/icon_image/Server.png"));
+    ui->actiontr_quit->setIcon(QIcon(":/icon_image/quit.png"));
+    ui->toolBar->setIconSize(QSize(50, 50));
+
 }
 
 CS_App::~CS_App()

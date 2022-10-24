@@ -49,6 +49,7 @@ signals:
     void clientSize(int);
     void clientLoad(QList<int>, QList<QString>);
     void sendServer(QList<int>, QList<QString>);
+    void sendServerCModified(int, QString);
 };
 
 #endif // CLIENTHANDLERFORM_H

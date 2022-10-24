@@ -27,12 +27,12 @@ ChatForm::ChatForm(QWidget *parent) :
     ui->splitter->setSizes(sizes);
 
     chatServer = new QTcpServer(this);
-    connect(chatServer, SIGNAL(newConnection( )), SLOT(clientConnect( )));
+    connect(chatServer, SIGNAL(newConnection()), SLOT(clientConnect()));
     if (!chatServer->listen(QHostAddress::Any, PORT_NUMBER)) {
         QMessageBox::critical(this, tr("Chatting Server"), \
                               tr("Unable to start the server: %1.") \
-                              .arg(chatServer->errorString( )));
-        close( );
+                              .arg(chatServer->errorString()));
+        close();
         return;
     }
 
@@ -41,12 +41,12 @@ ChatForm::ChatForm(QWidget *parent) :
     if (!fileServer->listen(QHostAddress::Any, PORT_NUMBER+1)) {
         QMessageBox::critical(this, tr("Chatting Server"), \
                               tr("Unable to start the server: %1.") \
-                              .arg(fileServer->errorString( )));
-        close( );
+                              .arg(fileServer->errorString()));
+        close();
         return;
     }
 
-    qDebug("Start listening ...");
+    qDebug() << tr("Start listening ...");
 
     QAction* inviteAction = new QAction(tr("&Invite"));
     inviteAction->setObjectName("Invite");
@@ -70,7 +70,7 @@ ChatForm::ChatForm(QWidget *parent) :
 
     connect(ui->savePushButton, SIGNAL(clicked()), logThread, SLOT(saveData()));
 
-    qDebug() << tr("The server is running on port %1.").arg(chatServer->serverPort( ));
+    qDebug() << tr("The server is running on port %1.").arg(chatServer->serverPort());
 }
 
 ChatForm::~ChatForm()
@@ -78,8 +78,8 @@ ChatForm::~ChatForm()
     delete ui;
 
     logThread->terminate();
-    chatServer->close( );
-    fileServer->close( );
+    chatServer->close();
+    fileServer->close();
 }
 
 void ChatForm::addClient(QList<int> cIdInfo, QList<QString> cNameInfo)
@@ -96,17 +96,42 @@ void ChatForm::addClient(QList<int> cIdInfo, QList<QString> cNameInfo)
     }
 }
 
-void ChatForm::clientConnect( )
+void ChatForm::modifyClient(int id, QString name)
 {
-    QTcpSocket *clientConnection = chatServer->nextPendingConnection( );
-    connect(clientConnection, SIGNAL(readyRead( )), SLOT(receiveData( )));
-    connect(clientConnection, SIGNAL(disconnected( )), SLOT(removeClient()));
-    qDebug("new connection is established...");
+    QString lastName = clientIDHash.key(id);
+    clientIDHash[name] = id;
+    clientIDHash.remove(lastName);
+
+    Q_FOREACH(auto item, ui->chattingRoomTreeWidget->findItems(lastName, Qt::MatchFixedString, 1)) {
+        if(ui->chattingRoomTreeWidget->
+                findItems(lastName, Qt::MatchFixedString, 1).count() > 0)
+            ui->chattingRoomTreeWidget->
+                    takeTopLevelItem(ui->chattingRoomTreeWidget->indexOfTopLevelItem(item));
+    }
+    Q_FOREACH(auto item, ui->waittingRoomTreeWidget->findItems(lastName, Qt::MatchFixedString, 1)) {
+        if(ui->waittingRoomTreeWidget->
+                findItems(lastName, Qt::MatchFixedString, 1).count() > 0)
+            ui->waittingRoomTreeWidget->
+                    takeTopLevelItem(ui->waittingRoomTreeWidget->indexOfTopLevelItem(item));
+    }
+
+    QTreeWidgetItem *item = new QTreeWidgetItem;
+    item->setIcon(0, QIcon(":/icon_image/redLight.png"));
+    item->setText(1, name + "  ");
+    ui->waittingRoomTreeWidget->addTopLevelItem(item);
 }
 
-void ChatForm::receiveData( )
+void ChatForm::clientConnect()
 {
-    QTcpSocket *clientConnection = dynamic_cast<QTcpSocket *>(sender( ));
+    QTcpSocket *clientConnection = chatServer->nextPendingConnection();
+    connect(clientConnection, SIGNAL(readyRead()), SLOT(receiveData()));
+    connect(clientConnection, SIGNAL(disconnected()), SLOT(removeClient()));
+    qDebug() << tr("new connection is established...");
+}
+
+void ChatForm::receiveData()
+{
+    QTcpSocket *clientConnection = dynamic_cast<QTcpSocket *>(sender());
     QByteArray bytearray = clientConnection->read(BLOCK_SIZE);
 
     Chat_Status type;       // 채팅의 목적
@@ -126,7 +151,6 @@ void ChatForm::receiveData( )
 
     switch(type) {
     case Chat_Login:
-        qDebug() << ui->waittingRoomTreeWidget->findItems(name + "  ", Qt::MatchFixedString, 1).count();
         if(ui->waittingRoomTreeWidget->findItems(name + "  ", Qt::MatchFixedString, 1).count() <= 0) {
             return;
         }   else {
@@ -219,7 +243,7 @@ void ChatForm::receiveData( )
 
 void ChatForm::removeClient()
 {
-    QTcpSocket *clientConnection = dynamic_cast<QTcpSocket *>(sender( ));
+    QTcpSocket *clientConnection = dynamic_cast<QTcpSocket *>(sender());
 
     QString name = clientNameHash[clientConnection->peerPort()];
     foreach(auto item, ui->chattingRoomTreeWidget->findItems(name, Qt::MatchContains, 1)) {
@@ -241,8 +265,8 @@ void ChatForm::removeClient()
 
 void ChatForm::kickOut()
 {
-    QString name = ui->waittingRoomTreeWidget->currentItem()->text(1);
-    QTcpSocket* sock = clientSocketHash[name.left(3)];
+    QString name = ui->chattingRoomTreeWidget->currentItem()->text(1);
+    QTcpSocket* sock = clientSocketHash[name];
 
     QByteArray sendArray;
     QDataStream out(&sendArray, QIODevice::WriteOnly);
@@ -250,15 +274,17 @@ void ChatForm::kickOut()
     out.writeRawData("", 1020);
     sock->write(sendArray);
 
-    ui->waittingRoomTreeWidget->currentItem()->setIcon(0, QIcon(":/icon_image/greenLight.png"));
+    ui->chattingRoomTreeWidget->takeTopLevelItem(0);
+    QTreeWidgetItem *item = new QTreeWidgetItem;
+    item->setIcon(0, QIcon(":/icon_image/greenLight.png"));
+    item->setText(1, name + " ");
+    ui->waittingRoomTreeWidget->addTopLevelItem(item);
 }
 
 void ChatForm::inviteClient()
 {
-    if(ui->waittingRoomTreeWidget->topLevelItemCount()) {
-        QString name = ui->waittingRoomTreeWidget->currentItem()->text(1);
-
-
+    QString name = ui->waittingRoomTreeWidget->currentItem()->text(1).left(3);
+    if(ui->waittingRoomTreeWidget->currentItem()->text(1) == name + " ") {
         QByteArray sendArray;
         QDataStream out(&sendArray, QIODevice::WriteOnly);
         out << Chat_Invite;
@@ -270,10 +296,10 @@ void ChatForm::inviteClient()
         quint16 port = sock->peerPort();
         clientNameHash[port] = name.left(3);
 
-        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name, Qt::MatchFixedString, 1)) {
-            if(item->text(1) != name.left(3)) {
+        foreach(auto item, ui->waittingRoomTreeWidget->findItems(name + " ", Qt::MatchFixedString, 1)) {
+            if(item->text(1) != name) {
                 item->setIcon(0, QIcon(":/icon_image/chatting1.png"));
-                item->setText(1, name.left(3));
+                item->setText(1, name);
                 int index = ui->waittingRoomTreeWidget->indexOfTopLevelItem(item);
                 ui->waittingRoomTreeWidget->takeTopLevelItem(index);
                 ui->chattingRoomTreeWidget->addTopLevelItem(item);
@@ -285,7 +311,7 @@ void ChatForm::inviteClient()
 /* 파일 전송 */
 void ChatForm::acceptConnection()
 {
-    qDebug("Connected, preparing to receive files!");
+    qDebug() << tr("Connected, preparing to receive files!");
 
     QTcpSocket* receivedSocket = fileServer->nextPendingConnection();
     connect(receivedSocket, SIGNAL(readyRead()), this, SLOT(readClient()));
@@ -293,8 +319,8 @@ void ChatForm::acceptConnection()
 
 void ChatForm::readClient()
 {
-    qDebug("Receiving file ...");
-    QTcpSocket* receivedSocket = dynamic_cast<QTcpSocket *>(sender( ));
+    qDebug() << tr("Receiving file ...");
+    QTcpSocket* receivedSocket = dynamic_cast<QTcpSocket *>(sender());
     QString filename, name;
 
     if (byteReceived == 0) { // just started to receive data, this data is file information
@@ -339,7 +365,7 @@ void ChatForm::readClient()
     progressDialog->setValue(byteReceived);
 
     if (byteReceived == totalSize) {
-        qDebug() << QString("%1 receive completed").arg(filename);
+        qDebug() << QString(tr("%1 receive completed")).arg(filename);
 
         inBlock.clear();
         byteReceived = 0;
@@ -353,8 +379,7 @@ void ChatForm::readClient()
 
 void ChatForm::on_waittingRoomTreeWidget_customContextMenuRequested(const QPoint &pos)
 {
-    if(ui->waittingRoomTreeWidget->currentItem() != nullptr)
-    {
+    if(ui->waittingRoomTreeWidget->currentItem() == nullptr)    return;
     QString name = ui->waittingRoomTreeWidget->currentItem()->text(1).left(3);
     foreach(QAction *action, menu->actions()) {
         if(action->objectName() == "Invite")
@@ -364,14 +389,12 @@ void ChatForm::on_waittingRoomTreeWidget_customContextMenuRequested(const QPoint
     }
     QPoint globalPos = ui->waittingRoomTreeWidget->mapToGlobal(pos);
     menu->exec(globalPos);
-    }
 }
 
 
 void ChatForm::on_chattingRoomTreeWidget_customContextMenuRequested(const QPoint &pos)
 {
-    if(ui->chattingRoomTreeWidget->currentItem() != nullptr)
-    {
+    if(ui->chattingRoomTreeWidget->currentItem() == nullptr)    return;
     QString name = ui->chattingRoomTreeWidget->currentItem()->text(1);
     foreach(QAction *action, menu->actions()) {
         if(action->objectName() == "Invite")
@@ -381,7 +404,7 @@ void ChatForm::on_chattingRoomTreeWidget_customContextMenuRequested(const QPoint
     }
     QPoint globalPos = ui->waittingRoomTreeWidget->mapToGlobal(pos);
     menu->exec(globalPos);
-    }
+
 }
 
 void ChatForm::on_resetPushButton_clicked()
@@ -389,4 +412,3 @@ void ChatForm::on_resetPushButton_clicked()
     ui->waittingRoomTreeWidget->clear();
     emit reset();
 }
-

@@ -34,13 +34,13 @@ Widget::Widget(QWidget *parent) : QWidget(parent), isSent(false) {
                           "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\."
                           "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
     QRegularExpressionValidator validator(re);
-    serverAddress->setPlaceholderText("Server IP Address");
+    serverAddress->setPlaceholderText(tr("Server IP Address"));
     serverAddress->setValidator(&validator);
 
     serverPort = new QLineEdit(this);
     serverPort->setText(QString::number(PORT_NUMBER));
     serverPort->setInputMask("00000;_");
-    serverPort->setPlaceholderText("Server Port No");
+    serverPort->setPlaceholderText(tr("Server Port No"));
 
     connectButton = new QPushButton(tr("Log In"), this);
     connect(name, SIGNAL(returnPressed()), connectButton, SIGNAL(clicked()));
@@ -57,11 +57,11 @@ Widget::Widget(QWidget *parent) : QWidget(parent), isSent(false) {
 
     // 서버로 보낼 메시지를 위한 위젯들
     inputLine = new QLineEdit(this);
-    connect(inputLine, SIGNAL(returnPressed( )), SLOT(sendData( )));
-    connect(inputLine, SIGNAL(returnPressed( )), inputLine, SLOT(clear( )));
-    sentButton = new QPushButton("Send", this);
-    connect(sentButton, SIGNAL(clicked( )), SLOT(sendData( )));
-    connect(sentButton, SIGNAL(clicked( )), inputLine, SLOT(clear( )));
+    connect(inputLine, SIGNAL(returnPressed()), SLOT(sendData()));
+    connect(inputLine, SIGNAL(returnPressed()), inputLine, SLOT(clear()));
+    sentButton = new QPushButton(tr("Send"), this);
+    connect(sentButton, SIGNAL(clicked()), SLOT(sendData()));
+    connect(sentButton, SIGNAL(clicked()), inputLine, SLOT(clear()));
     inputLine->setDisabled(true);
     sentButton->setDisabled(true);
 
@@ -69,13 +69,13 @@ Widget::Widget(QWidget *parent) : QWidget(parent), isSent(false) {
     inputLayout->addWidget(inputLine);
     inputLayout->addWidget(sentButton);
 
-    fileButton = new QPushButton("File Transfer", this);
-    connect(fileButton, SIGNAL(clicked( )), SLOT(sendFile( )));
+    fileButton = new QPushButton(tr("File Transfer"), this);
+    connect(fileButton, SIGNAL(clicked()), SLOT(sendFile()));
     fileButton->setDisabled(true);
 
     // 종료 기능
-    QPushButton* quitButton = new QPushButton("Log Out", this);
-    connect(quitButton, SIGNAL(clicked( )), qApp, SLOT(quit( )));
+    QPushButton* quitButton = new QPushButton(tr("Log Out"), this);
+    connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
 
     QHBoxLayout *buttonLayout = new QHBoxLayout;
     buttonLayout->addWidget(fileButton);
@@ -92,14 +92,14 @@ Widget::Widget(QWidget *parent) : QWidget(parent), isSent(false) {
     /* 채팅을 위한 소켓 */
     clientSocket = new QTcpSocket(this);			// 클라이언트 소켓 생성
     connect(clientSocket, &QAbstractSocket::errorOccurred,
-            [=]{ qDebug( ) << clientSocket->errorString( ); });
-    connect(clientSocket, SIGNAL(readyRead( )), SLOT(receiveData( )));
-    connect(clientSocket, SIGNAL(disconnected( )), SLOT(disconnect( )));
+            [=]{ qDebug() << clientSocket->errorString(); });
+    connect(clientSocket, SIGNAL(readyRead()), SLOT(receiveData()));
+    connect(clientSocket, SIGNAL(disconnected()), SLOT(disconnect()));
 
     /* 파일 전송을 위한 소켓 */
     fileClient = new QTcpSocket(this);
     connect(fileClient, SIGNAL(bytesWritten(qint64)), SLOT(goOnSend(qint64)));
-    //    connect(fileClient, SIGNAL(disconnected( )), fileClient, SLOT(deletelater( )));
+    //    connect(fileClient, SIGNAL(disconnected()), fileClient, SLOT(deletelater()));
 
     progressDialog = new QProgressDialog(0);
     progressDialog->setAutoClose(true);
@@ -110,9 +110,9 @@ Widget::Widget(QWidget *parent) : QWidget(parent), isSent(false) {
     setWindowTitle(tr("Chat Client"));
 }
 
-Widget::~Widget( )
+Widget::~Widget()
 {
-    clientSocket->close( );
+    clientSocket->close();
     QSettings settings("ChatClient", "Chat Client");
     settings.setValue("ChatClient/ID", name->text());
 }
@@ -122,8 +122,8 @@ void Widget::connectButtonClicked()
 //    QString clientName = name->text();
 //    Q_FOREACH(auto i, )
     if(connectButton->text() == tr("Log In")) {
-        clientSocket->connectToHost(serverAddress->text( ),
-                                    serverPort->text( ).toInt( ));
+        clientSocket->connectToHost(serverAddress->text(),
+                                    serverPort->text().toInt());
         clientSocket->waitForConnected();
         sendProtocol(Chat_Login, name->text().toStdString().data());
         name->clearFocus();
@@ -153,10 +153,10 @@ void Widget::closeEvent(QCloseEvent*)
 }
 
 /* 데이터를 받을 때 */
-void Widget::receiveData( )
+void Widget::receiveData()
 {
-    QTcpSocket *clientSocket = dynamic_cast<QTcpSocket *>(sender( ));
-    if (clientSocket->bytesAvailable( ) > BLOCK_SIZE) return;
+    QTcpSocket *clientSocket = dynamic_cast<QTcpSocket *>(sender());
+    if (clientSocket->bytesAvailable() > BLOCK_SIZE) return;
     QByteArray bytearray = clientSocket->read(BLOCK_SIZE);
 
     Chat_Status type;       // 채팅의 목적
@@ -182,10 +182,11 @@ void Widget::receiveData( )
     case Chat_KickOut:      // 강퇴면
         QMessageBox::critical(this, tr("Chatting Client"), \
                               tr("Kick out from Server"));
-        inputLine->setDisabled(true);       // 버튼의 상태 변경
+        connectButton->setText(tr("Chat in"));  // 채팅방에 다시 들어갈 수 있도록 설정
+        inputLine->setDisabled(true);           // 버튼의 상태 변경
         sentButton->setDisabled(true);
         fileButton->setDisabled(true);
-        name->setReadOnly(false);           // 메시지 입력 불가
+        name->setReadOnly(false);               // 메시지 입력 불가
         break;
     case Chat_Invite:       // 초대면
         QMessageBox::information(this, tr("Chatting Client"), \
@@ -200,7 +201,7 @@ void Widget::receiveData( )
 }
 
 /* 연결이 끊어졌을 때 : 상태 변경 */
-void Widget::disconnect( )
+void Widget::disconnect()
 {
     QMessageBox::critical(this, tr("Chatting Client"), \
                           tr("Disconnect from Server"));
@@ -231,12 +232,12 @@ void Widget::sendProtocol(Chat_Status type, char* data, int size)
 /* 메시지 보내기 */
 void Widget::sendData(  )
 {
-    QString str = inputLine->text( );
-    if(str.length( )) {
+    QString str = inputLine->text();
+    if(str.length()) {
         QByteArray bytearray;
-        bytearray = str.toUtf8( );
+        bytearray = str.toUtf8();
         /* 화면에 표시 : 앞에 '나'라고 추가 */
-        message->append("<font color=red>나</font> : " + str);
+        message->append("<font color=red>" + tr("me") + "</font> : " + str);
         sendProtocol(Chat_Talk, bytearray.data());
     }
 }
@@ -252,7 +253,7 @@ void Widget::goOnSend(qint64 numBytes) // Start sending file content
     progressDialog->setValue(totalSize-byteToWrite);
 
     if (byteToWrite == 0) { // Send completed
-        qDebug("File sending completed!");
+        qDebug() << tr("File sending completed!");
         progressDialog->reset();
     }
 }
@@ -270,12 +271,12 @@ void Widget::sendFile() // Open the file and get the file name (including path)
         file = new QFile(filename);
         file->open(QFile::ReadOnly);
 
-        qDebug() << QString("file %1 is opened").arg(filename);
+        qDebug() << QString(tr("file %1 is opened")).arg(filename);
         progressDialog->setValue(0); // Not sent for the first time
 
         if (!isSent) { // Only the first time it is sent, it happens when the connection generates the signal connect
-            fileClient->connectToHost(serverAddress->text( ),
-                                      serverPort->text( ).toInt( ) + 1);
+            fileClient->connectToHost(serverAddress->text(),
+                                      serverPort->text().toInt() + 1);
             isSent = true;
         }
 
@@ -299,5 +300,5 @@ void Widget::sendFile() // Open the file and get the file name (including path)
         progressDialog->setValue(totalSize-byteToWrite);
         progressDialog->show();
     }
-    qDebug() << QString("Sending file %1").arg(filename);
+    qDebug() << QString(tr("Sending file %1")).arg(filename);
 }
