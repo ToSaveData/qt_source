@@ -5,57 +5,61 @@
 #include <QTableWidgetItem>
 #include <QComboBox>
 
-ProductHandlerForm::ProductHandlerForm(QWidget *parent) :
+ProductHandlerForm::ProductHandlerForm(QWidget *parent) :                   //생성자
     QWidget(parent),
     Pui(new Ui::ProductHandlerForm)
 {
-    Pui->setupUi(this);
-    QFile file("productinfo.txt");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    Pui->setupUi(this);                                                     //UI 생성
+    QFile file("productinfo.txt");                                          //파일 입력을 위한 파일 생성
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))                  //파일 열기 예외처리
         return;
 
-    QVector<QTableWidget*> table;
-    table << Pui->tableWidget1 << Pui->tableWidget2 << Pui->tableWidget4 << Pui->tableWidget5;
+    QVector<QTableWidget*> table;                                           //입력이 필요한 테이블 위젯 모음
+    table << Pui->tableWidget1 << Pui->tableWidget2
+          << Pui->tableWidget4 << Pui->tableWidget5;
 
     QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        QList<QString> row = line.split(", ");
-        if(row.size())
+    while (!in.atEnd()) {                                                   //스트림의 끝까지 반복
+        QString line = in.readLine();                                       //스트림을 한 줄씩 읽음
+        QList<QString> row = line.split(", ");                              //", "를 기준으로 줄을 나눔
+        if(row.size())                                                      //row에 데이터가 있을 경우
         {
-            int id = row[0].toInt();
-            int price = row[2].toInt();
-            ProductInformaiton* p = new ProductInformaiton(id, row[1], price, row[3]);
-            for(int x = 0; x < 4; x++)
+            int id = row[0].toInt();                                        //id는 int형이므로 따로 저장
+            int price = row[2].toInt();                                     //가격은 int형이므로 따로 저장
+            ProductInformaiton* p = new ProductInformaiton(id, row[1],      //제품 정보 객체 조립
+                                                        price, row[3]);
+            for(int x = 0; x < 4; x++)                                      //테이블 위젯의 갯수만큼 반복
             {
-                table[x]->setRowCount(table[x]->rowCount()+1);
-                table[x]->setItem(table[x]->rowCount()-1, 0, new QTableWidgetItem(QString::number(id)));
-                for (int i = 0 ; i < 3; i++)
+                table[x]->setRowCount(table[x]->rowCount()+1);              //테이블의 행을 한 줄 늘림
+                table[x]->setItem(table[x]->rowCount()-1, 0,                //현재 행의 0열에 id 삽입
+                                  new QTableWidgetItem(QString::number(id)));
+                for (int i = 0 ; i < 3; i++)                                //테이블 위젯의 열의 갯수만큼 반복
                 {
-                    table[x]->setItem(table[x]->rowCount()-1, i+1, new QTableWidgetItem(row[i+1]));
+                    table[x]->setItem(table[x]->rowCount()-1, i+1,
+                                      new QTableWidgetItem(row[i+1]));
                 }
             }
-            productInfo.insert(id, p);
+            productInfo.insert(id, p);                                      //제품 정보를 id를 키로 저장
         }
     }
-    file.close( );
+    file.close( );                                                          //파일 입력 종료
 }
 
-ProductHandlerForm::~ProductHandlerForm()
+ProductHandlerForm::~ProductHandlerForm()                                   //소멸자
 {
-    QFile file("productinfo.txt");
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+    QFile file("productinfo.txt");                                          //파일 출력을 위한 파일 생성
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))                 //파일 열기 예외처리
         return;
 
     QTextStream out(&file);
-    Q_FOREACH(const auto& v, productInfo)
-    {
+    Q_FOREACH(const auto& v, productInfo)                                   //저장된 모든 고객 정보를
+    {                                                                       //", "를 기준으로 분리
         ProductInformaiton* p = v;
         out << productInfo.key(p) << ", " << p->getProductName() << ", ";
         out << p->getProductPrice() << ", " << p->getProductSort() << "\n";
     }
-    file.close();
-    delete Pui;
+    file.close();                                                           //파일 출력 종료
+    delete Pui;                                                             //생성자에서 만든 포인터 객체 소멸
 }
 
 int ProductHandlerForm::makepid()

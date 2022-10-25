@@ -3,7 +3,7 @@
 #include "clienthandlerform.h"
 #include "producthandlerform.h"
 #include "orderhandlerform.h"
-#include "chatform.h"
+#include "chatserverform.h"
 #include <QMdiSubWindow>
 #include <QMap>
 
@@ -21,7 +21,7 @@ CS_App::CS_App(QWidget *parent)
     OForm = new OrderHandlerForm();
     OForm->setWindowTitle(tr("OrderInformationHandlerForm"));
 
-    ChattingForm = new ChatForm();
+    ChattingForm = new ChatServerForm();
     ChattingForm->setWindowTitle(tr("ChattingServerForm"));
 
     connect(CForm, SIGNAL(clientAdded(int)), OForm, SLOT(clientAdded()));
@@ -73,7 +73,6 @@ CS_App::~CS_App()
 {
     delete ui;
 }
-
 
 
 void CS_App::on_actiontr_ClientInformationForm_triggered()

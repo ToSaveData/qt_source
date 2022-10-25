@@ -27,6 +27,16 @@ public slots:
     void clientModified(int, QList<QString>);
     void productModified(int, QList<QString>);
 
+signals:
+    void orderAddedClient(int);
+    void orderAddedProduct(int);
+    void orderSearchedClient(int);
+    void orderSearchedProduct(int);
+    void orderModifiedClient(int, int);
+    void orderModifiedProduct(int, int);
+    void clientComboBox(QComboBox*, QComboBox*);
+    void productComboBox(QComboBox*, QComboBox*);
+
 private slots:
     void addReturnClient(QList<QString>);
     void addReturnProduct(QList<QString>);
@@ -40,16 +50,6 @@ private slots:
     void on_searchPushButton_clicked();
     void on_removePushButton_clicked();
     void on_modifyPushButton_clicked();
-
-signals:
-    void orderAddedClient(int);
-    void orderAddedProduct(int);
-    void orderSearchedClient(int);
-    void orderSearchedProduct(int);
-    void orderModifiedClient(int, int);
-    void orderModifiedProduct(int, int);
-    void clientComboBox(QComboBox*, QComboBox*);
-    void productComboBox(QComboBox*, QComboBox*);
 
 private:
     Ui::OrderHandlerForm *Oui;

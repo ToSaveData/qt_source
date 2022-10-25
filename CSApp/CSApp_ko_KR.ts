@@ -4,47 +4,47 @@
 <context>
     <name>CS_App</name>
     <message>
-        <location filename="cs_app.ui" line="20"/>
+        <location filename="cs_app.ui" line="23"/>
         <source>CS_App</source>
         <translation>고객 상품 관리 프로그램</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="65"/>
+        <location filename="cs_app.ui" line="71"/>
         <source>tr(&quot;menu&quot;)</source>
         <translation>메뉴</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="69"/>
+        <location filename="cs_app.ui" line="75"/>
         <source>tr(&quot;formManagement&quot;)</source>
         <translation>폼 관리</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="85"/>
+        <location filename="cs_app.ui" line="94"/>
         <source>toolBar</source>
         <translation>도구 바</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="108"/>
+        <location filename="cs_app.ui" line="120"/>
         <source>tr(&quot;ClientInformationForm&quot;)</source>
         <translation>고객 정보 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="113"/>
+        <location filename="cs_app.ui" line="125"/>
         <source>tr(&quot;ProductInformationForm&quot;)</source>
         <translation>상품 정보 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="118"/>
+        <location filename="cs_app.ui" line="130"/>
         <source>tr(&quot;OrderInformationForm&quot;)</source>
         <translation>주문 정보 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="123"/>
+        <location filename="cs_app.ui" line="135"/>
         <source>tr(&quot;quit&quot;)</source>
         <translation>종료</translation>
     </message>
     <message>
-        <location filename="cs_app.ui" line="128"/>
+        <location filename="cs_app.ui" line="140"/>
         <source>tr(&quot;ChattingForm&quot;)</source>
         <translation>서버 관리 폼</translation>
     </message>
@@ -76,141 +76,286 @@
 <context>
     <name>ChatForm</name>
     <message>
-        <location filename="chatform.ui" line="14"/>
+        <source>tr(&quot;waitting room&quot;)</source>
+        <translation type="obsolete">대기실</translation>
+    </message>
+    <message>
+        <source>tr(&quot;Client status&quot;)</source>
+        <translation type="obsolete">접속 여부</translation>
+    </message>
+    <message>
+        <source>tr(&quot;Client list&quot;)</source>
+        <translation type="obsolete">고객 목록</translation>
+    </message>
+    <message>
+        <source>tr(&quot;chatting room&quot;)</source>
+        <translation type="obsolete">채팅방</translation>
+    </message>
+    <message>
+        <source>tr(&quot;ClientListReset&quot;)</source>
+        <translation type="obsolete">고객 목록 초기화</translation>
+    </message>
+    <message>
+        <source>tr(&quot;chatting log&quot;)</source>
+        <translation type="obsolete">채팅 기록</translation>
+    </message>
+    <message>
+        <source>tr(&quot;Port&quot;)</source>
+        <translation type="obsolete">포트</translation>
+    </message>
+    <message>
+        <source>tr(&quot;ID&quot;)</source>
+        <translation type="obsolete">아이디</translation>
+    </message>
+    <message>
+        <source>tr(&quot;name&quot;)</source>
+        <translation type="obsolete">성명</translation>
+    </message>
+    <message>
+        <source>tr(&quot;message&quot;)</source>
+        <translation type="obsolete">메세지</translation>
+    </message>
+    <message>
+        <source>tr(&quot;time&quot;)</source>
+        <translation type="obsolete">시간</translation>
+    </message>
+    <message>
+        <source>tr(&quot;save&quot;)</source>
+        <translation type="obsolete">저장</translation>
+    </message>
+</context>
+<context>
+    <name>ChatServerForm</name>
+    <message>
+        <location filename="chatserverform.cpp" line="32"/>
+        <location filename="chatserverform.cpp" line="42"/>
+        <source>Chatting Server</source>
+        <translation>채팅 서버 폼</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.cpp" line="33"/>
+        <location filename="chatserverform.cpp" line="43"/>
+        <source>Unable to start the server: %1.</source>
+        <translation>서버에 연결할 수 없습니다 : %1</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.cpp" line="49"/>
+        <source>Start listening ...</source>
+        <translation>수신을 시작합니다...</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.cpp" line="51"/>
+        <source>&amp;Invite</source>
+        <translation>채팅방 초대</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.cpp" line="55"/>
+        <source>&amp;Kick out</source>
+        <translation>강퇴</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.cpp" line="73"/>
+        <source>The server is running on port %1.</source>
+        <translation>서버가 포트에서 작동 중입니다 : %1</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.cpp" line="129"/>
+        <source>new connection is established...</source>
+        <translation>새로운 연결에 성공했습니다...</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.cpp" line="314"/>
+        <source>Connected, preparing to receive files!</source>
+        <translation>연결됨, 파일 수신 준비 중!</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.cpp" line="322"/>
+        <source>Receiving file ...</source>
+        <translation>파일을 받는 중...</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.cpp" line="368"/>
+        <source>%1 receive completed</source>
+        <translation>%1 수신을 완료했습니다</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="14"/>
         <source>Form</source>
-        <translation>폼</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="41"/>
+        <source>tr(&quot;waitting room&quot;)</source>
+        <translation>대기실</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="55"/>
+        <location filename="chatserverform.ui" line="98"/>
+        <source>tr(&quot;Client status&quot;)</source>
+        <translation>접속 여부</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="60"/>
+        <location filename="chatserverform.ui" line="103"/>
+        <source>tr(&quot;Client list&quot;)</source>
+        <translation>고객 목록</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="84"/>
+        <source>tr(&quot;chatting room&quot;)</source>
+        <translation>채팅방</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="119"/>
+        <source>tr(&quot;ClientListReset&quot;)</source>
+        <translation>고객 목록 초기화</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="142"/>
+        <source>tr(&quot;chatting log&quot;)</source>
+        <translation>채팅 기록</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="150"/>
+        <source>IP</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="155"/>
+        <source>tr(&quot;Port&quot;)</source>
+        <translation>포트</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="160"/>
+        <source>tr(&quot;ID&quot;)</source>
+        <translation>아이디</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="165"/>
+        <source>tr(&quot;name&quot;)</source>
+        <translation>성명</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="170"/>
+        <source>tr(&quot;message&quot;)</source>
+        <translation>메세지</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="175"/>
+        <source>tr(&quot;time&quot;)</source>
+        <translation>시간</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="189"/>
+        <source>tr(&quot;save&quot;)</source>
+        <translation>저장</translation>
+    </message>
+</context>
+<context>
+    <name>ChatSeverForm</name>
+    <message>
+        <source>Form</source>
+        <translation type="vanished">폼</translation>
     </message>
     <message>
         <source>tr(&quot;Client List&quot;)</source>
         <translation type="vanished">고객 목록</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="41"/>
         <source>tr(&quot;waitting room&quot;)</source>
-        <translation>대기실</translation>
+        <translation type="vanished">대기실</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="55"/>
-        <location filename="chatform.ui" line="98"/>
         <source>tr(&quot;Client status&quot;)</source>
-        <translation>접속 여부</translation>
+        <translation type="vanished">접속 여부</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="60"/>
-        <location filename="chatform.ui" line="103"/>
         <source>tr(&quot;Client list&quot;)</source>
-        <translation>고객 목록</translation>
+        <translation type="vanished">고객 목록</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="84"/>
         <source>tr(&quot;chatting room&quot;)</source>
-        <translation>채팅방</translation>
+        <translation type="vanished">채팅방</translation>
     </message>
     <message>
         <source>tr(&quot;new chat&quot;)</source>
         <translation type="vanished">새 채팅</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="121"/>
         <source>tr(&quot;ClientListReset&quot;)</source>
-        <translation>고객 목록 초기화</translation>
+        <translation type="vanished">고객 목록 초기화</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="146"/>
         <source>tr(&quot;chatting log&quot;)</source>
-        <translation>채팅 기록</translation>
+        <translation type="vanished">채팅 기록</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="154"/>
-        <source>IP</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="chatform.ui" line="159"/>
         <source>tr(&quot;Port&quot;)</source>
-        <translation>포트</translation>
+        <translation type="vanished">포트</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="164"/>
         <source>tr(&quot;ID&quot;)</source>
-        <translation>아이디</translation>
+        <translation type="vanished">아이디</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="169"/>
         <source>tr(&quot;name&quot;)</source>
-        <translation>성명</translation>
+        <translation type="vanished">성명</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="174"/>
         <source>tr(&quot;message&quot;)</source>
-        <translation>메세지</translation>
+        <translation type="vanished">메세지</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="179"/>
         <source>tr(&quot;time&quot;)</source>
-        <translation>시간</translation>
+        <translation type="vanished">시간</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="195"/>
         <source>tr(&quot;remove&quot;)</source>
-        <translation>삭제</translation>
+        <translation type="vanished">삭제</translation>
     </message>
     <message>
-        <location filename="chatform.ui" line="208"/>
         <source>tr(&quot;save&quot;)</source>
-        <translation>저장</translation>
+        <translation type="vanished">저장</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="32"/>
-        <location filename="chatform.cpp" line="42"/>
         <source>Chatting Server</source>
-        <translation>채팅 서버 폼</translation>
+        <translation type="vanished">채팅 서버 폼</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="33"/>
-        <location filename="chatform.cpp" line="43"/>
         <source>Unable to start the server: %1.</source>
-        <translation>서버에 연결할 수 없습니다 : %1</translation>
+        <translation type="vanished">서버에 연결할 수 없습니다 : %1</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="49"/>
         <source>Start listening ...</source>
-        <translation>수신을 시작합니다...</translation>
+        <translation type="vanished">수신을 시작합니다...</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="51"/>
         <source>&amp;Invite</source>
-        <translation>채팅방 초대</translation>
+        <translation type="vanished">채팅방 초대</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="55"/>
         <source>&amp;Kick out</source>
-        <translation>강퇴</translation>
+        <translation type="vanished">강퇴</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="73"/>
         <source>The server is running on port %1.</source>
-        <translation>서버가 포트에서 작동 중입니다 : %1</translation>
+        <translation type="vanished">서버가 포트에서 작동 중입니다 : %1</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="129"/>
         <source>new connection is established...</source>
-        <translation>새로운 연결에 성공했습니다...</translation>
+        <translation type="vanished">새로운 연결에 성공했습니다...</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="314"/>
         <source>Connected, preparing to receive files!</source>
-        <translation>연결됨, 파일 수신 준비 중!</translation>
+        <translation type="vanished">연결됨, 파일 수신 준비 중!</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="322"/>
         <source>Receiving file ...</source>
-        <translation>파일을 받는 중...</translation>
+        <translation type="vanished">파일을 받는 중...</translation>
     </message>
     <message>
-        <location filename="chatform.cpp" line="368"/>
         <source>%1 receive completed</source>
-        <translation>%1 수신을 완료했습니다</translation>
+        <translation type="vanished">%1 수신을 완료했습니다</translation>
     </message>
 </context>
 <context>

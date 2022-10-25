@@ -1,15 +1,27 @@
 #include "orderinformaiton.h"
 
-OrderInformaiton::OrderInformaiton(int oid, QString orderDate, int orderNumber, int cid, int pid)
+OrderInformaiton::OrderInformaiton                              //생성자
+(int oid, QString orderDate, int orderNumber, int cid, int pid)
     : m_OID(oid), m_orderDate(orderDate), m_orderNumber(orderNumber),
-m_CID(cid), m_PID(pid)
-{}
+      m_CID(cid), m_PID(pid)    {}
 
-QString OrderInformaiton::getOrderDate() { return m_orderDate; } //주문일자 반환
+QString OrderInformaiton::getOrderDate()                        //주문 일자 반환
+{
+    return m_orderDate;
+}
 
-int OrderInformaiton::getOrderNumber() { return m_orderNumber; } //주문수량 반환
+int OrderInformaiton::getOrderNumber()                          //주문 수량 반환
+{
+    return m_orderNumber;
+}
 
-int OrderInformaiton::getCID() { return m_CID; } //고객 전화번호(Client 클래스 PK) 반환
+int OrderInformaiton::getCID()                                  //고객 ID(ClientInformation 클래스 PK) 반환
+{
+    return m_CID;
+}
 
-int OrderInformaiton::getPID() { return m_PID; } //제품ID(Product클래스 PK) 반환
+int OrderInformaiton::getPID()                                  //제품 ID(ProductInformation 클래스 PK) 반환
+{
+    return m_PID;
+}
 
