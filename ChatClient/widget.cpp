@@ -287,12 +287,16 @@ void Widget::sendFile() // Open the file and get the file name (including path)
 
         QDataStream out(&outBlock, QIODevice::WriteOnly);
         out << qint64(0) << qint64(0) << filename << name->text();
+        /*qint64 자료형만큼 앞에 넣어뒀으니*/
 
         totalSize += outBlock.size(); // The total size is the file size plus the size of the file name and other information
         byteToWrite += outBlock.size();
+        /*qint64 자료형을 채워주고*/
 
         out.device()->seek(0); // Go back to the beginning of the byte stream to write a qint64 in front, which is the total size and file name and other information size
+        /*seek(0)으로 해서 파일의 처음으로 포인터 옮기고*/
         out << totalSize << qint64(outBlock.size());
+        /*qint64 자료형을 순차적으로 채우면 딱 맞게 들어감*/
 
         fileClient->write(outBlock); // Send the read file to the socket
 

@@ -9,7 +9,7 @@ ClientHandlerForm::ClientHandlerForm(QWidget *parent) :     //생성자
     QWidget(parent),
     Cui(new Ui::ClientHandlerForm)
 {
-    Cui->setupUi(this);                                     //UI 생성
+    Cui->setupUi(this);                                     //현재 클래스에 UI를 세팅
 
     QFile file("clientinfo.txt");                           //파일 입력을 위한 파일 생성
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))  //파일 열기 예외처리
@@ -42,7 +42,7 @@ ClientHandlerForm::ClientHandlerForm(QWidget *parent) :     //생성자
                 }
             }
 
-            clientInfo.insert(id, c);                       //고객 정보를 id를 키로 저장
+            clientInfo.insert(id, c);                       //고객 정보를 id 와 키로 저장
         }
     }
     file.close( );                                          //파일 입력 종료
@@ -77,6 +77,7 @@ void ClientHandlerForm::dataload()                          //서버 클래스�
         cIdList << key;                                     //고객 ID 저장
     }
 
+
     emit clientLoad(cIdList, cNameList);                    //서버 클래스의 고객 목록 입력에 필요한 시그널 방출
 }
 
@@ -88,7 +89,7 @@ int ClientHandlerForm::makecid()                            //고객 ID를 생�
 
 void ClientHandlerForm::setClientComboBox(QComboBox* CidBox, QComboBox* CinfoBox)
 {                                                           //주문 정보 클래스의 고객 정보 콤보박스 채우기
-    Q_FOREACH(auto i, clientInfo)                           //고객 정보의 수만큼 반복
+    Q_FOREACH(auto i, clientInfo)                           //저장된 고객 정보의 수만큼 반복
     {
         int key = clientInfo.key(i);                        //고객 id 추출
         QString name = clientInfo[key]->getName();          //고객 성명 추출
@@ -114,6 +115,7 @@ void ClientHandlerForm::on_enrollPushButton_clicked()           //등록 버튼 
              << Cui->emailLineEdit1;
     int key = makecid();                                        //고객 ID 생성
     int row = Cui->tableWidget1->rowCount();                    //입력돼야 하는 행 저장
+
     for(int x = 0; x < 4; x++)                                  //테이블 위젯 갯수만큼 반복
     {
         table[x]->setRowCount(table[x]->rowCount()+1);          //입력될 새로운 행 추가
@@ -236,13 +238,13 @@ void ClientHandlerForm::on_modifyPushButton_clicked()           //수정 버튼�
 
 void ClientHandlerForm::on_tableWidget5_itemClicked(QTableWidgetItem *item) //수정할 고객 정보를 선택했을 경우
 {
-    QVector<QLineEdit*> lineEidt;                                           //현재 고객정보를 대입할 LineEdit 위젯 저장
+    QVector<QLineEdit*> lineEidt;                                           //현재 고객 정보를 대입할 LineEdit 위젯 저장
     lineEidt << Cui->idLineEdit << Cui->nameLineEdit2
              << Cui->birthdayLineEdit2 << Cui->phoneNumLineEdit2
              << Cui->addressLineEdit2 << Cui->emailLineEdit2;
     item = Cui->tableWidget5->currentItem();                                //현재 선택된 아이템 저장
 
-    for(int i = 0; i < 6; i++)                                              //lineEdit 위젯의 갯수만큼 반복
+    for(int i = 0; i < 6; i++)                                              //lineEdit 위젯의 수만큼 반복
         lineEidt[i]->setText(Cui->tableWidget5->                            //각 lineEdit에 맞는 고객 정보 삽입
                              item(item->row(),i)->text());
     update();                                                               //lineEdit 상태 최신화
@@ -253,7 +255,7 @@ void ClientHandlerForm::orderAddedClient(int cid)                           //�
     QList<QString> cinfo;                                                   //고객 정보를 담을 배열
     cinfo << clientInfo[cid]->getName() << clientInfo[cid]->getPhoneNumber()
           << clientInfo[cid]->getAddress();
-    emit addReturn(cinfo);                                                  //담은 고객정보를 시그널로 방출
+    emit addReturn(cinfo);                                                  //담은 고객 정보를 시그널로 방출
 }
 
 void ClientHandlerForm::orderSearchedClient(int cid)                        //주문 정보 클래스에서 검색할 경우

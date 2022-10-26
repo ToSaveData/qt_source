@@ -66,7 +66,7 @@ CS_App::CS_App(QWidget *parent)
     ui->actiontr_ChattingForm->setIcon(QIcon(":/icon_image/Server.png"));
     ui->actiontr_quit->setIcon(QIcon(":/icon_image/quit.png"));
     ui->toolBar->setIconSize(QSize(50, 50));
-
+    ui->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 }
 
 CS_App::~CS_App()

@@ -92,7 +92,7 @@ void ChatServerForm::addClient(QList<int> cIdInfo, QList<QString> cNameInfo)
         item->setIcon(0, QIcon(":/icon_image/redLight.png"));
         item->setText(1, i + "  ");
         ui->waittingRoomTreeWidget->addTopLevelItem(item);
-        clientIDHash[i] = cIdInfo[cnt];
+        clientIDHash[i] = cIdInfo[cnt++];
         ui->waittingRoomTreeWidget->resizeColumnToContents(0);
     }
 }
@@ -208,7 +208,7 @@ void ChatServerForm::receiveData()
         item->setText(3, clientNameHash[port]);
         item->setText(4, QString(data));
         item->setText(5, QDateTime::currentDateTime().toString());
-        item->setToolTip(4, QString(data));
+        item->setToolTip(4, QString(data));                                     //메세지가 길 수 있으므로 툴팁으로 메세지 보여줌
         ui->logTreeWidget->addTopLevelItem(item);
 
         for(int i = 0; i < ui->logTreeWidget->columnCount(); i++)
@@ -342,7 +342,7 @@ void ChatServerForm::readClient()
         item->setText(3, name);
         item->setText(4, filename);
         item->setText(5, QDateTime::currentDateTime().toString());
-        item->setToolTip(4, filename);
+        item->setToolTip(4, filename);                                          //메세지가 길 수 있으므로 툴팁으로 메세지 보여줌
 
         for(int i = 0; i < ui->logTreeWidget->columnCount(); i++)
             ui->logTreeWidget->resizeColumnToContents(i);
@@ -352,10 +352,10 @@ void ChatServerForm::readClient()
         logThread->appendData(item);
 
         QFileInfo info(filename);
-        QString currentFileName = info.fileName();
+        QString currentFileName = info.fileName();                              //보안을 위해 절대경로 대신 파일 이름만 표시
         file = new QFile(currentFileName);
         file->open(QFile::WriteOnly);
-    } else { // Officially read the file content
+    } else { // Officially read the file content                                //넘어온 데이터에 대한 내용 처리
         inBlock = receivedSocket->readAll();
 
         byteReceived += inBlock.size();

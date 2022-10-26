@@ -6,61 +6,73 @@
 #include <QFile>
 #include <QComboBox>
 
-OrderHandlerForm::OrderHandlerForm(QWidget *parent) :
+OrderHandlerForm::OrderHandlerForm(QWidget *parent) :                       //생성자
     QWidget(parent),
     Oui(new Ui::OrderHandlerForm)
 {
-    Oui->setupUi(this);
+    Oui->setupUi(this);                                                     //현재 클래스에 UI를 세팅
 
-    QFile file("orderinfo.txt");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    QFile file("orderinfo.txt");                                            //파일 입력을 위한 파일 생성
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))                  //파일 열기 예외처리
         return;
 
     QTextStream in(&file);
-    QVector<QTableWidget*> table;
-    table << Oui->tableWidget2 << Oui->tableWidget4 << Oui->tableWidget5;
 
+    /*콤보박스에 "선택하세요" 항목 추가*/
     Oui->clientIDComboBox1->addItem(tr("select item"));
     Oui->clientInfoComboBox->addItem(tr("select item"));
     Oui->productIDComboBox1->addItem(tr("select item"));
     Oui->productInfoComboBox->addItem(tr("select item"));
 
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        QList<QString> row = line.split(", ");
-        if(row.size())
+    while (!in.atEnd()) {                                                   //스트림의 끝까지 반복
+        QString line = in.readLine();                                       //스트림을 한 줄씩 읽음
+        QList<QString> row = line.split(", ");                              //", "를 기준으로 줄을 나눔
+
+        QVector<QTableWidget*> table;                                       //입력이 필요한 테이블 위젯 모음
+        table << Oui->tableWidget2 << Oui->tableWidget4
+              << Oui->tableWidget5;
+        if(row.size())                                                      //row에 데이터가 있을 경우
         {
-            int oid = row[0].toInt();
+            /*스플릿 된 데이터를 각 자료형에 맞는 변수에 저장*/
+            int oId = row[0].toInt();
             QString date = row[1];
             int quantity = row[2].toInt();
             int cid = row[3].toInt();
             int pid = row[4].toInt();
-            OrderInformaiton* o = new OrderInformaiton(oid, date, quantity, cid, pid);
 
-            int itemRow = Oui->tableWidget1->rowCount();
-            Oui->tableWidget1->setRowCount(itemRow + 1);
-            Oui->tableWidget1->setItem(itemRow, 0, new QTableWidgetItem(QString::number(oid)));
+            OrderInformaiton* o = new OrderInformaiton                      //주문 정보 객체 조립
+                    (oId, date, quantity, cid, pid);
 
-            for (int i = 0 ; i < 4; i++)
+            int itemRow = Oui->tableWidget1->rowCount();                    //입력될 데이터의 행을 저장
+            Oui->tableWidget1->setRowCount(itemRow + 1);                    //테이블 위젯의 행을 한 줄 늘림
+            Oui->tableWidget1->setItem(itemRow, 0,                          //현재 행의 0열에 id 삽입
+                                       new QTableWidgetItem(QString::number(oId)));
+
+            for (int i = 0 ; i < 4; i++)                                    //테이블 위젯1의 열의 수만큼 반복
             {
-                Oui->tableWidget1->setItem(itemRow, i + 1, new QTableWidgetItem(row[i+1]));
+                Oui->tableWidget1->setItem(itemRow, i + 1,                  //각 열에 해당하는 정보 삽입
+                                           new QTableWidgetItem(row[i+1]));
             }
 
-            for(int x = 0; x < 3; x++)
+            /*현재 테이블 위젯에서 채워지지 않은 부분은 슬롯함수에서 채울 예정*/
+            for(int x = 0; x < 3; x++)                                      //입력이 필요한 테이블 위젯의 갯수만큼 반복
             {
                 table[x]->setRowCount(table[x]->rowCount()+1);
-                table[x]->setItem(itemRow, 0, new QTableWidgetItem(QString::number(oid)));
-                table[x]->setItem(itemRow, 1, new QTableWidgetItem(date));
-                table[x]->setItem(itemRow, 8, new QTableWidgetItem(QString::number(quantity)));
+                table[x]->setItem(itemRow, 0,
+                                  new QTableWidgetItem(QString::number(oId)));
+                table[x]->setItem(itemRow, 1,
+                                  new QTableWidgetItem(date));
+                table[x]->setItem(itemRow, 8,
+                                  new QTableWidgetItem(QString::number(quantity)));
             }
 
-            orderInfo.insert(oid, o);
+            orderInfo.insert(oId, o);                                       //주문 정보를 id를 키로 저장
         }
     }
-    file.close( );
+    file.close( );                                                          //파일 출력 종료
 }
 
-OrderHandlerForm::~OrderHandlerForm()
+OrderHandlerForm::~OrderHandlerForm()                                       //소멸자
 {
     QFile file("orderinfo.txt");
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
