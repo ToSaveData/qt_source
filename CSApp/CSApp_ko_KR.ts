@@ -53,7 +53,7 @@
         <translation type="vanished">서버 관리 폼</translation>
     </message>
     <message>
-        <location filename="cs_app.cpp" line="16"/>
+        <location filename="cs_app.cpp" line="17"/>
         <source>ClientInformationHandlerForm</source>
         <translation>고객 정보 관리</translation>
     </message>
@@ -63,12 +63,12 @@
         <translation>상품 정보 관리</translation>
     </message>
     <message>
-        <location filename="cs_app.cpp" line="22"/>
+        <location filename="cs_app.cpp" line="21"/>
         <source>OrderInformationHandlerForm</source>
         <translation>주문 정보 관리</translation>
     </message>
     <message>
-        <location filename="cs_app.cpp" line="25"/>
+        <location filename="cs_app.cpp" line="23"/>
         <source>ChattingServerForm</source>
         <translation>채팅 서버 폼</translation>
     </message>
@@ -154,34 +154,34 @@
         <translation>강퇴</translation>
     </message>
     <message>
-        <location filename="chatserverform.cpp" line="73"/>
+        <location filename="chatserverform.cpp" line="74"/>
         <source>The server is running on port %1.</source>
         <translation>서버가 포트에서 작동 중입니다 : %1</translation>
     </message>
     <message>
-        <location filename="chatserverform.cpp" line="129"/>
+        <location filename="chatserverform.cpp" line="130"/>
         <source>new connection is established...</source>
         <translation>새로운 연결에 성공했습니다...</translation>
     </message>
     <message>
-        <location filename="chatserverform.cpp" line="314"/>
+        <location filename="chatserverform.cpp" line="315"/>
         <source>Connected, preparing to receive files!</source>
         <translation>연결됨, 파일 수신 준비 중!</translation>
     </message>
     <message>
-        <location filename="chatserverform.cpp" line="322"/>
+        <location filename="chatserverform.cpp" line="323"/>
         <source>Receiving file ...</source>
         <translation>파일을 받는 중...</translation>
     </message>
     <message>
-        <location filename="chatserverform.cpp" line="368"/>
+        <location filename="chatserverform.cpp" line="369"/>
         <source>%1 receive completed</source>
         <translation>%1 수신을 완료했습니다</translation>
     </message>
     <message>
         <location filename="chatserverform.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>폼</translation>
     </message>
     <message>
         <location filename="chatserverform.ui" line="41"/>
@@ -246,7 +246,12 @@
         <translation>시간</translation>
     </message>
     <message>
-        <location filename="chatserverform.ui" line="189"/>
+        <location filename="chatserverform.ui" line="185"/>
+        <source>tr(&quot;clear&quot;)</source>
+        <translation>로그 비우기</translation>
+    </message>
+    <message>
+        <location filename="chatserverform.ui" line="198"/>
         <source>tr(&quot;save&quot;)</source>
         <translation>저장</translation>
     </message>
@@ -740,12 +745,12 @@
         <translation>수정</translation>
     </message>
     <message>
+        <location filename="orderhandlerform.cpp" line="22"/>
         <location filename="orderhandlerform.cpp" line="23"/>
         <location filename="orderhandlerform.cpp" line="24"/>
         <location filename="orderhandlerform.cpp" line="25"/>
-        <location filename="orderhandlerform.cpp" line="26"/>
-        <location filename="orderhandlerform.cpp" line="149"/>
-        <location filename="orderhandlerform.cpp" line="150"/>
+        <location filename="orderhandlerform.cpp" line="170"/>
+        <location filename="orderhandlerform.cpp" line="171"/>
         <source>select item</source>
         <translation>선택하세요</translation>
     </message>

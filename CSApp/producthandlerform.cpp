@@ -19,7 +19,8 @@ ProductHandlerForm::ProductHandlerForm(QWidget *parent) :                   //�
           << Pui->tableWidget4 << Pui->tableWidget5;
 
     QTextStream in(&file);
-    while (!in.atEnd()) {                                                   //스트림의 끝까지 반복
+    while (!in.atEnd())                                                     //스트림의 끝까지 반복
+    {
         QString line = in.readLine();                                       //스트림을 한 줄씩 읽음
         QList<QString> row = line.split(", ");                              //", "를 기준으로 줄을 나눔
         if(row.size())                                                      //row에 데이터가 있을 경우
@@ -30,7 +31,7 @@ ProductHandlerForm::ProductHandlerForm(QWidget *parent) :                   //�
                                                         price, row[3]);
             for(int x = 0; x < 4; x++)                                      //테이블 위젯의 갯수만큼 반복
             {
-                table[x]->setRowCount(table[x]->rowCount()+1);              //테이블의 행을 한 줄 늘림
+                table[x]->setRowCount(table[x]->rowCount()+1);              //테이블 위젯의 행을 한 줄 늘림
                 table[x]->setItem(table[x]->rowCount()-1, 0,                //현재 행의 0열에 id 삽입
                                   new QTableWidgetItem(QString::number(id)));
                 for (int i = 0 ; i < 3; i++)                                //테이블 위젯의 열의 갯수만큼 반복
@@ -87,7 +88,7 @@ void ProductHandlerForm::setProductComboBox(QComboBox* PidBox, QComboBox* PinfoB
 void ProductHandlerForm::on_enrollPushButton_clicked()                      //등록 버튼을 눌렀을 때
 {
     QVector<QTableWidget*> table;
-    table << Pui->tableWidget1 << Pui->tableWidget2                         //입력돼야 하는 테이블 4개 모음
+    table << Pui->tableWidget1 << Pui->tableWidget2                         //입력돼야 하는 테이블 위젯 모음
           << Pui->tableWidget4 << Pui->tableWidget5;
 
     QVector<QLineEdit*> lineEidt;
@@ -133,10 +134,10 @@ void ProductHandlerForm::on_searchPushButton_clicked()                      //�
           << productInfo[key]->getProductSort();
 
         int row = table->rowCount();                                        //테이블 위젯의 현재 행의 수 저장
-        table->setRowCount(table->rowCount()+1);                            //테이블에 데이터가 들어갈 행 생성
-        table->setItem(row, 0, new QTableWidgetItem(QString::number(key))); //제품id 테이블에 삽입
+        table->setRowCount(table->rowCount()+1);                            //테이블 위젯에 데이터가 들어갈 행 생성
+        table->setItem(row, 0, new QTableWidgetItem(QString::number(key))); //제품id를 테이블 위젯에 삽입
 
-        for(int i = 0; i < 3; i++)                                          //나머지 제품 정보 테이블에 삽입
+        for(int i = 0; i < 3; i++)                                          //나머지 제품 정보 테이블 위젯에 삽입
         {
             table->setItem(row, i+1, new QTableWidgetItem(v[i]));
         }

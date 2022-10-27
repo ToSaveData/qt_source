@@ -108,10 +108,10 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actiontr_ChattingForm"/>
    <addaction name="actiontr_ClientInformationForm"/>
    <addaction name="actiontr_ProductInformationForm"/>
    <addaction name="actiontr_OrderInformationForm"/>
+   <addaction name="actiontr_ChattingForm"/>
    <addaction name="separator"/>
    <addaction name="actiontr_quit"/>
   </widget>

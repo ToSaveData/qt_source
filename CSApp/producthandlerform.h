@@ -30,6 +30,11 @@ signals:
     void modifyReturn(QList<QString>, int);
     void productSize(int);
 
+private:
+    Ui::ProductHandlerForm *Pui;                                //UI
+    QMap<int, ProductInformaiton*> productInfo;                 //제품 ID를 key로 설정하여 제품 정보를 저장
+    int makepid();                                              //제품 ID를 생성하는 함수
+
 private slots:
     void on_enrollPushButton_clicked();                         //등록 버튼
     void on_searchPushButton_clicked();                         //검색 버튼
@@ -49,11 +54,6 @@ private slots:
 
     void setProductComboBox(QComboBox*, QComboBox*);            //주문 정보에 들어간 제품 정보 콤보박스의
                                                                 //데이터를 채우기 위한 슬롯 함수
-private:
-    Ui::ProductHandlerForm *Pui;                                //UI
-    QMap<int, ProductInformaiton*> productInfo;                 //제품 ID를 key로 설정하여 제품 정보를 저장
-    int makepid();                                              //제품 ID를 생성하는 함수
-
 };
 
 #endif // PRODUCTHANDLERFORM_H

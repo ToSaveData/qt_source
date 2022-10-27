@@ -14,7 +14,7 @@ SOURCES += \
 
 HEADERS += \
     widget.h
-#TRANSLATIONS += Widget_ko.ts
+TRANSLATIONS += Widget_ko.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 

@@ -50,6 +50,16 @@ signals:
 
     void sendServerCModified(int, QString);                     //수정된 고객 정보를 서버에
                                                                 //전달하는 시그널
+
+    void sendServerCRemoved(QString);                           //삭제된 고객 정보를 서버에
+                                                                //전달하는 시그널
+
+private:
+
+    Ui::ClientHandlerForm *Cui;                                 //UI
+    QMap<int, ClientInformaiton*> clientInfo;                   //고객 ID를 key로 설정하여 고객 정보를 저장
+    int makecid();                                              //고객 ID를 생성하는 함수
+
 private slots:
     void on_enrollPushButton_clicked();                         //등록 버튼
     void on_searchPushButton_clicked();                         //검색 버튼
@@ -70,14 +80,6 @@ private slots:
 
     void setClientComboBox(QComboBox*, QComboBox*);             //주문 정보에 들어간 고객 정보 콤보박스의
                                                                 //데이터를 채우기 위한 슬롯 함수
-
-private:
-
-    Ui::ClientHandlerForm *Cui;                                 //UI
-    QMap<int, ClientInformaiton*> clientInfo;                   //고객 ID를 key로 설정하여 고객 정보를 저장
-    int makecid();                                              //고객 ID를 생성하는 함수
-
-
 };
 
 #endif // CLIENTHANDLERFORM_H
