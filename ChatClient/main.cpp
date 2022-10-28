@@ -1,4 +1,4 @@
-#include "widget.h"
+#include "chatclient.h"
 
 #include <QApplication>
 #include <QLocale>
@@ -9,10 +9,10 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     QTranslator translator;
-    translator.load("Widget_ko");
+    translator.load("ChatClient_ko");
     a.installTranslator(&translator);
 
-    Widget w;
+    ChatClient w;
     w.show();
     return a.exec();
 }

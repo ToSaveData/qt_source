@@ -233,8 +233,8 @@ void ChatServerForm::receiveData()                                           //�
     QTcpSocket *clientConnection = dynamic_cast<QTcpSocket *>(sender());     //클라이언트 소켓을 sender로 설정
     QByteArray bytearray = clientConnection->read(BLOCK_SIZE);               //소켓의 데이터를 blocksize(1024)만큼 read
 
-    Chat_Status type;                                                        // 채팅의 목적
-    char data[1020];                                                         // 전송되는 메시지/데이터
+    Chat_Status type;                                                        //채팅의 목적
+    char data[1020];                                                         //전송되는 메시지/데이터
     memset(data, 0, 1020);                                                   //쓰레기 값을 0으로 초기화
 
 
@@ -303,7 +303,7 @@ void ChatServerForm::receiveData()                                           //�
     {
         foreach(QTcpSocket *sock, clientList)                                //접속한 클라이언트 수만큼 반복
         {
-            if(clientNameHash.contains(sock->peerPort())                     //자신을 제외하고 채팅방에 있는 소켓에게
+            if(clientNameHash.contains(sock->peerPort())                     //자신을 제외한 채팅방에 있는 모든 소켓에게
                     && sock != clientConnection)
             {
                 /*메세지를 담아서 보냄*/
@@ -419,7 +419,7 @@ void ChatServerForm::kickOut()                                               //�
         QTreeWidgetItem *waittingItem = new QTreeWidgetItem;                 //대기실에 추가할 새 아이템 생성
         waittingItem->setIcon(0, QIcon(":/icon_image/greenLight.png"));      //로그인 상태 아이콘 설정
         waittingItem->setText(1, name + " ");                                //로그인 상태 설정(공백 1개)
-        ui->waittingRoomTreeWidget->addTopLevelItem(item);                   //대기실에 새 아이템 추가
+        ui->waittingRoomTreeWidget->addTopLevelItem(waittingItem);           //대기실에 새 아이템 추가
     }
 }
 
@@ -477,8 +477,7 @@ void ChatServerForm::readClient()                                            //�
     QTcpSocket* receivedSocket = dynamic_cast<QTcpSocket *>(sender());       //클라이언트의 소켓을 센더로 설정
     QString filename, name;                                                  //파일명과 클라이언트의 이름을 선언
 
-    /*just started to receive data, this data is file information*/
-    if (byteReceived == 0)                                                   //read할 파일의 크기가 0인 경우
+    if (byteReceived == 0)                                                   //파일을 받기 시작하면
     {
         progressDialog->reset();                                             //progressDialog 초기화
         progressDialog->show();                                              //progressDialog 출력
@@ -515,7 +514,6 @@ void ChatServerForm::readClient()                                            //�
         file = new QFile(currentFileName);                                   //현재 파일을 file 객체에 삽입
         file->open(QFile::WriteOnly);                                        //파일 열기
     }
-    /* Officially read the file content*/
     else                                                                     //넘어온 데이터에 대한 내용 처리
     {
         inBlock = receivedSocket->readAll();                                 //소켓의 데이터를 모두 read해서 저장

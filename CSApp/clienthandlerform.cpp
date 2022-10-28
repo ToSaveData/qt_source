@@ -233,7 +233,8 @@ void ClientHandlerForm::on_modifyPushButton_clicked()           //수정 버튼�
     update();                                                   //테이블 위젯 정보 최신화
 
     QList<QString> cinfo;                                       //주문 정보 클래스에 보낼 고객 정보 배열
-    cinfo << c->getName() << c->getPhoneNumber() << c->getAddress(); //고객 정보를 담음
+    cinfo << c->getName() << c->getPhoneNumber()                //고객 정보를 담음
+          << c->getAddress();
     emit clientModified(key, cinfo);                            //주문 정보 클래스에 고객 정보가 수정됐다는 시그널 방출
     emit sendServerCModified(key, c->getName());                //서버 클래스에 고객 정보가 수정됐다는 시그널 방출
 

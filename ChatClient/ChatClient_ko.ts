@@ -6,38 +6,38 @@
     <message>
         <location filename="chatclient.cpp" line="39"/>
         <source>Server IP Address</source>
-        <translation type="unfinished">서버 IP 주소</translation>
+        <translation>서버 IP 주소</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="45"/>
         <source>Server Port No</source>
-        <translation type="unfinished">서버 포트가 없습니다</translation>
+        <translation>서버 포트 번호</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="47"/>
         <location filename="chatclient.cpp" line="126"/>
         <source>Log In</source>
-        <translation type="unfinished">로그인</translation>
+        <translation>로그인</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="64"/>
         <source>Send</source>
-        <translation type="unfinished">전송</translation>
+        <translation>전송</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="74"/>
         <source>File Transfer</source>
-        <translation type="unfinished">파일 전송</translation>
+        <translation>파일 전송</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="79"/>
         <source>Log Out</source>
-        <translation type="unfinished">로그아웃</translation>
+        <translation>로그아웃</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="112"/>
         <source>Chat Client</source>
-        <translation type="unfinished">채팅 클라이언트</translation>
+        <translation>채팅 클라이언트</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="135"/>
@@ -45,61 +45,61 @@
         <location filename="chatclient.cpp" line="179"/>
         <location filename="chatclient.cpp" line="191"/>
         <source>Chat in</source>
-        <translation type="unfinished">채팅방 입장</translation>
+        <translation>채팅방 입장</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="138"/>
         <location filename="chatclient.cpp" line="142"/>
         <location filename="chatclient.cpp" line="204"/>
         <source>Chat Out</source>
-        <translation type="unfinished">채팅방 나가기</translation>
+        <translation>채팅방 나가기</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="189"/>
         <location filename="chatclient.cpp" line="198"/>
         <location filename="chatclient.cpp" line="212"/>
         <source>Chatting Client</source>
-        <translation type="unfinished">채팅 클라이언트</translation>
+        <translation>채팅 클라이언트</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="190"/>
         <source>Kick out from Server. Please quit the program and reconnect to server.</source>
-        <translation type="unfinished">서버로부터 추방당했습니다. 프로그램을 종료하고 재접속해주세요.</translation>
+        <translation>서버로부터 강퇴당했습니다. 프로그램 종료 후 재접속해주세요.</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="199"/>
         <source>Invited from Server</source>
-        <translation type="unfinished">서버로부터 초대되었습니다</translation>
+        <translation>서버로부터 초대되었습니다</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="213"/>
         <source>Disconnect from Server</source>
-        <translation type="unfinished">서버로부터 연결이 끊어졌습니다</translation>
+        <translation>서버로부터 연결이 끊어졌습니다</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="217"/>
         <source>Log in</source>
-        <translation type="unfinished">로그인</translation>
+        <translation>로그인</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="247"/>
         <source>me</source>
-        <translation type="unfinished">나</translation>
+        <translation>나</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="264"/>
         <source>File sending completed!</source>
-        <translation type="unfinished">파일 전송이 완료되었습니다!</translation>
+        <translation>파일 전송이 완료되었습니다!</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="283"/>
         <source>file %1 is opened</source>
-        <translation type="unfinished">파일 %1이 열렸습니다</translation>
+        <translation>파일 %1이 열렸습니다</translation>
     </message>
     <message>
         <location filename="chatclient.cpp" line="317"/>
         <source>Sending file %1</source>
-        <translation type="unfinished">파일을 보내는 중: %1</translation>
+        <translation>파일을 보내는 중 %1</translation>
     </message>
 </context>
 <context>
@@ -112,7 +112,7 @@
     <message>
         <location filename="widget.cpp" line="44"/>
         <source>Server Port No</source>
-        <translation>서버 포트가 없습니다</translation>
+        <translation>서버 포트</translation>
     </message>
     <message>
         <location filename="widget.cpp" line="46"/>
@@ -165,11 +165,7 @@
     <message>
         <location filename="widget.cpp" line="189"/>
         <source>Kick out from Server. Please quit the program and reconnect to server.</source>
-        <translation>서버로부터 추방당했습니다. 프로그램을 종료하고 재접속해주세요.</translation>
-    </message>
-    <message>
-        <source>Kick out from Server</source>
-        <translation type="vanished">서버로부터 강퇴되었습니다</translation>
+        <translation>서버로부터 강퇴당했습니다. 프로그램 종료 후 재접속해주세요.</translation>
     </message>
     <message>
         <location filename="widget.cpp" line="198"/>
@@ -204,7 +200,7 @@
     <message>
         <location filename="widget.cpp" line="316"/>
         <source>Sending file %1</source>
-        <translation>파일을 보내는 중: %1</translation>
+        <translation>파일을 보내는 중 %1</translation>
     </message>
 </context>
 </TS>

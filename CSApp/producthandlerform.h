@@ -22,13 +22,23 @@ public:
 
 
 signals:
-    void productAdded(int);
-    void productRemoved(int);
-    void productModified(int, QList<QString>);
-    void addReturn(QList<QString>);
-    void searchReturn(QList<QString>);
-    void modifyReturn(QList<QString>, int);
-    void productSize(int);
+    void productAdded(int);                                     //제품 정보가 추가됐음을 주문 정보 클래스에
+                                                                //전달하는 시그널
+
+    void productRemoved(int);                                   //제품 정보가 삭제됐음을 주문 정보 클래스에
+                                                                //전달하는 시그널
+
+    void productModified(int, QList<QString>);                  //제품 정보가 수정됐음을 주문 정보 클래스에
+                                                                //전달하는 시그널
+
+    void addReturn(QList<QString>);                             //주문 정보 등록 시 요청한 제품 정보를
+                                                                //인자로 담아 반환하는 시그널
+
+    void searchReturn(QList<QString>);                          //주문 정보 검색 시 요청한 제품 정보를
+                                                                //인자로 담아 반환하는 시그널
+
+    void modifyReturn(QList<QString>, int);                     //주문 정보 수정 시 요청한 제품 정보를
+                                                                //인자로 담아 반환하는 시그널
 
 private:
     Ui::ProductHandlerForm *Pui;                                //UI

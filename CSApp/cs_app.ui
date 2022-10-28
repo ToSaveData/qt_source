@@ -74,10 +74,10 @@
      <property name="title">
       <string>tr(&quot;formManagement&quot;)</string>
      </property>
-     <addaction name="actiontr_ChattingForm"/>
-     <addaction name="actiontr_ClientInformationForm"/>
-     <addaction name="actiontr_ProductInformationForm"/>
-     <addaction name="actiontr_OrderInformationForm"/>
+     <addaction name="actiontr_ChatServerForm"/>
+     <addaction name="actiontr_ClientHandlerForm"/>
+     <addaction name="actiontr_ProductHandlerForm"/>
+     <addaction name="actiontr_OrderHandlerForm"/>
     </widget>
     <addaction name="menutr_formManagement"/>
     <addaction name="separator"/>
@@ -108,24 +108,24 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actiontr_ClientInformationForm"/>
-   <addaction name="actiontr_ProductInformationForm"/>
-   <addaction name="actiontr_OrderInformationForm"/>
-   <addaction name="actiontr_ChattingForm"/>
+   <addaction name="actiontr_ClientHandlerForm"/>
+   <addaction name="actiontr_ProductHandlerForm"/>
+   <addaction name="actiontr_OrderHandlerForm"/>
+   <addaction name="actiontr_ChatServerForm"/>
    <addaction name="separator"/>
    <addaction name="actiontr_quit"/>
   </widget>
-  <action name="actiontr_ClientInformationForm">
+  <action name="actiontr_ClientHandlerForm">
    <property name="text">
     <string>tr(&quot;ClientInformationForm&quot;)</string>
    </property>
   </action>
-  <action name="actiontr_ProductInformationForm">
+  <action name="actiontr_ProductHandlerForm">
    <property name="text">
     <string>tr(&quot;ProductInformationForm&quot;)</string>
    </property>
   </action>
-  <action name="actiontr_OrderInformationForm">
+  <action name="actiontr_OrderHandlerForm">
    <property name="text">
     <string>tr(&quot;OrderInformationForm&quot;)</string>
    </property>
@@ -135,7 +135,7 @@
     <string>tr(&quot;quit&quot;)</string>
    </property>
   </action>
-  <action name="actiontr_ChattingForm">
+  <action name="actiontr_ChatServerForm">
    <property name="text">
     <string>tr(&quot;ChattingForm&quot;)</string>
    </property>

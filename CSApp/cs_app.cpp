@@ -30,7 +30,7 @@ CS_App::CS_App(QWidget *parent)
 
     /*고객 정보 최초 입력 시, 고객 정보를 채팅 서버 클래스에 보내주는 시그널을 슬롯에 연결*/
     connect(CForm, SIGNAL(clientLoad(QList<int>, QList<QString>)),
-            ChattingForm, SLOT(addClient(QList<int>, QList<QString>)));
+            ChattingForm, SLOT(addClientInfo(QList<int>, QList<QString>)));
 
     /*고객, 제품 정보 클래스에서 정보가 추가됐다는 시그널을 주문 정보 클래스의 슬롯에 연결*/
     connect(CForm, SIGNAL(clientAdded(int)), OForm, SLOT(clientAdded()));
@@ -108,16 +108,12 @@ CS_App::CS_App(QWidget *parent)
     ui->mdiArea->addSubWindow(PForm);
     ui->mdiArea->addSubWindow(OForm);
     ui->mdiArea->addSubWindow(ChattingForm);
-//    CForm->show();
-//    PForm->show();
-//    OForm->show();
-//    ChattingForm->show();
 
     /*각 액션에 대해서 아이콘 추가*/
-    ui->actiontr_ClientInformationForm->setIcon(QIcon(":/icon_image/client.png"));
-    ui->actiontr_ProductInformationForm->setIcon(QIcon(":/icon_image/product.png"));
-    ui->actiontr_OrderInformationForm->setIcon(QIcon(":/icon_image/order.png"));
-    ui->actiontr_ChattingForm->setIcon(QIcon(":/icon_image/Server.png"));
+    ui->actiontr_ClientHandlerForm->setIcon(QIcon(":/icon_image/client.png"));
+    ui->actiontr_ProductHandlerForm->setIcon(QIcon(":/icon_image/product.png"));
+    ui->actiontr_OrderHandlerForm->setIcon(QIcon(":/icon_image/order.png"));
+    ui->actiontr_ChatServerForm->setIcon(QIcon(":/icon_image/Server.png"));
     ui->actiontr_quit->setIcon(QIcon(":/icon_image/quit.png"));
 
     ui->toolBar->setIconSize(QSize(50, 50));                                //아이콘 크기 설정
@@ -129,23 +125,25 @@ CS_App::~CS_App()                                                           //�
     delete ui;                                                              //생성자에서 만든 포인터 객체 소멸
 }
 
-
-void CS_App::on_actiontr_ClientInformationForm_triggered()                  //고객 정보 폼 액션을 선택했을 경우
+void CS_App::on_actiontr_ClientHandlerForm_triggered()                      //고객 정보 폼 액션을 선택했을 경우
 {
     CForm->setFocus();                                                      //고객 정보 폼으로 화면 전환
 }
 
-void CS_App::on_actiontr_ProductInformationForm_triggered()                 //제품 정보 폼 액션을 선택했을 경우
+
+void CS_App::on_actiontr_ProductHandlerForm_triggered()                     //제품 정보 폼 액션을 선택했을 경우
 {
     PForm->setFocus();                                                      //제품 정보 폼으로 화면 전환
 }
 
-void CS_App::on_actiontr_OrderInformationForm_triggered()                   //주문 정보 폼 액션을 선택했을 경우
+
+void CS_App::on_actiontr_OrderHandlerForm_triggered()                       //주문 정보 폼 액션을 선택했을 경우
 {
     OForm->setFocus();                                                      //주문 정보 폼으로 화면 전환
 }
 
-void CS_App::on_actiontr_ChattingForm_triggered()                           //채팅 서버 폼 액션을 선택했을 경우
+void CS_App::on_actiontr_ChatServerForm_triggered()                         //채팅 서버 폼 액션을 선택했을 경우
 {
     ChattingForm->setFocus();                                               //채팅 서버 폼으로 화면 전환
 }
+

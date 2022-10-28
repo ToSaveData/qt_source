@@ -296,7 +296,7 @@ void OrderHandlerForm::on_removePushButton_clicked()                        //�
 
     orderInfo.remove(key);                                                  //ID로 저장된 주문 정보 삭제
 
-    for(int i = 0; i < 5; i++)                                              //테이블 위젯1의 모든 정보 삭제
+    for(int i = 0; i < 5; i++)                                              //테이블 위젯1의 현재의 행 정보 삭제
     {
         table[0]->takeItem(row, i);
     }
