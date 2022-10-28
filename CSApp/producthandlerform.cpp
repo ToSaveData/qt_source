@@ -63,7 +63,7 @@ ProductHandlerForm::~ProductHandlerForm()                                   //�
     delete Pui;                                                             //생성자에서 만든 포인터 객체 소멸
 }
 
-int ProductHandlerForm::makepid()                                           //제품 ID를 생성하는 함수
+int ProductHandlerForm::makePid()                                           //제품 ID를 생성하는 함수
 {
     if(productInfo.isEmpty())    return 1001;                               //첫 번째 제품 ID: 1001
     else    return productInfo.size() + 1001;                               //이후 순차적으로 +1
@@ -95,7 +95,7 @@ void ProductHandlerForm::on_enrollPushButton_clicked()                      //�
     lineEidt << Pui->nameLineEdit1 << Pui->priceLineEdit1                   //입력된 3개의 lineEdit위젯 모음
              << Pui->sortLineEdit1;
 
-    int key = makepid();                                                    //제품 ID 생성
+    int key = makePid();                                                    //제품 ID 생성
     int row = Pui->tableWidget1->rowCount();                                //입력돼야 하는 행 저장
 
     for(int x = 0; x < 4; x++)                                              //테이블 위젯의 수를 반복

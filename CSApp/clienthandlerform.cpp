@@ -67,7 +67,7 @@ ClientHandlerForm::~ClientHandlerForm()                         //소멸자
     delete Cui;                                                 //생성자에서 만든 포인터 객체 소멸
 }
 
-void ClientHandlerForm::dataload()                              //서버 클래스의 파일 입력에 필요한 정보를
+void ClientHandlerForm::dataLoad()                              //서버 클래스의 파일 입력에 필요한 정보를
 {                                                               //담기 위한 슬롯 함수
     QList<QString> cNameList;
     QList<int> cIdList;
@@ -82,7 +82,7 @@ void ClientHandlerForm::dataload()                              //서버 클래�
     emit clientLoad(cIdList, cNameList);                        //서버 클래스의 고객 목록 입력에 필요한 시그널 방출
 }
 
-int ClientHandlerForm::makecid()                                 //고객 ID를 생성하는 함수
+int ClientHandlerForm::makeCid()                                 //고객 ID를 생성하는 함수
 {
     if(clientInfo.isEmpty())    return 5001;                    //첫 번째 고객 ID: 5001
     else    return clientInfo.size() + 5001;                    //이후 순차적으로 +1
@@ -114,7 +114,7 @@ void ClientHandlerForm::on_enrollPushButton_clicked()           //등록 버튼 
     lineEidt << Cui->nameLineEdit1 << Cui->birthdayLineEdit1
              << Cui->phoneNumLineEdit1 << Cui->addressLineEdit1
              << Cui->emailLineEdit1;
-    int key = makecid();                                        //고객 ID 생성
+    int key = makeCid();                                        //고객 ID 생성
     int row = Cui->tableWidget1->rowCount();                    //입력돼야 하는 행 저장
 
     for(int x = 0; x < 4; x++)                                  //테이블 위젯 갯수만큼 반복

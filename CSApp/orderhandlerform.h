@@ -16,8 +16,8 @@ class OrderHandlerForm : public QWidget                             //주문 정
 public:
     explicit OrderHandlerForm(QWidget *parent = nullptr);           //생성자
     ~OrderHandlerForm();                                            //소멸자
-    void dataload();                                                //파일 입력 함수
     int cnt = 0;                                                    //고객 정보 및 제품정보의 행을 순서대로 넣기 위한 변수
+    void dataload();                                                //파일 입력 함수
 
 public slots:
     void clientAdded();                                             //고객 정보가 추가됐다는 시그널을 받는 슬롯함수
@@ -45,7 +45,7 @@ signals:
 private:
     Ui::OrderHandlerForm *Oui;                                      //UI
     QMap<int, OrderInformaiton*> orderInfo;                         //주문 ID를 key로 설정하여 주문 정보를 저장
-    int makeoid();                                                  //주문 ID를 생성하는 함수
+    int makeOid();                                                  //주문 ID를 생성하는 함수
 
 private slots:
     void on_enrollPushButton_clicked();                             //등록 버튼을 눌렀을 때

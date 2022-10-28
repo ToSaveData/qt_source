@@ -21,7 +21,7 @@ public:
 
 
 public slots:
-    void dataload();                                            //파일 입력용 함수
+    void dataLoad();                                            //파일 입력용 함수
 
 signals:
     void clientAdded(int);                                      //고객 정보가 추가됐음을 주문 정보 클래스에
@@ -58,7 +58,7 @@ private:
 
     Ui::ClientHandlerForm *Cui;                                 //UI
     QMap<int, ClientInformaiton*> clientInfo;                   //고객 ID를 key로 설정하여 고객 정보를 저장
-    int makecid();                                              //고객 ID를 생성하는 함수
+    int makeCid();                                              //고객 ID를 생성하는 함수
 
 private slots:
     void on_enrollPushButton_clicked();                         //등록 버튼

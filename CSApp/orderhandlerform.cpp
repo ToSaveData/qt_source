@@ -108,7 +108,7 @@ void OrderHandlerForm::dataload()                                           //�
                          Oui->productInfoComboBox);
 }
 
-int OrderHandlerForm::makeoid()                                             //주문 ID를 생성하는 함수
+int OrderHandlerForm::makeOid()                                             //주문 ID를 생성하는 함수
 {
     if(orderInfo.isEmpty())    return 100001;                               //첫 번째 주문 ID: 100001
     else    return orderInfo.size() + 100001;                               //이후 순차적으로 +1
@@ -116,7 +116,7 @@ int OrderHandlerForm::makeoid()                                             //�
 
 void OrderHandlerForm::on_enrollPushButton_clicked()                        //등록 버튼을 눌렀을 때
 {
-    int key = makeoid();                                                    //주문 id 생성 후 저장
+    int key = makeOid();                                                    //주문 id 생성 후 저장
 
     /*LineEdit에 입력된 내용을 각 변수에 맞게 저장*/
     QString date = Oui->orderDateLineEdit1->text();

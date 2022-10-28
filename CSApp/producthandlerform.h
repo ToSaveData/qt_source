@@ -43,7 +43,7 @@ signals:
 private:
     Ui::ProductHandlerForm *Pui;                                //UI
     QMap<int, ProductInformaiton*> productInfo;                 //제품 ID를 key로 설정하여 제품 정보를 저장
-    int makepid();                                              //제품 ID를 생성하는 함수
+    int makePid();                                              //제품 ID를 생성하는 함수
 
 private slots:
     void on_enrollPushButton_clicked();                         //등록 버튼

@@ -89,7 +89,7 @@ CS_App::CS_App(QWidget *parent)
             ChattingForm, SLOT(addClientInfo(QList<int>, QList<QString>)));
 
     /*채팅 서버 클래스에서 고객 목록을 다시 불러올 때 발생하는 시그널/슬롯 연결*/
-    connect(ChattingForm, SIGNAL(reset()), CForm, SLOT(dataload()));
+    connect(ChattingForm, SIGNAL(reset()), CForm, SLOT(dataLoad()));
 
     /*고객 정보가 변경됐을 경우 채팅 서버 클래스에 변경된 정보를 보내주는 시그널/슬롯 연결*/
     connect(CForm, SIGNAL(sendServerCModified(int, QString)),
@@ -101,7 +101,7 @@ CS_App::CS_App(QWidget *parent)
 
 
     OForm->dataload();                                                      //주문 정보 클래스에 고객, 제품 정보 목록 입력
-    CForm->dataload();                                                      //채팅 서버 클래스에 고객 목록 입력
+    CForm->dataLoad();                                                      //채팅 서버 클래스에 고객 목록 입력
 
     /*각 폼을 mdiarea에 서브 윈도우로 추가*/
     ui->mdiArea->addSubWindow(CForm);
