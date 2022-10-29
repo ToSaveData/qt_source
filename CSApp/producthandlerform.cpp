@@ -34,10 +34,14 @@ ProductHandlerForm::ProductHandlerForm(QWidget *parent) :                   //�
                 table[x]->setRowCount(table[x]->rowCount()+1);              //테이블 위젯의 행을 한 줄 늘림
                 table[x]->setItem(table[x]->rowCount()-1, 0,                //현재 행의 0열에 id 삽입
                                   new QTableWidgetItem(QString::number(id)));
+                table[x]->resizeColumnToContents(0);                        //테이블 위젯의 내용에 맞게 열너비 설정
+
                 for (int i = 0 ; i < 3; i++)                                //테이블 위젯의 열의 갯수만큼 반복
                 {
                     table[x]->setItem(table[x]->rowCount()-1, i+1,
                                       new QTableWidgetItem(row[i+1]));
+
+                    table[x]->resizeColumnToContents(i+1);                  //테이블 위젯의 내용에 맞게 열너비 설정
                 }
             }
             productInfo.insert(id, p);                                      //제품 정보를 id를 키로 저장
@@ -103,10 +107,12 @@ void ProductHandlerForm::on_enrollPushButton_clicked()                      //�
         table[x]->setRowCount(table[x]->rowCount()+1);                      //입력될 새로운 행 추가
         table[x]->setItem(row, 0,                                           //제품 ID를 0열에 추가
                           new QTableWidgetItem(QString::number(key)));
+        table[x]->resizeColumnToContents(0);                                //테이블 위젯의 내용에 맞게 열너비 설정
         for (int i = 0 ; i < 3; i++)                                        //입력될 열의 수만큼 반복
         {
             QString s = lineEidt[i]->text();                                //입력될 데이터 추출
             table[x]->setItem(row, i+1, new QTableWidgetItem(s));           //각 열에 제품 정보 입력
+            table[x]->resizeColumnToContents(i+1);                          //테이블 위젯의 내용에 맞게 열너비 설정
         }
     }
 
@@ -136,10 +142,12 @@ void ProductHandlerForm::on_searchPushButton_clicked()                      //�
         int row = table->rowCount();                                        //테이블 위젯의 현재 행의 수 저장
         table->setRowCount(table->rowCount()+1);                            //테이블 위젯에 데이터가 들어갈 행 생성
         table->setItem(row, 0, new QTableWidgetItem(QString::number(key))); //제품id를 테이블 위젯에 삽입
+        table->resizeColumnToContents(0);                              //테이블 위젯의 내용에 맞게 열너비 설정
 
         for(int i = 0; i < 3; i++)                                          //나머지 제품 정보 테이블 위젯에 삽입
         {
             table->setItem(row, i+1, new QTableWidgetItem(v[i]));
+            table->resizeColumnToContents(i+1);                          //테이블 위젯의 내용에 맞게 열너비 설정
         }
     }
     update();                                                               //테이블 위젯 정보 최신화
@@ -186,6 +194,7 @@ void ProductHandlerForm::on_modifyPushButton_clicked()                      //�
         {
             table[x]->setItem(row, i,                                       //lineEdit에 적힌 text를 item에 삽입
                               new QTableWidgetItem(lineEidt[i]->text()));
+            table[x]->resizeColumnToContents(i);                            //테이블 위젯의 내용에 맞게 열너비 설정
         }
     }
 

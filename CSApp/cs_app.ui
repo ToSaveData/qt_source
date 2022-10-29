@@ -87,6 +87,12 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
    <property name="contextMenuPolicy">
     <enum>Qt::NoContextMenu</enum>
    </property>
@@ -117,27 +123,69 @@
   </widget>
   <action name="actiontr_ClientHandlerForm">
    <property name="text">
-    <string>tr(&quot;ClientInformationForm&quot;)</string>
+    <string>tr(&quot;ClientHandlerForm&quot;)</string>
+   </property>
+   <property name="toolTip">
+    <string>tr(&quot;ClientHandlerForm&quot;)</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>11</pointsize>
+    </font>
    </property>
   </action>
   <action name="actiontr_ProductHandlerForm">
    <property name="text">
-    <string>tr(&quot;ProductInformationForm&quot;)</string>
+    <string>tr(&quot;ProductHandlerForm&quot;)</string>
+   </property>
+   <property name="toolTip">
+    <string>tr(&quot;ProductHandlerForm&quot;)</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>11</pointsize>
+    </font>
    </property>
   </action>
   <action name="actiontr_OrderHandlerForm">
    <property name="text">
-    <string>tr(&quot;OrderInformationForm&quot;)</string>
+    <string>tr(&quot;OrderHandlerForm&quot;)</string>
+   </property>
+   <property name="toolTip">
+    <string>tr(&quot;OrderHandlerForm&quot;)</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>11</pointsize>
+    </font>
    </property>
   </action>
   <action name="actiontr_quit">
    <property name="text">
     <string>tr(&quot;quit&quot;)</string>
    </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
   </action>
   <action name="actiontr_ChatServerForm">
    <property name="text">
-    <string>tr(&quot;ChattingForm&quot;)</string>
+    <string>tr(&quot;ChatServerForm&quot;)</string>
+   </property>
+   <property name="toolTip">
+    <string>tr(&quot;ChatServerForm&quot;)</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Times New Roman</family>
+     <pointsize>11</pointsize>
+    </font>
    </property>
   </action>
  </widget>

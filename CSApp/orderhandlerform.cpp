@@ -53,6 +53,7 @@ OrderHandlerForm::OrderHandlerForm(QWidget *parent) :                       //�
             {
                 Oui->tableWidget1->setItem(itemRow, i + 1,                  //각 열에 해당하는 정보 삽입
                                            new QTableWidgetItem(row[i+1]));
+                Oui->tableWidget1->resizeColumnToContents(i);               //테이블 위젯의 내용에 맞게 열너비 설정
             }
 
             /*현재 테이블 위젯에서 채워지지 않은 부분은 슬롯함수에서 채울 예정*/
@@ -65,6 +66,11 @@ OrderHandlerForm::OrderHandlerForm(QWidget *parent) :                       //�
                                   new QTableWidgetItem(date));
                 table[x]->setItem(itemRow, 8,
                                   new QTableWidgetItem(QString::number(quantity)));
+
+                /*테이블 위젯의 내용에 맞게 열너비 설정*/
+                table[x]->resizeColumnToContents(0);
+                table[x]->resizeColumnToContents(1);
+                table[x]->resizeColumnToContents(8);
             }
 
             orderInfo.insert(oId, o);                                       //주문 정보를 id를 키로 저장
@@ -138,6 +144,13 @@ void OrderHandlerForm::on_enrollPushButton_clicked()                        //�
     Oui->tableWidget1->setItem(row, 4, new QTableWidgetItem
                                             (QString::number(pid)));
 
+    /*테이블 위젯의 내용에 맞게 열너비 설정*/
+    Oui->tableWidget1->resizeColumnToContents(0);
+    Oui->tableWidget1->resizeColumnToContents(1);
+    Oui->tableWidget1->resizeColumnToContents(2);
+    Oui->tableWidget1->resizeColumnToContents(3);
+    Oui->tableWidget1->resizeColumnToContents(4);
+
     QVector<QTableWidget*> table;
     table << Oui->tableWidget2 << Oui->tableWidget4 << Oui->tableWidget5;   //입력돼야 하는 테이블 모음
 
@@ -151,6 +164,11 @@ void OrderHandlerForm::on_enrollPushButton_clicked()                        //�
         table[x]->setItem(row, 1, new QTableWidgetItem(date));
         table[x]->setItem(row, 8, new QTableWidgetItem
                                         (QString::number(quantity)));
+
+        /*테이블 위젯의 내용에 맞게 열너비 설정*/
+        table[x]->resizeColumnToContents(0);
+        table[x]->resizeColumnToContents(1);
+        table[x]->resizeColumnToContents(8);
     }
 
     OrderInformaiton *o = new OrderInformaiton(key, date,                   //주문 정보 객체 생성
@@ -190,6 +208,11 @@ void OrderHandlerForm::addReturnClient(QList<QString> cinfo)                //�
         table[x]->setItem(cnt, 2, new QTableWidgetItem(name));
         table[x]->setItem(cnt, 3, new QTableWidgetItem(phoneNum));
         table[x]->setItem(cnt, 4, new QTableWidgetItem(address));
+
+        /*테이블 위젯의 내용에 맞게 열너비 설정*/
+        table[x]->resizeColumnToContents(2);
+        table[x]->resizeColumnToContents(3);
+        table[x]->resizeColumnToContents(4);
     }
 }
 
@@ -215,6 +238,12 @@ void OrderHandlerForm::addReturnProduct(QList<QString> pinfo)               //�
                                         (QString::number(price)));
         table[x]->setItem(cnt, 9, new QTableWidgetItem
                                         (QString::number(price * quantity)));
+
+        /*테이블 위젯의 내용에 맞게 열너비 설정*/
+        table[x]->resizeColumnToContents(5);
+        table[x]->resizeColumnToContents(6);
+        table[x]->resizeColumnToContents(7);
+        table[x]->resizeColumnToContents(9);
     }
     cnt++;                                                                  //다음 행 입력을 위한 cnt 증가
 }
@@ -236,6 +265,11 @@ void OrderHandlerForm::on_searchPushButton_clicked()                        //�
         table->setItem(row, 0, new QTableWidgetItem(QString::number(key))); //주문id를 테이블에 삽입
         table->setItem(row, 1, new QTableWidgetItem(v[0]));                 //주문 일자를 테이블에 삽입
         table->setItem(row, 8, new QTableWidgetItem(v[1]));                 //주문 수량을 테이블에 삽입
+
+        /*테이블 위젯의 내용에 맞게 열너비 설정*/
+        table->resizeColumnToContents(0);
+        table->resizeColumnToContents(1);
+        table->resizeColumnToContents(8);
 
         emit orderSearchedClient(orderInfo[key]->getCID());                 //고객 정보 클래스에 고객 정보를
                                                                             //요청하는 시그널 방출
@@ -262,6 +296,11 @@ void OrderHandlerForm::searchReturnClient(QList<QString> cinfo)             //�
     table->setItem(row, 2, new QTableWidgetItem(name));
     table->setItem(row, 3, new QTableWidgetItem(phoneNum));
     table->setItem(row, 4, new QTableWidgetItem(address));
+
+    /*테이블 위젯의 내용에 맞게 열너비 설정*/
+    table->resizeColumnToContents(2);
+    table->resizeColumnToContents(3);
+    table->resizeColumnToContents(4);
 }
 
 void OrderHandlerForm::searchReturnProduct(QList<QString> pinfo)            //검색 탭에서 보낸 시그널로 넘어온 제품 정보로
@@ -283,6 +322,11 @@ void OrderHandlerForm::searchReturnProduct(QList<QString> pinfo)            //�
     table->setItem(row, 7, new QTableWidgetItem(QString::number(price)));
     table->setItem(row, 9, new QTableWidgetItem(QString::number(price * quantity)));
 
+    /*테이블 위젯의 내용에 맞게 열너비 설정*/
+    table->resizeColumnToContents(5);
+    table->resizeColumnToContents(6);
+    table->resizeColumnToContents(7);
+    table->resizeColumnToContents(9);
 }
 
 void OrderHandlerForm::on_removePushButton_clicked()                        //삭제 버튼을 눌렀을 때
@@ -357,6 +401,12 @@ void OrderHandlerForm::on_modifyPushButton_clicked()                        //�
     table[0]->setItem(row, 3, new QTableWidgetItem(QString::number(cid)));
     table[0]->setItem(row, 4, new QTableWidgetItem(QString::number(pid)));
 
+    /*테이블 위젯의 내용에 맞게 열너비 설정*/
+    table[0]->resizeColumnToContents(1);
+    table[0]->resizeColumnToContents(2);
+    table[0]->resizeColumnToContents(3);
+    table[0]->resizeColumnToContents(4);
+
     OrderInformaiton *o = new OrderInformaiton(key, date,                   //수정된 내용으로 새로운 OrderInformation 객체 생성
                                                quantity, cid, pid);
     orderInfo.insert(key, o);                                               //주문 정보 배열에 저장
@@ -383,6 +433,11 @@ void OrderHandlerForm::modifyReturnClient(QList<QString> cinfo, int row)    //�
         table[x]->setItem(row, 2, new QTableWidgetItem(name));
         table[x]->setItem(row, 3, new QTableWidgetItem(phoneNum));
         table[x]->setItem(row, 4, new QTableWidgetItem(address));
+
+        /*테이블 위젯의 내용에 맞게 열너비 설정*/
+        table[x]->resizeColumnToContents(2);
+        table[x]->resizeColumnToContents(3);
+        table[x]->resizeColumnToContents(4);
     }
 }
 
@@ -406,6 +461,12 @@ void OrderHandlerForm::modifyReturnProduct(QList<QString> pinfo, int row)
                                         (QString::number(price)));
         table[x]->setItem(row, 9, new QTableWidgetItem
                                         (QString::number(price * quantity)));
+
+        /*테이블 위젯의 내용에 맞게 열너비 설정*/
+        table[x]->resizeColumnToContents(5);
+        table[x]->resizeColumnToContents(6);
+        table[x]->resizeColumnToContents(7);
+        table[x]->resizeColumnToContents(9);
     }
 }
 
@@ -426,6 +487,7 @@ void OrderHandlerForm::on_tableWidget5_itemClicked(QTableWidgetItem *item)  //�
     lineEdit[0]->setText(Oui->tableWidget5->item(row, 0)->text());
     lineEdit[1]->setText(Oui->tableWidget5->item(row, 1)->text());
     lineEdit[2]->setText(Oui->tableWidget5->item(row, 8)->text());
+
     Oui->clientInfoComboBox->setCurrentText(cName + "(" + cPhoneNum + ")"); //이름(전화번호) -> 동명이인 구분을 위함
     Oui->productInfoComboBox->setCurrentText(pName + "(" + pSort + ")");    //제품명(제품 종류) -> 제품 정보 식별을 위함
     update();                                                               //위젯 정보 업데이트
@@ -553,6 +615,11 @@ void OrderHandlerForm::clientModified(int cid, QList<QString> cinfo)        //�
             table[i]->setItem(row, 2, new QTableWidgetItem(name));
             table[i]->setItem(row, 3, new QTableWidgetItem(phoneNum));
             table[i]->setItem(row, 4, new QTableWidgetItem(address));
+
+            /*테이블 위젯의 내용에 맞게 열너비 설정*/
+            table[x]->resizeColumnToContents(2);
+            table[x]->resizeColumnToContents(3);
+            table[x]->resizeColumnToContents(4);
         }
     }
     emit clientComboBox(Oui->clientIDComboBox1, Oui->clientInfoComboBox);   //수정된 정보를 콤보박스에도 적용하기 위한 시그널 방출
@@ -588,7 +655,7 @@ void OrderHandlerForm::productModified(int pid, QList<QString> pinfo)       //�
     for(int x = 0; x < keys.length(); x++)                                  //수정될 아이템의 주문 id의 수만큼 반복
     {
         int row = rows[x];                                                  //해당 아이템의 행 저장
-        int quantity = table[0]->item(row,8)->text().toInt();               //총 가격을 계산하기 위한 현재 행의 주문 수량
+        int quantity = table[1]->item(row,8)->text().toInt();               //총 가격을 계산하기 위한 현재 행의 주문 수량
 
         for(int i = 1; i < 4; i++)                                          //3개의 테이블 위젯에 대해서 반복
         {
@@ -599,6 +666,12 @@ void OrderHandlerForm::productModified(int pid, QList<QString> pinfo)       //�
                                             (QString::number(price)));
             table[i]->setItem(row, 9, new QTableWidgetItem
                                             (QString::number(price * quantity)));
+
+            /*테이블 위젯의 내용에 맞게 열너비 설정*/
+            table[x]->resizeColumnToContents(5);
+            table[x]->resizeColumnToContents(6);
+            table[x]->resizeColumnToContents(7);
+            table[x]->resizeColumnToContents(9);
         }
     }
     emit productComboBox(Oui->productIDComboBox1, Oui->productInfoComboBox);    //수정된 정보를 콤보박스에도 적용하기

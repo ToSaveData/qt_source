@@ -22,6 +22,12 @@
        <height>340</height>
       </size>
      </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -40,7 +46,9 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>12</pointsize>
+           <family>Times New Roman</family>
+           <pointsize>14</pointsize>
+           <bold>true</bold>
           </font>
          </property>
          <property name="text">
@@ -62,7 +70,9 @@
             <widget class="QLabel" name="orderDateLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -80,7 +90,9 @@
             <widget class="QLabel" name="orderQuantityLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -98,7 +110,9 @@
             <widget class="QLabel" name="clientIDLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -113,7 +127,9 @@
             <widget class="QLabel" name="productIDLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -135,25 +151,60 @@
             <property name="text">
              <string>tr(&quot;order ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;order date&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;order quantity&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product ID&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -175,6 +226,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="enrollPushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;enroll&quot;)</string>
              </property>
@@ -216,7 +274,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -239,50 +299,120 @@
             <property name="text">
              <string>tr(&quot;order ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;order date&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client name&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client address&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product sort&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product name&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product price&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;order quantity&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;total price&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -311,7 +441,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -369,50 +501,119 @@
             <property name="text">
              <string>tr(&quot;order ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;order date&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client name&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client address&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product sort&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product name&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product price&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;order quantity&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;total price&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+             </font>
             </property>
            </column>
           </widget>
@@ -434,6 +635,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="searchPushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;search&quot;)</string>
              </property>
@@ -475,7 +683,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -498,50 +708,120 @@
             <property name="text">
              <string>tr(&quot;order ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;order date&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client name&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client address&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product sort&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product name&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;product price&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;order quantity&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;total price&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -563,6 +843,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="removePushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;remove&quot;)</string>
              </property>
@@ -604,7 +891,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -640,50 +929,120 @@
              <property name="text">
               <string>tr(&quot;order ID&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;order date&quot;)</string>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;client name&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;client phone number&quot;)</string>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;client address&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;product sort&quot;)</string>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;product name&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;product price&quot;)</string>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;order quantity&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;total price&quot;)</string>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
            </widget>
@@ -695,7 +1054,9 @@
                 <widget class="QLabel" name="orderIDLabel">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -717,7 +1078,9 @@
                 <widget class="QLabel" name="orderDateLabel2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -732,7 +1095,9 @@
                 <widget class="QLabel" name="orderDateLabel2_2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -747,7 +1112,9 @@
                 <widget class="QLabel" name="clientInfoLabel">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -762,7 +1129,9 @@
                 <widget class="QLabel" name="productInfoLabel">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -815,6 +1184,13 @@
                <height>25</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;modify&quot;)</string>
              </property>
@@ -847,5 +1223,22 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>searchLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>searchPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>611</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>611</x>
+     <y>604</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

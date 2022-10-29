@@ -10,6 +10,12 @@
     <height>619</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Times New Roman</family>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -21,6 +27,12 @@
        <width>630</width>
        <height>340</height>
       </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+      </font>
      </property>
      <property name="currentIndex">
       <number>0</number>
@@ -42,7 +54,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -62,7 +76,9 @@
             <widget class="QLabel" name="nameLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -80,7 +96,9 @@
             <widget class="QLabel" name="priceLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -98,7 +116,9 @@
             <widget class="QLabel" name="sortLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -123,20 +143,48 @@
             <property name="text">
              <string>tr(&quot;Product ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product name&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product price&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product sort&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -158,6 +206,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="enrollPushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;enroll&quot;)</string>
              </property>
@@ -199,7 +254,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -219,20 +276,48 @@
             <property name="text">
              <string>tr(&quot;Product ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product name&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product price&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product sort&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -261,7 +346,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -316,20 +403,48 @@
             <property name="text">
              <string>tr(&quot;Product ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product name&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product price&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product sort&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -351,6 +466,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="searchPushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;search&quot;)</string>
              </property>
@@ -392,7 +514,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -412,20 +536,48 @@
             <property name="text">
              <string>tr(&quot;Product ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product name'&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product price&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Product sort&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -447,6 +599,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="removePushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;remove&quot;)</string>
              </property>
@@ -488,7 +647,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -527,24 +688,52 @@
              <property name="text">
               <string>tr(&quot;Product ID&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;Product name&quot;)</string>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;Product price&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;Product sort&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
            </widget>
-           <widget class="QWidget" name="">
+           <widget class="QWidget" name="layoutWidget">
             <layout class="QVBoxLayout" name="verticalLayout_9">
              <item>
               <layout class="QGridLayout" name="gridLayout_2">
@@ -552,7 +741,9 @@
                 <widget class="QLabel" name="sortLabel2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -580,7 +771,9 @@
                 <widget class="QLabel" name="priceLabel2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -595,7 +788,9 @@
                 <widget class="QLabel" name="idLabel">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -613,7 +808,9 @@
                 <widget class="QLabel" name="nameLabel2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -660,6 +857,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="modifyPushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;modify&quot;)</string>
              </property>
@@ -689,5 +893,54 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>searchLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>searchPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>627</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>627</x>
+     <y>592</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sortLineEdit1</sender>
+   <signal>returnPressed()</signal>
+   <receiver>enrollPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>677</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>627</x>
+     <y>592</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sortLineEdit2</sender>
+   <signal>returnPressed()</signal>
+   <receiver>modifyPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1033</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>627</x>
+     <y>570</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

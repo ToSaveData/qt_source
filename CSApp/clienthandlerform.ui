@@ -16,6 +16,12 @@
     <height>300</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>11</pointsize>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -27,6 +33,13 @@
        <width>630</width>
        <height>340</height>
       </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>11</pointsize>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="currentIndex">
       <number>0</number>
@@ -48,7 +61,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -65,7 +80,9 @@
             <widget class="QLabel" name="nameLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -80,7 +97,9 @@
             <widget class="QLabel" name="birthdayLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -95,7 +114,9 @@
             <widget class="QLabel" name="phoneNumLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -110,7 +131,9 @@
             <widget class="QLabel" name="addressLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -125,7 +148,9 @@
             <widget class="QLabel" name="emailLabel1">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -140,6 +165,13 @@
          </item>
          <item>
           <widget class="QTableWidget" name="tableWidget1">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>11</pointsize>
+             <bold>false</bold>
+            </font>
+           </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
@@ -150,30 +182,72 @@
             <property name="text">
              <string>tr(&quot;clietn ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client name&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client birth year month day&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client address&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client e-mail address&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -195,6 +269,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="enrollPushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;enroll&quot;)</string>
              </property>
@@ -236,7 +317,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -256,30 +339,72 @@
             <property name="text">
              <string>tr(&quot;clietn ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client name&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client birth year month day&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client address&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client e-mail address&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -308,7 +433,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -363,30 +490,72 @@
             <property name="text">
              <string>tr(&quot;clietn ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client name&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client birth year month day&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client address&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client e-mail address&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -408,6 +577,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="searchPushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;search&quot;)</string>
              </property>
@@ -449,7 +625,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -469,30 +647,72 @@
             <property name="text">
              <string>tr(&quot;clietn ID&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client name&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client birth year month day&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client phone number&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client address&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;client e-mail address&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -514,6 +734,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="removePushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;remove&quot;)</string>
              </property>
@@ -555,7 +782,9 @@
            </property>
            <property name="font">
             <font>
-             <pointsize>12</pointsize>
+             <family>Times New Roman</family>
+             <pointsize>14</pointsize>
+             <bold>true</bold>
             </font>
            </property>
            <property name="text">
@@ -585,30 +814,72 @@
              <property name="text">
               <string>tr(&quot;clietn ID&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;client name&quot;)</string>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;client birth year month day&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;client phone number&quot;)</string>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;client address&quot;)</string>
              </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>tr(&quot;client e-mail address&quot;)</string>
+             </property>
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>11</pointsize>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
            </widget>
@@ -620,7 +891,9 @@
                 <widget class="QLabel" name="idLabel">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -639,7 +912,9 @@
                 <widget class="QLabel" name="nameLabel2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -658,7 +933,9 @@
                 <widget class="QLabel" name="birthdayLabel2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -673,7 +950,9 @@
                 <widget class="QLabel" name="phoneNumLabel2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -688,7 +967,9 @@
                 <widget class="QLabel" name="addressLabel2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -703,7 +984,9 @@
                 <widget class="QLabel" name="emailLabel2">
                  <property name="font">
                   <font>
-                   <pointsize>12</pointsize>
+                   <family>Times New Roman</family>
+                   <pointsize>11</pointsize>
+                   <bold>true</bold>
                   </font>
                  </property>
                  <property name="text">
@@ -750,6 +1033,13 @@
            </item>
            <item>
             <widget class="QPushButton" name="modifyPushButton">
+             <property name="font">
+              <font>
+               <family>Times New Roman</family>
+               <pointsize>10</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>tr(&quot;modify&quot;)</string>
              </property>
@@ -779,5 +1069,54 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>searchLineEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>searchPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>622</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>622</x>
+     <y>631</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>emailLineEdit1</sender>
+   <signal>returnPressed()</signal>
+   <receiver>enrollPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>703</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>622</x>
+     <y>631</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>emailLineEdit2</sender>
+   <signal>returnPressed()</signal>
+   <receiver>modifyPushButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1007</x>
+     <y>206</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>622</x>
+     <y>589</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

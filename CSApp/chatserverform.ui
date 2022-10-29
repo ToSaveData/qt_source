@@ -10,6 +10,12 @@
     <height>351</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Times New Roman</family>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -33,6 +39,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Times New Roman</family>
              <pointsize>14</pointsize>
              <bold>true</bold>
             </font>
@@ -54,10 +61,24 @@
             <property name="text">
              <string>tr(&quot;Client status&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Client list&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -76,6 +97,7 @@
            </property>
            <property name="font">
             <font>
+             <family>Times New Roman</family>
              <pointsize>14</pointsize>
              <bold>true</bold>
             </font>
@@ -97,10 +119,24 @@
             <property name="text">
              <string>tr(&quot;Client status&quot;)</string>
             </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
            </column>
            <column>
             <property name="text">
              <string>tr(&quot;Client list&quot;)</string>
+            </property>
+            <property name="font">
+             <font>
+              <family>Times New Roman</family>
+              <pointsize>11</pointsize>
+              <bold>true</bold>
+             </font>
             </property>
            </column>
           </widget>
@@ -115,6 +151,13 @@
            <height>0</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman</family>
+           <pointsize>10</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>tr(&quot;ClientListReset&quot;)</string>
          </property>
@@ -122,7 +165,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QLabel" name="logLabel">
@@ -134,6 +177,7 @@
          </property>
          <property name="font">
           <font>
+           <family>Times New Roman</family>
            <pointsize>14</pointsize>
            <bold>true</bold>
           </font>
@@ -149,30 +193,72 @@
           <property name="text">
            <string>IP</string>
           </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
          </column>
          <column>
           <property name="text">
            <string>tr(&quot;Port&quot;)</string>
+          </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
           </property>
          </column>
          <column>
           <property name="text">
            <string>tr(&quot;ID&quot;)</string>
           </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
          </column>
          <column>
           <property name="text">
            <string>tr(&quot;name&quot;)</string>
+          </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
           </property>
          </column>
          <column>
           <property name="text">
            <string>tr(&quot;message&quot;)</string>
           </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
          </column>
          <column>
           <property name="text">
            <string>tr(&quot;time&quot;)</string>
+          </property>
+          <property name="font">
+           <font>
+            <family>Times New Roman</family>
+            <pointsize>11</pointsize>
+            <bold>true</bold>
+           </font>
           </property>
          </column>
         </widget>
@@ -181,6 +267,13 @@
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QPushButton" name="clearPushButton">
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="text">
             <string>tr(&quot;clear&quot;)</string>
            </property>
@@ -193,6 +286,13 @@
              <width>0</width>
              <height>0</height>
             </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Times New Roman</family>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
            </property>
            <property name="text">
             <string>tr(&quot;save&quot;)</string>

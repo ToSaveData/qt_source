@@ -35,11 +35,13 @@ ClientHandlerForm::ClientHandlerForm(QWidget *parent) :         //생성자
                 table[x]->setRowCount(table[x]->rowCount()+1);  //테이블 위젯의 행을 한 줄 늘림
                 table[x]->setItem(table[x]->rowCount()-1,       //현재 행의 0열에 id 삽입
                                   0, new QTableWidgetItem(QString::number(id)));
+                table[x]->resizeColumnToContents(0);            //테이블 위젯의 내용에 맞게 열너비 설정
 
                 for (int i = 0 ; i < 5; i++)                    //테이블 위젯의 열의 갯수만큼 반복
                 {
                     table[x]->setItem(table[x]->rowCount()-1,
-                                    i+1, new QTableWidgetItem(row[i+1]));
+                                      i+1, new QTableWidgetItem(row[i+1]));
+                    table[x]->resizeColumnToContents(i+1);        //테이블 위젯의 내용에 맞게 열너비 설정
                 }
             }
 
@@ -127,19 +129,20 @@ void ClientHandlerForm::on_enrollPushButton_clicked()           //등록 버튼 
             QString s = lineEidt[i]->text();                    //입력될 데이터 추출
             table[x]->setItem(row, i+1,                         //각 열에 고객 정보 입력
                               new QTableWidgetItem(s));
+            table[x]->resizeColumnToContents(i);                //테이블 위젯의 내용에 맞게 열너비 설정
         }
     }
 
     ClientInformaiton *c = new ClientInformaiton(key,           //고객 정보 객체 생성
-                            lineEidt[0]->text(), lineEidt[1]->text(),
-                            lineEidt[2]->text(), lineEidt[3]->text(),
-                            lineEidt[4]->text());
+                                                 lineEidt[0]->text(), lineEidt[1]->text(),
+            lineEidt[2]->text(), lineEidt[3]->text(),
+            lineEidt[4]->text());
 
     clientInfo.insert(key, c);                                  //id를 key로 정보 저장
     update();                                                   //테이블 위젯 정보 최신화
 
     emit clientAdded(key);                                      //주문 정보 클래스에 새 고객 정보가
-                                                                //추가 됐다는 시그널 방출
+    //추가 됐다는 시그널 방출
     QList<QString> cNameInfo;                                   //서버 클래스에 보낼 고객 성명을 담을 배열
     cNameInfo << lineEidt[0]->text();                           //고객 성명을 저장
     QList<int> cIdInfo;                                         //서버 클래스에 보낼 고객 ID를 담을 배열
@@ -166,9 +169,13 @@ void ClientHandlerForm::on_searchPushButton_clicked()           //검색 버튼 
         table->setRowCount(table->rowCount()+1);                //검색 결과 데이터가 들어갈 행 생성
         table->setItem(row, 0,                                  //고객id를 테이블 위젯에 삽입
                        new QTableWidgetItem(QString::number(key)));
+        table->resizeColumnToContents(0);                     //테이블 위젯의 내용에 맞게 열너비 설정
 
         for(int i = 0; i < 5; i++)
+        {
             table->setItem(row, i+1, new QTableWidgetItem(v[i])); //나머지 고객 정보 테이블 위젯에 삽입
+            table->resizeColumnToContents(i+1);                   //테이블 위젯의 내용에 맞게 열너비 설정
+        }
     }
     update();                                                   //테이블 위젯 정보 최신화
     Cui->searchLineEdit->clear();                               //입력란 초기화
@@ -185,10 +192,10 @@ void ClientHandlerForm::on_removePushButton_clicked()           //삭제 버튼�
     int key =table[2]->item(table[2]->currentRow(),0)           //삭제될 창에서 선택된 고객 정보의 ID 저장
             ->text().toInt();
     emit clientRemoved(key);                                    //주문 정보 클래스에 고객 정보가
-                                                                //삭제됐다는 시그널 방출
+    //삭제됐다는 시그널 방출
 
     emit sendServerCRemoved(clientInfo[key]->getName());        //채팅 서버 클래스에 고객 정보가
-                                                                //삭제됐다는 시그널 방출
+    //삭제됐다는 시그널 방출
 
     clientInfo.remove(key);                                     //ID로 저장된 고객 정보 삭제
 
@@ -222,6 +229,7 @@ void ClientHandlerForm::on_modifyPushButton_clicked()           //수정 버튼�
         {
             table[x]->setItem(row, i,                           //lineEdit에 적힌 text를 item에 삽입
                               new QTableWidgetItem(lineEidt[i]->text()));
+            table[x]->resizeColumnToContents(i);                //테이블 위젯의 내용에 맞게 열너비 설정
         }
     }
 
@@ -243,7 +251,7 @@ void ClientHandlerForm::on_modifyPushButton_clicked()           //수정 버튼�
 
 
 void ClientHandlerForm::on_tableWidget5_itemClicked
-                                (QTableWidgetItem *item)        //수정할 고객 정보를 선택했을 경우
+(QTableWidgetItem *item)        //수정할 고객 정보를 선택했을 경우
 {
     QVector<QLineEdit*> lineEidt;                               //현재 고객 정보를 대입할 LineEdit 위젯 저장
     lineEidt << Cui->idLineEdit << Cui->nameLineEdit2
